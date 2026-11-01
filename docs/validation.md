@@ -16,6 +16,7 @@ Run `python scripts/test.py`. The tests compile the firmware headers to WebAssem
 |---|---|
 | Outputs + decoder | Startup, two-frame acquisition, contact, release, 65 ms link loss and micros() rollover |
 | Wi-Fi service | Startup, two-frame probe detection, Wi-Fi latch across signal loss, OTA inhibition, retry and reset |
+| Wi-Fi settings | UART commands and line framing, SSID/password boundaries, invalid saved settings, recovery timeout and display labels |
 | Frequency search | Full band, candidates, refusing CW lock, weaker probe beside stronger interference, loss/rescan and timer rollover |
 | RSSI | Signed conversion, thresholds, isolated spikes, hysteresis and reset after retuning/SPI failure |
 | Display | Adafruit_GFX.cpp and DisplayRaster.h: pixel comparison with full-frame rendering, removal of old text, bounds, 8+2 strip split, no malloc |

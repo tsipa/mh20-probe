@@ -37,7 +37,7 @@ struct Output {
 } output;
 DisplayRaster::Lines lines;
 void setLines(int state) {
-  const char *values[]={"M&H 20.00 / RECEIVER",state==2?"TOUCH":state==1?"READY":"NO PROBE",
+  const char *values[]={state==1||state==2?"WiFi OFF":"WiFi AP+CLIENT NOT CONNECTED",state==2?"TOUCH":state==1?"READY":"NO PROBE",
     state==2?"PROBE TRIGGERED":state==1?"VALID MESSAGES":"SEARCHING 433-435 MHz",
     "RX 434.134000 MHz","RSSI -55.5 dBm","Noise(scan) -99.5 dBm","Messages 61/s",
     "Lost 4  Touch 4","Msg 594 Age 4ms Ovf 0",state==1?"READY:1  LOOP:CLOSED":state==2?"READY:1  LOOP:OPEN":"READY:0  LOOP:OPEN"};

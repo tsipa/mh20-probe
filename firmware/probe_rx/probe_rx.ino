@@ -90,6 +90,7 @@ void safeServiceOutputs() { driveMachine(false, false); }
 
 void publishPanel(int state) {
   DisplayPanel::Snapshot s;
+  strncpy(s.wifiStatus,ServiceWeb::displayStatus(),sizeof(s.wifiStatus)-1);
   s.state=state; s.frequency=tunedHz; s.messages=totalMessages; s.touches=totalTouches;
   s.losses=totalLosses; s.overflows=totalOverflows; s.lastMessageAt=lastMessageAt;
   s.lastTouchMs=lastTouchMs; s.messagesPerSecond=messagesPerSecond;
@@ -134,7 +135,7 @@ void setup() {
   if (version == 0 || version == 0xFF) {
     Serial.println("CC1101 not responding; check power/SPI wiring.");
     publishPanel(-1);
-    while (true) { ServiceWeb::poll(tunedHz, false, 0, 0, 0, 0); delay(1); }
+    while (true) { ServiceWeb::poll(tunedHz, false, 0, 0, 0, 0); publishPanel(-1); delay(1); }
   }
   Serial.printf("CC1101 OK VERSION=0x%02X\n",version);
   const uint8_t registers[][2] = {
@@ -163,6 +164,7 @@ void loop() {
   if (ServiceWeb::policy.maintenance) {
     driveMachine(false, false);
     ServiceWeb::poll(tunedHz, rawRssiValid, rawRssiHalfDbm, totalMessages, totalTouches, totalLosses);
+    publishPanel(-3);
     delay(1);
     return;
   }

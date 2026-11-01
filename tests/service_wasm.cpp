@@ -8,6 +8,7 @@ void reset() { policy=ServicePolicy(); decoder=ProbeDecoder(); }
 void edge(unsigned active,unsigned now) {
   if (!policy.maintenance && decoder.edge(active,now)) policy.observeProbe();
 }
+unsigned recovery(unsigned ap,unsigned now,unsigned last) { return policy.recoveryAllowed(ap,now,last); }
 unsigned network() { return policy.networkAllowed(); }
 unsigned update() { return policy.beginUpdate(); }
 unsigned outputs(unsigned now) {

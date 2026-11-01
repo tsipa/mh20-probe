@@ -12,7 +12,7 @@ The white button on the mushroom-shaped top activates the probe. The black butto
 
 ## Wi-Fi updates
 
-At startup, connect to **MH-Probe-Service** and open **http://192.168.4.1/** for receiver status and firmware uploads. The password is printed over USB serial. Once the probe is detected, Wi-Fi switches off until the receiver restarts. [Setup and updates](docs/wifi-update.md).
+The receiver can start **MH-Probe-Service**, join your router, or do both. Use the web page for status, Wi-Fi settings and firmware uploads; UART commands can change or reset the settings too. The service login is **admin**, with a password printed over USB serial. Once the probe is detected, Wi-Fi switches off until the receiver restarts. [Setup and updates](docs/wifi-update.md).
 
 ## Display
 

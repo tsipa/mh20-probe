@@ -22,6 +22,7 @@ struct Snapshot {
   uint32_t lastMessageAt=0, lastTouchMs=0;
   uint16_t messagesPerSecond=0;
   bool rssiValid=false, noiseValid=false;
+  char wifiStatus[32]="WiFi OFF";
   int rssiHalfDbm=0, noiseHalfDbm=0;
 };
 Snapshot latest;
@@ -57,10 +58,10 @@ void task(void *) {
     if (repaint || uint32_t(millis()-metricsAt)>=50) {
       metricsAt=millis();
       DisplayRaster::Lines lines={};
-      strcpy(lines[0],"M&H 20.00 / RECEIVER");
+      strncpy(lines[0],s.wifiStatus,sizeof(lines[0])-1);
       strcpy(lines[1],visual==2?"TOUCH":visual==1?"READY":"NO PROBE");
       const char *detail=flash?"SHORT TOUCH":s.state==2?"PROBE TRIGGERED":s.state==1?"VALID MESSAGES":
-        s.state==-1?"RADIO NOT CONNECTED":s.state==3?"RF WITHOUT PROBE MESSAGES":
+        s.state==-3?"SERVICE MODE":s.state==-1?"RADIO NOT CONNECTED":s.state==3?"RF WITHOUT PROBE MESSAGES":
         s.state==4?"RADIO STATUS UNAVAILABLE":s.state==5?"SEARCHING 433-435 MHz":s.state==-2?"STARTING":"NO VALID PROBE SIGNAL";
       strncpy(lines[2],detail,sizeof(lines[2])-1);
       if (s.state==-1||s.state==-2) strcpy(lines[3],"RX -- MHz");
