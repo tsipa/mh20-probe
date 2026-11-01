@@ -30,6 +30,8 @@ The display holds blue for at least 100 ms so brief contacts are visible. The ou
 
 ## Documentation
 
+- [Module carrier PCB](hardware/pcb/README.md): KiCad schematic, routed prototype and module placement.
+
 - [ESP32, CC1101 and LCD wiring](docs/wiring.md): numbered pin tables and diagrams.
 - [Active message protocol](docs/protocol.md): FREE/CONTACT pulses, validation and acquisition.
 - [Probe behavior](docs/probe-behavior.md): battery, buttons, channel sweep, activation, silence and contact.

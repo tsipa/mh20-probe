@@ -1,0 +1,74 @@
+{
+  "status": "routed module carrier prototype; not a fabrication release",
+  "power": {
+    "manufacturer": "Hi-Link",
+    "part": "URB2405YMD-6WR3",
+    "input_v": [
+      9,
+      36
+    ],
+    "output_v": 5,
+    "output_a": 1.2,
+    "power_w": 6,
+    "isolation_test_vdc": 1500,
+    "body_mm": [
+      25.4,
+      25.4,
+      11
+    ],
+    "mounting": "through-hole",
+    "input_ground": "MACHINE_0V",
+    "output_ground": "GND",
+    "footprint_status": "manufacturer pin drawing implemented; check delivered part"
+  },
+  "display": {
+    "placement": "center",
+    "driver": "ST7789",
+    "resolution": [
+      240,
+      240
+    ],
+    "header": [
+      "GND",
+      "VCC",
+      "SCL",
+      "SDA",
+      "RES",
+      "DC",
+      "BLK"
+    ],
+    "mechanical_status": "approximate 28 x 40 mm body; verify actual module"
+  },
+  "machine_connector": {
+    "placement": "side",
+    "type": "screw terminal",
+    "pitch_mm": 5.08,
+    "pins": [
+      "+24V",
+      "MACHINE_0V",
+      "PROBE_A",
+      "PROBE_B",
+      "READY_A",
+      "READY_B"
+    ]
+  },
+  "outputs": {
+    "type": "isolated normally-open MOSFET photorelay",
+    "channels": 2,
+    "manufacturer": "Toshiba",
+    "part": "TLP222A",
+    "package": "DIP-4",
+    "selection_status": "TLP222A device accepted; ready-made module to select",
+    "implementation": "complete two-channel MOSFET photorelay module with built-in input resistors/drivers; TLP222A-based preferred"
+  },
+  "esp32": {
+    "type": "38-pin DevKitC-compatible",
+    "rows": 2,
+    "pins_per_row": 19,
+    "pin_pitch_mm": 2.54,
+    "row_center_spacing_mm": 25.4,
+    "mounting": "module pin headers soldered directly into carrier through-holes; no sockets",
+    "geometry_basis": "outer pin-edge measurement confirmed by owner; reference Espressif DevKitC V4"
+  },
+  "architecture": "carrier for complete modules; no discrete transistor drivers, resistor networks or filter stages"
+}

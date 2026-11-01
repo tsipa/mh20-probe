@@ -1,0 +1,11 @@
+Reference,Item,Quantity,Notes
+A1,ESP32 DevKitC 38-pin,1,Direct solder
+U1,Hi-Link URB2405YMD-6WR3,1,
+J1,24V + DRY CONTACTS,1,
+J2,ST7789 7-pin,1,
+J3,CC1101 433MHz,1,
+J4,RELAY CONTROL,1,
+J5,RELAY CONTACTS,1,
+JP1,REMOVE FOR USB,1,
+EXT1,Two-channel DC photorelay module,1,Not selected; must match interface requirements in README
+H1-H4,M3 board mounting hardware,4,
