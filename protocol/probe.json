@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "probe": "m&h 20.00",
+  "scope": "Observed active contact stream from one probe; address, CRC and complete control protocol unknown.",
+  "receiver_band_hz": [
+    433000000,
+    435000000
+  ],
+  "tone_separation_approx_hz": [
+    4000,
+    4400
+  ],
+  "pulse": "Lower-frequency excursion",
+  "pulse_width_observed_us": [
+    250,
+    260
+  ],
+  "frame_period_us": 16250,
+  "offsets_us": {
+    "free": [
+      0,
+      1040,
+      1560,
+      3640
+    ],
+    "contact": [
+      0,
+      1040,
+      1560,
+      3120
+    ]
+  },
+  "decoder": {
+    "pulse_width_accept_us": [
+      120,
+      400
+    ],
+    "offset_tolerance_us": 120,
+    "period_tolerance_us": 300,
+    "allowed_period_multiples": [
+      1,
+      2,
+      3
+    ],
+    "acquisition_frames": 2,
+    "link_timeout_us": 65000
+  },
+  "scan": {
+    "warm_frequency_hz": 433994200,
+    "warm_dwell_ms": 120,
+    "coarse_step_hz": 20000,
+    "coarse_dwell_ms": 16,
+    "fine_radius_hz": 30000,
+    "fine_step_hz": 2000,
+    "fine_dwell_ms": 50,
+    "rescan_delay_after_last_message_ms": 250,
+    "lock_requires": "Valid pulse timing and cadence"
+  },
+  "observed_channel_sweep": {
+    "stable_step_seconds_approx": 2.5,
+    "frequency_step_hz_approx": 24963,
+    "decoded_stable_frequencies": 14,
+    "number_mapping_known": false
+  },
+  "limitations": [
+    "No device identity or cryptographic pairing validated",
+    "Short contacts below a frame period may not be transmitted",
+    "RF presence alone is not validated probe presence",
+    "Measurement latency and industrial accuracy not characterized"
+  ]
+}

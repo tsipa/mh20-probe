@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "pixel_buffer_bytes": 3840,
+  "heap_allocations": 0,
+  "cases": [
+    "red/green/blue",
+    "exact Adafruit font clipping across strips",
+    "partial updates erase old longer text",
+    "8+2 pixel footer",
+    "framebuffer bounds guards"
+  ],
+  "scope": "Actual DisplayRaster.h and installed Adafruit_GFX.cpp in WASM; physical SPI/display validation pending."
+}

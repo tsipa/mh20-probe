@@ -1,0 +1,7 @@
+# Tested versions: numpy 2.5.4, scipy 1.18.1, Pillow 13.0.0,
+# wasmtime 50.0.1, ziglang 0.16.0; Python 3.12.
+numpy>=2.0,<3
+scipy>=1.13,<2
+Pillow>=10,<14
+wasmtime>=30,<51
+ziglang==0.16.0

@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "fixture_bytes": 24400000,
+  "cases": [
+    {
+      "case": "background",
+      "accepted_messages": 0,
+      "confirmed_states": [],
+      "firmware_states": [],
+      "transitions_seconds": [],
+      "frequencies_hz": []
+    },
+    {
+      "case": "free",
+      "accepted_messages": 10,
+      "confirmed_states": [
+        "free"
+      ],
+      "firmware_states": [
+        "free"
+      ],
+      "transitions_seconds": [
+        0.05
+      ],
+      "frequencies_hz": [
+        433996225
+      ]
+    },
+    {
+      "case": "contact-on",
+      "accepted_messages": 24,
+      "confirmed_states": [
+        "free",
+        "contact"
+      ],
+      "firmware_states": [
+        "free",
+        "contact"
+      ],
+      "transitions_seconds": [
+        0.05,
+        0.25
+      ],
+      "frequencies_hz": [
+        433996303
+      ]
+    },
+    {
+      "case": "contact-off",
+      "accepted_messages": 26,
+      "confirmed_states": [
+        "contact",
+        "free"
+      ],
+      "firmware_states": [
+        "contact",
+        "free"
+      ],
+      "transitions_seconds": [
+        0.05,
+        0.24
+      ],
+      "frequencies_hz": [
+        433996214
+      ]
+    },
+    {
+      "case": "channel-hop",
+      "accepted_messages": 21,
+      "confirmed_states": [
+        "free"
+      ],
+      "firmware_states": [
+        "free"
+      ],
+      "transitions_seconds": [
+        0.04
+      ],
+      "frequencies_hz": [
+        433721347,
+        433746319
+      ]
+    },
+    {
+      "case": "recorded-free-then-background",
+      "last_message_seconds": 0.18824,
+      "python_loss_seconds": 0.26,
+      "firmware_loss_seconds": 0.26
+    }
+  ],
+  "scope": "Recorded ADC IQ -> Python FM demodulation -> measured edges -> actual ProbeDecoder.h and MachineOutputs.h. Does not model CC1101 slicer, physical GPIO, display SPI or 24V circuitry."
+}

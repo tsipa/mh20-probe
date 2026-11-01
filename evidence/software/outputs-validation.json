@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "truth_table": {
+    "no_probe": "READY=0 LOOP=OPEN TRIP=1",
+    "free": "READY=1 LOOP=CLOSED TRIP=0",
+    "contact": "READY=1 LOOP=OPEN TRIP=1"
+  },
+  "boot_first_frame_loss_and_timer_rollover": true,
+  "scope": "Exact C++ policy and pulse decoder, not physical GPIO/24V interface validation."
+}

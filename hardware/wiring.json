@@ -1,0 +1,106 @@
+{
+  "board": "Classic ESP32-WROOM DevKit / ESP32 Dev Module",
+  "logic_voltage": 3.3,
+  "cc1101": {
+    "bus": "VSPI",
+    "supply_voltage": 3.3,
+    "pins": [
+      {
+        "pin": 1,
+        "signal": "GND",
+        "esp32": "GND"
+      },
+      {
+        "pin": 2,
+        "signal": "VCC",
+        "esp32": "3V3"
+      },
+      {
+        "pin": 3,
+        "signal": "GDO0",
+        "gpio": 26
+      },
+      {
+        "pin": 4,
+        "signal": "CSN",
+        "gpio": 5
+      },
+      {
+        "pin": 5,
+        "signal": "SCK",
+        "gpio": 18
+      },
+      {
+        "pin": 6,
+        "signal": "MOSI",
+        "gpio": 23
+      },
+      {
+        "pin": 7,
+        "signal": "MISO/GDO1",
+        "gpio": 19
+      },
+      {
+        "pin": 8,
+        "signal": "GDO2",
+        "esp32": "NC"
+      }
+    ]
+  },
+  "display": {
+    "driver": "ST7789-compatible, 240x240, 7-pin, no CS",
+    "bus": "HSPI",
+    "spi_mode": 3,
+    "init_hz": 1000000,
+    "draw_hz": 20000000,
+    "rotation": 2,
+    "pins": [
+      {
+        "signal": "GND",
+        "esp32": "GND"
+      },
+      {
+        "signal": "VCC",
+        "esp32": "3V3"
+      },
+      {
+        "signal": "BLK",
+        "esp32": "3V3"
+      },
+      {
+        "signal": "SCL/SCK",
+        "gpio": 14
+      },
+      {
+        "signal": "SDA/MOSI",
+        "gpio": 13
+      },
+      {
+        "signal": "RES",
+        "gpio": 27
+      },
+      {
+        "signal": "DC",
+        "gpio": 32
+      }
+    ]
+  },
+  "machine_reserved": [
+    {
+      "gpio": 33,
+      "signal": "READY",
+      "high": "Validated probe, including contact"
+    },
+    {
+      "gpio": 25,
+      "signal": "PROBE_LOOP_ENABLE",
+      "high": "Validated free probe; energize normally open PhotoMOS"
+    }
+  ],
+  "supply": {
+    "prototype": "Isolated regulated 24V -> 5V DC-DC, 5V/VIN on DevKit",
+    "recommended_output_current_a": 1,
+    "peripherals": "3V3 on ESP32",
+    "usb": "Verify board power isolation or disconnect external 5V before USB-powered programming"
+  }
+}

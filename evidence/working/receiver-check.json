@@ -1,0 +1,20 @@
+{
+  "phase": "done",
+  "radio_responding": true,
+  "touches": 23,
+  "error": null,
+  "display_task_ready": true,
+  "valid_messages_seen": true,
+  "edge_overflows": 0,
+  "display_memory_failed": false,
+  "display_error": null,
+  "messages": 864,
+  "contact_seen": true,
+  "duration_seconds": 45,
+  "link_losses": 1,
+  "started_at": "2026-10-31T15:13:10.6872831-07:00",
+  "finished": true,
+  "free_seen": true,
+  "port": "COM4",
+  "finished_at": "2026-10-31T15:13:56.0035159-07:00"
+}

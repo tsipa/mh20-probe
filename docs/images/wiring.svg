@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="750" viewBox="0 0 1280 750">
+<rect width="1280" height="750" fill="#f4f7fb"/>
+<text x="36" y="35" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="28" font-weight="700" fill="#19263d">m&amp;h 20.00 receiver — ESP32 / CC1101 / ST7789</text>
+<text x="36" y="72" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">Signal connections; ESP32 header positions depend on the DevKit. All peripheral signals: 3.3 V.</text>
+<rect x="36" y="112" width="292" height="430" rx="14" fill="#ffffff" stroke="#d3dce9" stroke-width="2"/>
+<rect x="470" y="112" width="340" height="430" rx="14" fill="#ffffff" stroke="#d3dce9" stroke-width="2"/>
+<rect x="948" y="112" width="296" height="430" rx="14" fill="#ffffff" stroke="#d3dce9" stroke-width="2"/>
+<text x="56" y="143" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="700" fill="#19263d">CC1101 / 433 MHz</text>
+<text x="56" y="177" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">VSPI • module pin numbers</text>
+<text x="490" y="143" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="700" fill="#19263d">ESP32-WROOM</text>
+<text x="490" y="177" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">Classic ESP32 Dev Module</text>
+<text x="968" y="143" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="700" fill="#19263d">IPS 240×240</text>
+<text x="968" y="177" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">ST7789 • HSPI • MODE3</text>
+<text x="56" y="218" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">1  GND</text>
+<text x="490" y="218" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GND</text>
+<polyline points="328,218 470,218" fill="none" stroke="#344054" stroke-width="4"/>
+<circle cx="328" cy="218" r="5" fill="#344054"/>
+<circle cx="470" cy="218" r="5" fill="#344054"/>
+<text x="56" y="258" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">2  VCC</text>
+<text x="490" y="258" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">3V3</text>
+<polyline points="328,258 470,258" fill="none" stroke="#e53b49" stroke-width="4"/>
+<circle cx="328" cy="258" r="5" fill="#e53b49"/>
+<circle cx="470" cy="258" r="5" fill="#e53b49"/>
+<text x="56" y="298" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">3  GDO0</text>
+<text x="490" y="298" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO26</text>
+<polyline points="328,298 470,298" fill="none" stroke="#cd3187" stroke-width="4"/>
+<circle cx="328" cy="298" r="5" fill="#cd3187"/>
+<circle cx="470" cy="298" r="5" fill="#cd3187"/>
+<text x="56" y="338" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">4  CSN</text>
+<text x="490" y="338" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO5</text>
+<polyline points="328,338 470,338" fill="none" stroke="#bd840b" stroke-width="4"/>
+<circle cx="328" cy="338" r="5" fill="#bd840b"/>
+<circle cx="470" cy="338" r="5" fill="#bd840b"/>
+<text x="56" y="378" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">5  SCK</text>
+<text x="490" y="378" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO18</text>
+<polyline points="328,378 470,378" fill="none" stroke="#2a65cc" stroke-width="4"/>
+<circle cx="328" cy="378" r="5" fill="#2a65cc"/>
+<circle cx="470" cy="378" r="5" fill="#2a65cc"/>
+<text x="56" y="418" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">6  MOSI</text>
+<text x="490" y="418" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO23</text>
+<polyline points="328,418 470,418" fill="none" stroke="#209b55" stroke-width="4"/>
+<circle cx="328" cy="418" r="5" fill="#209b55"/>
+<circle cx="470" cy="418" r="5" fill="#209b55"/>
+<text x="56" y="458" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">7  MISO/GDO1</text>
+<text x="490" y="458" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO19</text>
+<polyline points="328,458 470,458" fill="none" stroke="#8547c4" stroke-width="4"/>
+<circle cx="328" cy="458" r="5" fill="#8547c4"/>
+<circle cx="470" cy="458" r="5" fill="#8547c4"/>
+<text x="56" y="498" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">8  GDO2</text>
+<text x="312" y="498" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" fill="#8a95a8">unused</text>
+<text x="968" y="218" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">GND</text>
+<text x="790" y="218" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GND</text>
+<polyline points="810,218 948,218" fill="none" stroke="#344054" stroke-width="4"/>
+<circle cx="810" cy="218" r="5" fill="#344054"/>
+<circle cx="948" cy="218" r="5" fill="#344054"/>
+<text x="968" y="258" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">VCC</text>
+<text x="790" y="258" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">3V3</text>
+<polyline points="810,258 948,258" fill="none" stroke="#e53b49" stroke-width="4"/>
+<circle cx="810" cy="258" r="5" fill="#e53b49"/>
+<circle cx="948" cy="258" r="5" fill="#e53b49"/>
+<text x="968" y="298" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">BLK</text>
+<polyline points="880,258 880,298 948,298" fill="none" stroke="#e53b49" stroke-width="4"/>
+<circle cx="880" cy="258" r="5" fill="#e53b49"/>
+<circle cx="948" cy="298" r="5" fill="#e53b49"/>
+<text x="968" y="338" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">SCL/SCK</text>
+<text x="790" y="338" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO14</text>
+<polyline points="810,338 948,338" fill="none" stroke="#2a65cc" stroke-width="4"/>
+<circle cx="810" cy="338" r="5" fill="#2a65cc"/>
+<circle cx="948" cy="338" r="5" fill="#2a65cc"/>
+<text x="968" y="378" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">SDA/MOSI</text>
+<text x="790" y="378" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO13</text>
+<polyline points="810,378 948,378" fill="none" stroke="#209b55" stroke-width="4"/>
+<circle cx="810" cy="378" r="5" fill="#209b55"/>
+<circle cx="948" cy="378" r="5" fill="#209b55"/>
+<text x="968" y="418" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">RES</text>
+<text x="790" y="418" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO27</text>
+<polyline points="810,418 948,418" fill="none" stroke="#e37c23" stroke-width="4"/>
+<circle cx="810" cy="418" r="5" fill="#e37c23"/>
+<circle cx="948" cy="418" r="5" fill="#e37c23"/>
+<text x="968" y="458" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="700" fill="#19263d">DC</text>
+<text x="790" y="458" dominant-baseline="middle" text-anchor="end" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">GPIO32</text>
+<polyline points="810,458 948,458" fill="none" stroke="#139ea9" stroke-width="4"/>
+<circle cx="810" cy="458" r="5" fill="#139ea9"/>
+<circle cx="948" cy="458" r="5" fill="#139ea9"/>
+<text x="968" y="503" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" fill="#19263d">No CS pin; BLK = backlight</text>
+<rect x="36" y="564" width="1208" height="148" rx="14" fill="#e8eef7" stroke="#d3dce9" stroke-width="2"/>
+<text x="56" y="593" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="700" fill="#19263d">Reserved for the machine interface (not wired directly to 24 V)</text>
+<text x="56" y="627" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="400" fill="#19263d">GPIO33 READY     GPIO25 PROBE_LOOP_ENABLE</text>
+<text x="56" y="660" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">Power: isolated 24 → 5 V DC-DC → 5V/VIN; ESP32 3V3 feeds radio and display.</text>
+<text x="56" y="687" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">PhotoMOS output stage: planned. See docs/machine-interface.md.</text>
+</svg>
