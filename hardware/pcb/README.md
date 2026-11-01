@@ -6,7 +6,7 @@ A 120 x 100 mm, two-layer carrier for the existing receiver modules. The display
 
 Open `receiver_carrier.kicad_pro` in KiCad 10. The project includes the schematic, routed PCB, local module symbols and footprints, and `bom.csv`. [Copper and placement drawing](preview/placement.svg) · [Schematic](preview/schematic/receiver_carrier.svg).
 
-This is a prototype layout, not a fabrication release. The ready-made output module has not been selected. Display and radio body sizes are approximate; check the purchased modules and pin numbering before ordering a board.
+This is a prototype layout, not a fabrication release. Two Pololu 5420 ready-made output modules are selected. Their timing and leakage still require verification against the machine input. Display and radio body sizes are approximate; check the purchased modules and pin numbering before ordering a board.
 
 ## Parts
 
@@ -16,12 +16,12 @@ This is a prototype layout, not a fabrication release. The ready-made output mod
 | U1 | Hi-Link URB2405YMD-6WR3 | Isolated 24 V to 5 V supply |
 | J2 | Existing seven-pin ST7789 display | Front-center display |
 | J3 | Existing CC1101 module | Probe radio |
-| EXT1 | Complete two-channel DC photorelay module, still to select | PROBE and READY dry contacts |
+| EXT1, EXT2 | Two [Pololu 5420 isolated SPST modules](https://www.pololu.com/product/5420) | PROBE and READY dry contacts |
 | J1 | Six-way 5.08 mm screw terminal | Machine wiring |
 | J4, J5 | Five-pin and four-pin headers | Short wires to the output module |
 | JP1 | Two-pin header and shunt | Disconnect the converter output for USB power |
 
-There are no separate resistors, capacitors, transistor drivers or ferrite beads on the carrier. Input conditioning belongs inside the complete output module. Four 3.2 mm holes mount the carrier; output-module mounting holes will be added after its dimensions are known.
+There are no separate resistors, capacitors, transistor drivers or ferrite beads on the carrier. Input conditioning belongs inside the complete output module. Four 3.2 mm holes mount the carrier. The small output boards use short soldered wires and insulated support in the reserved area; they have no dedicated mounting holes.
 
 ## Machine connector
 
@@ -44,9 +44,20 @@ Display header order: GND, VCC, SCL, SDA, RES, DC, BLK. VCC and BLK connect to 3
 
 CC1101 header: 1 GND, 2 3.3 V, 3 GDO0/GPIO26, 4 CSN/GPIO5, 5 SCK/GPIO18, 6 MOSI/GPIO23, 7 MISO/GPIO19, 8 unused. Confirm the module's physical pin numbering. Orient its antenna connector toward the lower edge. No carrier copper is routed in the marked antenna areas.
 
-The output module mounts behind the upper-left area on insulated standoffs, clear of solder joints and display pins. The 55 x 38 mm rectangle reserves space; it is not a verified vendor footprint. J4 pin 1 is +5 V, 2 GND, 3 PROBE/GPIO25, 4 READY/GPIO33, 5 +3.3 V. Use the supply pin appropriate to the module. J5 pins 1-2 are PROBE A/B and 3-4 READY A/B.
+The two **Pololu 5420** boards sit behind the upper-left area on insulated support, clear of solder joints and display pins. Each board is about 20.3 x 8.1 x 3.3 mm; both fit within the existing 55 x 38 mm reserve. This carrier uses short soldered wires rather than a vendor-specific footprint.
 
-The output module must provide two independent normally-open DC contacts, support 3.3 V active-high control with inputs held off during ESP32 reset, and contain its own input resistors/drivers. A TLP222A-based board is preferred. Target at least 30 V / 50 mA contact capability and no more than 0.5 ms turn-off time; check leakage against the machine input. An AC-only or zero-cross SSR board does not suit this interface. A bare TLP222A cannot plug into J4/J5.
+Use the two-wire control connection shown by Pololu: join VIN and EN on each output board, then connect that pair to its control GPIO. Each GPIO supplies up to 10 mA when on. Connect both module GND pins to receiver GND. J4's +5 V and +3.3 V pins are unused in this arrangement. The modules' load terminals are symmetric and remain isolated from the control wiring.
+
+| Module | VIN + EN | GND | Load terminal pair |
+|---|---|---|---|
+| EXT1, PROBE | J4 pin 3, GPIO25 | J4 pin 2 | J5 pins 1 and 2 |
+| EXT2, READY | J4 pin 4, GPIO33 | J4 pin 2 | J5 pins 3 and 4 |
+
+Both outputs are normally open MOSFET contacts, support DC switching, and have a 60 V absolute maximum load rating. No separate carrier input resistors or drivers are required. This selection replaces the provisional TLP222A-based module.
+
+**Timing tradeoff:** Pololu specifies up to 1 ms turn-on and turn-off time. This does not meet the earlier 0.5 ms target. Budget up to 1 ms of additional PROBE output delay: at 100 mm/min that corresponds to 1.7 micrometres of travel, before radio and controller delays. This is a delay bound, not a repeatability specification. Verify delay, jitter and off-state leakage with the actual machine input before using it for measurements. The manufacturer does not publish an off-state leakage limit on the product specification page, so that remains a bench check.
+
+Purchase: [Pololu 5420](https://www.pololu.com/product/5420), two pieces. The listed unit price is $4.95 before shipping and tax. Amazon or AliExpress stock for this exact part has not been confirmed.
 
 ## Power footprint
 
@@ -60,4 +71,4 @@ KiCad ERC and PCB DRC pass with zero violations and zero unconnected items. The 
 
 Run `generate_carrier.py` using KiCad's bundled Python. It reads `design.json` and restores the saved track geometry from `routes.json`. That geometry belongs to this placement: changing pad positions requires rerouting and fresh checks. The initial tracks were produced locally with [Freerouting](https://github.com/freerouting/freerouting), then checked in KiCad. Run `render_placement.py` with Pillow to redraw the placement plan.
 
-No fabrication Gerbers are included while the output module and mechanical fit remain unresolved.
+No fabrication Gerbers are included while the mechanical fit and machine-interface checks remain unresolved.

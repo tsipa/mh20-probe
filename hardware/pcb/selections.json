@@ -53,13 +53,22 @@
     ]
   },
   "outputs": {
-    "type": "isolated normally-open MOSFET photorelay",
-    "channels": 2,
-    "manufacturer": "Toshiba",
-    "part": "TLP222A",
-    "package": "DIP-4",
-    "selection_status": "TLP222A device accepted; ready-made module to select",
-    "implementation": "complete two-channel MOSFET photorelay module with built-in input resistors/drivers; TLP222A-based preferred"
+    "type": "two independent isolated normally-open bidirectional MOSFET relay modules",
+    "manufacturer": "Pololu",
+    "part": "5420",
+    "quantity": 2,
+    "selection_status": "selected for prototype; machine-input timing and leakage require bench verification",
+    "body_mm_each": [
+      20.32,
+      8.128,
+      3.302
+    ],
+    "maximum_load_voltage_v": 60,
+    "maximum_turn_off_us": 1000,
+    "previous_target_turn_off_us": 500,
+    "timing_note": "Does not meet the earlier 500 us target; up to 1 ms additional contact-output delay must be included in the probing timing budget.",
+    "control": "Two-wire: tie VIN and EN together on each module, connect to its GPIO; GND to receiver GND. GPIO sources up to 10 mA. No carrier passives.",
+    "source": "https://www.pololu.com/product/5420"
   },
   "esp32": {
     "type": "38-pin DevKitC-compatible",

@@ -3,7 +3,7 @@
     120,
     100
   ],
-  "status": "carrier design; output module purchase and mechanical fit require review",
+  "status": "routed carrier prototype; Pololu 5420 outputs selected, mechanical fit and machine interface require review",
   "architecture": "complete modules; no carrier resistors, capacitors, transistors or ferrite beads",
   "parts": [
     {
@@ -220,15 +220,22 @@
     }
   ],
   "output_module": {
-    "status": "unselected; carrier has functional wiring interface, not a vendor-specific relay footprint",
+    "status": "selected: two Pololu 5420 modules connected with short soldered wires",
+    "quantity": 2,
     "reserved_mm": [
       55,
       38
     ],
-    "control_logic": "3.3V active-high with built-in off-state bias; HIGH closes contact",
-    "required_outputs": "two independent isolated normally-open DC contacts, at least 30V and 50mA",
-    "required_turn_off_us_max": 500,
-    "prohibited": "AC-only/zero-cross SSR; a low-active module cannot be used without adapting firmware"
+    "body_mm_each": [
+      20.32,
+      8.128,
+      3.302
+    ],
+    "control_logic": "3.3V active-high, two-wire VIN+EN tied to GPIO; GND to receiver GND; up to 10 mA per GPIO",
+    "outputs": "two independent isolated normally-open bidirectional MOSFET contacts",
+    "maximum_turn_off_us": 1000,
+    "timing_note": "Earlier 500 us target is not met; verify machine-input delay before probing use",
+    "source": "https://www.pololu.com/product/5420"
   },
   "sources": {
     "dcdc": "https://drive.google.com/file/d/1KfvgmW3_NbNLIYul3vVTS3nYDesQEoOc/view",

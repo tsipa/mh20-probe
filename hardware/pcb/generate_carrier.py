@@ -78,7 +78,7 @@ text('URB2405YMD-6WR3',25,65,pcb.F_SilkS,.9)
 text('JP1 REMOVE FOR USB',55,86,pcb.F_SilkS,.9)
 text('CC1101 / SMA TO EDGE',99,79,pcb.F_SilkS,.9)
 text('M&H RECEIVER CARRIER',60,95,pcb.F_SilkS,1.4)
-text('PROTOTYPE - OUTPUT MODULE TO VERIFY',60,98,pcb.F_SilkS,.8)
+text('PROTOTYPE - VERIFY MACHINE INTERFACE',60,98,pcb.F_SilkS,.8)
 for i,label in enumerate(('24V','0V','P-A','P-B','R-A','R-B')):text(label,15,27+5.08*i,pcb.F_SilkS,.9)
 # Copper-free margins around the external RF antenna and the ESP32 PCB antenna.
 for x1,y1,x2,y2 in ((83,0,117,11),(85,83,116,100)):
@@ -120,7 +120,7 @@ for c in DATA['parts']:
   if not name:ncs.append(f'(no_connect (at {ax} {ay}) (uuid {uid()}))');continue
   wires.append(f'(wire (pts (xy {ax} {ay}) (xy {endx} {ay})) (stroke (width 0) (type default)) (uuid {uid()}))')
   labels.append(f'(label {q(name)} (at {endx} {ay} 0) (effects (font (size 1.0 1.0)) (justify {"right" if side==0 else "left"} bottom)) (uuid {uid()}))')
-schematic=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {root_id}) (paper "A3") (title_block (title "m&h receiver - module carrier") (rev "P1") (comment 1 "Prototype: output module not yet qualified")) (lib_symbols '+ '\n'.join(defs)+')\n'+'\n'.join(wires+labels+ncs+instances)+'\n(sheet_instances (path "/" (page "1"))))\n'
+schematic=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {root_id}) (paper "A3") (title_block (title "m&h receiver - module carrier") (rev "P1") (comment 1 "Prototype: Pololu 5420 outputs; machine interface not yet qualified")) (lib_symbols '+ '\n'.join(defs)+')\n'+'\n'.join(wires+labels+ncs+instances)+'\n(sheet_instances (path "/" (page "1"))))\n'
 for c,instance in zip(DATA['parts'],instances):
  import re
  sid=re.search(r'\(uuid ([^)]*)\)',instance).group(1)
@@ -132,7 +132,7 @@ libdefs=[d.replace(q('Carrier:Module_'+c['ref']),q('Module_'+c['ref']),1) for c,
 with (ROOT/'bom.csv').open('w',newline='',encoding='utf-8') as out:
  w=csv.writer(out);w.writerow(['Reference','Item','Quantity','Notes'])
  for c in DATA['parts']:w.writerow([c['ref'],c['value'],1,'Direct solder' if c['kind']=='esp32' else ''])
- w.writerow(['EXT1','Two-channel DC photorelay module',1,'Not selected; must match interface requirements in README'])
+ w.writerow(['EXT1, EXT2','Pololu 5420 isolated SPST relay module',2,'One each for PROBE and READY; see README for wiring and timing'])
  w.writerow(['H1-H4','M3 board mounting hardware',4,''])
 # Store only relative coordinates, no machine paths or private workstation data.
 report={'board_mm':DATA['board_mm'],'footprints':len(DATA['parts']),'nets':len(nets),'routed':bool(list(board.GetTracks())),'pads':[]}

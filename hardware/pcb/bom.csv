@@ -7,5 +7,5 @@ J3,CC1101 433MHz,1,
 J4,RELAY CONTROL,1,
 J5,RELAY CONTACTS,1,
 JP1,REMOVE FOR USB,1,
-EXT1,Two-channel DC photorelay module,1,Not selected; must match interface requirements in README
+"EXT1, EXT2",Pololu 5420 isolated SPST relay module,2,One each for PROBE and READY; see README for wiring and timing
 H1-H4,M3 board mounting hardware,4,
