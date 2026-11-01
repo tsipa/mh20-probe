@@ -55,7 +55,7 @@ inline const char *displayStatus(bool enabled, bool ap, bool client, bool connec
   if (client) return connected ? "WiFi CLIENT CONNECTED" : "WiFi CLIENT NOT CONNECTED";
   return ap ? "WiFi AP" : "WiFi NOT CONNECTED";
 }
-enum Command { Unknown, Changed, Invalid, Help, Status, Save, Reset, Reboot, Access };
+enum Command { Unknown, Changed, Invalid, Help, Status, Save, Reset, Reboot, Access, WebPassword };
 inline Command command(Config &c, const char *line) {
   if (equals(line,"wifi") || equals(line,"wifi help")) return Help;
   if (equals(line,"wifi status")) return Status;
@@ -63,6 +63,10 @@ inline Command command(Config &c, const char *line) {
   if (equals(line,"wifi reset")) return Reset;
   if (equals(line,"wifi reboot")) return Reboot;
   if (equals(line,"wifi access")) return Access;
+  if (starts(line,"wifi web-password ")) {
+    char value[65] = {};
+    return line[18] && text(value,sizeof(value),line+18) ? WebPassword : Invalid;
+  }
   if (starts(line,"wifi mode ")) return parseMode(line+10,c.mode) ? Changed : Invalid;
   if (starts(line,"wifi ssid ")) return text(c.ssid,sizeof(c.ssid),line+10) ? Changed : Invalid;
   if (equals(line,"wifi password")) { text(c.password,sizeof(c.password),""); return Changed; }

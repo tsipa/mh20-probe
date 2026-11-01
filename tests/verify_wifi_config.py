@@ -46,3 +46,9 @@ for flags,label in ((0,'WiFi OFF'),(2,'WiFi OFF'),(3,'WiFi AP'),(5,'WiFi CLIENT 
     actual=bytes(call('displayByte',flags,i) for i in range(len(label))).decode()
     assert actual==label
 print('PASS: AP/client/connected/off display labels.')
+
+assert line('wifi web-password short')==10
+assert line('wifi web-password ')==3
+assert line('wifi web-password '+'x'*64)==10
+assert line('wifi web-password '+'x'*65)==3
+print('PASS: separate web password command and length checks.')

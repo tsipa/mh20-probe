@@ -16,7 +16,7 @@ Open **Wi-Fi settings**, choose a mode and enter the router SSID and password:
 
 Press **Save settings**, then **Restart receiver**. Settings are stored on the ESP32 and survive power loss. Saving settings disables probing until restart, so flash writes cannot interrupt a probing move.
 
-In client mode, use the IP address assigned by the router. It is printed in the serial console and can also be found in the router's device list. **OTA works through this address**, using the same page and service login. The router's password and the service password are separate.
+In client mode, use the IP address assigned by the router. It is printed in the serial console and can also be found in the router's device list. **OTA works through this address**, using the same page and service login. Router, access-point and web login passwords are separate. The web login initially uses the generated access-point password. Change it with `wifi web-password <value>` over UART, then restart. This does not change the access-point password, which must meet WPA2 length requirements.
 
 A blank password field keeps the saved password. To change it, tick **Replace saved password** and enter the new value. To use an open network, tick the same box and leave the field blank. SSIDs are limited to 32 bytes; passwords can be empty, 8?63 bytes, or a 64-digit hex key. The saved router password is never sent back to the browser.
 
@@ -46,7 +46,8 @@ Everything after `wifi ssid ` or `wifi password ` is the value, including spaces
 | `wifi password` | Clear the router password for an open network |
 | `wifi save` | Validate and save settings; disable probing until restart |
 | `wifi reset` | Save access-point defaults; disable probing until restart |
-| `wifi access` | Print the service login and password locally over UART |
+| `wifi access` | Print the web login and access-point password locally over UART |
+| `wifi web-password <value>` | Save a separate web login password (1?64 bytes); restart to apply |
 | `wifi reboot` | Restart and apply saved settings |
 
 UART remains available after probe detection. It can save new settings but cannot turn Wi-Fi back on without a restart. If the router credentials are wrong, wait for the recovery access point or use `wifi reset` followed by `wifi reboot`. Resetting network settings keeps the existing service password.

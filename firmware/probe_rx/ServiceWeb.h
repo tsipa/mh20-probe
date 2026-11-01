@@ -12,7 +12,7 @@ ServicePolicy policy;
 WebServer server(80);
 bool online = false, uploaded = false, started = false, failed = false;
 uint32_t rebootAt = 0;
-String token, servicePassword;
+String token, servicePassword, webPassword;
 WifiConfig::Config activeConfig, pendingConfig;
 WifiConfig::LineReader serialLine;
 bool apActive = false, stationReported = false;
@@ -49,7 +49,7 @@ document.getElementById('update').onsubmit=async e=>{e.preventDefault();if(uploa
 document.getElementById('restart').onclick=async()=>{if(uploading)return;try{await fetch('/restart',{method:'POST',headers:{'X-Update-Token':token}});}catch(e){}};
 </script></body></html>)HTML";
 
-bool authenticated() { return server.authenticate("admin", servicePassword.c_str()); }
+bool authenticated() { return server.authenticate("admin", webPassword.c_str()); }
 bool requireLogin() {
   if (authenticated()) return true;
   server.requestAuthentication(); return false;
@@ -103,22 +103,33 @@ void pollSerial() {
     if (complete < 0) { Serial.println("Wi-Fi command rejected: line too long or invalid control character."); continue; }
     if (!serialLine.line[0]) continue;
     const auto command = WifiConfig::command(pendingConfig, serialLine.line);
+    const String newWebPassword = command == WifiConfig::WebPassword ? String(serialLine.line + 18) : String();
     // Clear credentials from the input buffer as soon as parsing is done.
     memset(serialLine.line, 0, sizeof(serialLine.line));
-    if (Update.isRunning() && (command == WifiConfig::Save || command == WifiConfig::Reset || command == WifiConfig::Reboot)) {
+    if (Update.isRunning() && (command == WifiConfig::Save || command == WifiConfig::Reset || command == WifiConfig::Reboot || command == WifiConfig::WebPassword)) {
       Serial.println("Firmware upload in progress. Retry after it finishes."); continue;
     }
     switch (command) {
       case WifiConfig::Changed: Serial.println("Wi-Fi setting staged. Use wifi save, then wifi reboot."); break;
       case WifiConfig::Help:
         Serial.println("wifi status | wifi mode ap|sta|apsta | wifi ssid <name> | wifi password <value>");
+        Serial.println("wifi web-password <value> (save web login password; restart to apply)");
         Serial.println("wifi password (clear password) | wifi save | wifi reset | wifi access | wifi reboot"); break;
       case WifiConfig::Status:
         Serial.printf("Staged mode: %s; SSID: %s; router password: %s; Wi-Fi: %s\n", WifiConfig::modeName(pendingConfig.mode), pendingConfig.ssid, pendingConfig.password[0] ? "set" : "empty", policy.networkAllowed() ? "enabled" : "off until reboot");
         if (online && WiFi.status() == WL_CONNECTED) Serial.printf("Client URL: http://%s/\n", WiFi.localIP().toString().c_str());
         break;
       case WifiConfig::Access:
-        Serial.printf("Service login: admin  password: %s\n", servicePassword.c_str()); break;
+        Serial.printf("Service login: admin  password: %s\n", webPassword.c_str());
+        Serial.printf("Access point password: %s\n", servicePassword.c_str()); break;
+      case WifiConfig::WebPassword: {
+        configurationMode();
+        Preferences prefs;
+        bool ok = prefs.begin("probe-service", false);
+        if (ok) { ok = prefs.putString("web-password", newWebPassword) == newWebPassword.length(); prefs.end(); }
+        Serial.println(ok ? "Web password saved. Probing is disabled until restart. Use wifi reboot." : "Could not save web password.");
+        break;
+      }
       case WifiConfig::Save:
         if (!WifiConfig::valid(pendingConfig)) Serial.println("Invalid settings: SSID is required for client mode; password must be empty, 8-63 bytes or a 64-digit hex key.");
         else Serial.println(saveConfig(pendingConfig) ? "Wi-Fi settings saved. Probing is disabled until restart. Use wifi reboot." : "Could not save Wi-Fi settings. Check storage and retry.");
@@ -146,6 +157,8 @@ void begin(void (*safe)()) {
     password = generated;
     prefs.putString("password", password);
   }
+  webPassword = prefs.getString("web-password", password);
+  if (!webPassword.length()) webPassword = password;
   prefs.end();
   servicePassword = password;
   char secret[17];
@@ -237,7 +250,7 @@ void begin(void (*safe)()) {
     }
   });
   server.begin(); online = true;
-  Serial.printf("Service login: admin  password: %s\n", servicePassword.c_str());
+  Serial.printf("Service login: admin  password: %s\n", webPassword.c_str());
   Serial.println("UART Wi-Fi commands: wifi help");
 }
 const char *displayStatus() {
