@@ -29,6 +29,10 @@ For a CLI outside PATH, add `-ArduinoCli .\tools\arduino-cli.exe`. The first com
 
 The build script has not yet been checked with a physical upload.
 
+## Wi-Fi updates
+
+The sketch includes a 4 MB partition layout with two 1920 KiB application slots. Install it over USB first. Later, upload `build/esp32/probe_rx.ino.bin` through the [service page](wifi-update.md).
+
 ## Firmware images
 
 Prebuilt firmware images are not distributed. Build the firmware from source using the commands above.

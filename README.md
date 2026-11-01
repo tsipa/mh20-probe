@@ -10,6 +10,10 @@ The receiver works on the bench: it picks up the probe, detects contact and show
 
 The white button on the mushroom-shaped top activates the probe. The black button near the battery sweeps the radio channels. The probe uses a 9 V PP3 (Krona) battery. [More photos and controls](docs/probe-behavior.md#physical-probe-and-controls).
 
+## Wi-Fi updates
+
+At startup, connect to **MH-Probe-Service** and open **http://192.168.4.1/** for receiver status and firmware uploads. The password is printed over USB serial. Once the probe is detected, Wi-Fi switches off until the receiver restarts. [Setup and updates](docs/wifi-update.md).
+
 ## Display
 
 ![Display examples](docs/images/display-overview.png)
@@ -29,6 +33,7 @@ The display holds blue for at least 100 ms so brief contacts are visible. The ou
 - [ESP32, CC1101 and LCD wiring](docs/wiring.md): numbered pin tables and diagrams.
 - [Active message protocol](docs/protocol.md): FREE/CONTACT pulses, validation and acquisition.
 - [Probe behavior](docs/probe-behavior.md): battery, buttons, channel sweep, activation, silence and contact.
+- [Wi-Fi and OTA updates](docs/wifi-update.md): service network, browser uploads and restart.
 - [Build and upload](docs/build.md): Arduino IDE/CLI, dependency versions and firmware compilation.
 - [24 V → 5 V power](docs/power.md) and [SINUMERIK 828D outputs](docs/machine-interface.md).
 - [Tests and remaining work](docs/validation.md), [recorded test signals](fixtures/README.md).

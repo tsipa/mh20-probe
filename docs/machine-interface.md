@@ -17,6 +17,8 @@ The output logic is in [MachineOutputs.h](../firmware/probe_rx/MachineOutputs.h)
 | Valid probe, free | 1 | Closed | 0 |
 | Contact | 1 | Open | 1 |
 
+While service Wi-Fi is active, the output GPIOs stay low. After a probe is detected, Wi-Fi shuts down before the outputs can become active. During a firmware upload, both outputs remain low until restart. See [Wi-Fi updates](wifi-update.md).
+
 ## 24 V output stage
 
 ESP32 GPIO and CC1101 operate at 3.3 V. **Do not connect machine 24 V directly.** Machine power needs a converter and a separate output interface.

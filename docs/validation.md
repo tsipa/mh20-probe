@@ -15,6 +15,7 @@ Run `python scripts/test.py`. The tests compile the firmware headers to WebAssem
 | Test | Coverage |
 |---|---|
 | Outputs + decoder | Startup, two-frame acquisition, contact, release, 65 ms link loss and micros() rollover |
+| Wi-Fi service | Startup, two-frame probe detection, Wi-Fi latch across signal loss, OTA inhibition, retry and reset |
 | Frequency search | Full band, candidates, refusing CW lock, weaker probe beside stronger interference, loss/rescan and timer rollover |
 | RSSI | Signed conversion, thresholds, isolated spikes, hysteresis and reset after retuning/SPI failure |
 | Display | Adafruit_GFX.cpp and DisplayRaster.h: pixel comparison with full-frame rendering, removal of old text, bounds, 8+2 strip split, no malloc |
@@ -32,6 +33,7 @@ Some saved reports still list hardware checks as pending. Reception and display 
 
 ## Still to test
 
+- Service network startup, Wi-Fi shutdown on probe detection, browser uploads and interrupted OTA updates.
 - CC1101 acquisition across the frequency sweep and recovery after retuning.
 - Range with a matched antenna and performance in interference.
 - Minimum accepted contact, latency and measurement repeatability.

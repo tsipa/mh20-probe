@@ -41,6 +41,7 @@ def main():
              '-I', ROOT/'firmware/probe_rx', '-std=c++17', '-O2', '-c']
     targets = {
         'outputs': ['levels','reset','edge','outputs'],
+        'service': ['reset','edge','network','update','outputs'],
         'search': ['reset','frequency','phase','checked','rf','noiseValid','noiseHalfDbm','feed'],
         'rf_presence': ['reset','convert','feed','valid'],
     }
@@ -54,12 +55,12 @@ def main():
     exports = ['__wasm_call_ctors','render','preview','allocations','stripeBytes','maxHeight','framebuffer']
     run([zig, 'wasm-ld','--no-entry','--export-memory'] + ['--export='+e for e in exports] +
         [BUILD/'display_gfx.o', BUILD/'display_raster.o', '-o', BUILD/'display_raster.wasm'])
-    for name in ('outputs','search','rf_presence','display_raster','fixtures'):
+    for name in ('outputs','service','search','rf_presence','display_raster','fixtures'):
         print('Checking '+name+'...', flush=True)
         run([sys.executable, ROOT/'tests'/('verify_'+name+'.py')])
     if args.assets:
         run([sys.executable, ROOT/'scripts/generate_assets.py'])
-    result = {'passed': True, 'checks': ['outputs','search','rf_presence','display_raster','fixtures'],
+    result = {'passed': True, 'checks': ['outputs','service','search','rf_presence','display_raster','fixtures'],
               'gfx_source': str(gfx), 'python': sys.version.split()[0],
               'scope': 'Host regression tests; machine 24V interface and full frequency acquisition on hardware remain unvalidated.'}
     (BUILD/'summary.json').write_text(json.dumps(result, indent=2)+'\n', encoding='utf-8')

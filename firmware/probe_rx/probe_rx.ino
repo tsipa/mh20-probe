@@ -6,6 +6,7 @@
 #include "ProbeSearch.h"
 #include "MachineOutputs.h"
 #include "DisplayPanel.h"
+#include "ServiceWeb.h"
 
 constexpr int PIN_SCK = 18, PIN_MISO = 19, PIN_MOSI = 23, PIN_CS = 5;
 constexpr int PIN_DATA = 26;
@@ -79,11 +80,13 @@ void strobe(uint8_t command) {
 }
 
 void driveMachine(bool link, bool contact) {
-  const auto out=MachineOutputs::levels(link,contact);
+  const auto out=MachineOutputs::levels(link && ServiceWeb::policy.outputsAllowed(),contact);
   if (!out.loopClosed) digitalWrite(MachineOutputs::PROBE_LOOP_PIN,LOW);
   digitalWrite(MachineOutputs::READY_PIN,out.ready?HIGH:LOW);
   if (out.loopClosed) digitalWrite(MachineOutputs::PROBE_LOOP_PIN,HIGH);
 }
+
+void safeServiceOutputs() { driveMachine(false, false); }
 
 void publishPanel(int state) {
   DisplayPanel::Snapshot s;
@@ -116,10 +119,11 @@ void tune(uint32_t hz) {
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("MH RECEIVER UI+AUTOSEARCH STATIC-STRIPS 2026-10-31");
+  Serial.println("MH RECEIVER");
   digitalWrite(MachineOutputs::READY_PIN,LOW); digitalWrite(MachineOutputs::PROBE_LOOP_PIN,LOW);
   pinMode(MachineOutputs::READY_PIN,OUTPUT); pinMode(MachineOutputs::PROBE_LOOP_PIN,OUTPUT);
   driveMachine(false,false);
+  ServiceWeb::begin(safeServiceOutputs);
   DisplayPanel::begin();
   pinMode(PIN_CS, OUTPUT); digitalWrite(PIN_CS, HIGH);
   pinMode(PIN_DATA, INPUT);
@@ -130,7 +134,7 @@ void setup() {
   if (version == 0 || version == 0xFF) {
     Serial.println("CC1101 not responding; check power/SPI wiring.");
     publishPanel(-1);
-    while (true) delay(1000);
+    while (true) { ServiceWeb::poll(tunedHz, false, 0, 0, 0, 0); delay(1); }
   }
   Serial.printf("CC1101 OK VERSION=0x%02X\n",version);
   const uint8_t registers[][2] = {
@@ -156,6 +160,12 @@ void setup() {
 }
 
 void loop() {
+  if (ServiceWeb::policy.maintenance) {
+    driveMachine(false, false);
+    ServiceWeb::poll(tunedHz, rawRssiValid, rawRssiHalfDbm, totalMessages, totalTouches, totalLosses);
+    delay(1);
+    return;
+  }
   bool overflow;
   portENTER_CRITICAL(&queueLock);
   overflow = overflowed; overflowed = false;
@@ -170,6 +180,7 @@ void loop() {
     portEXIT_CRITICAL(&queueLock);
     if (!available) break;
     if (decoder.edge(e.active, e.at)) {
+      ServiceWeb::observeProbe();
       ++totalMessages;
       ++rateMessages; lastMessageAt=e.at;
       if (decoder.state==ProbeDecoder::Contact) lastTouchMs=millis();
@@ -198,7 +209,9 @@ void loop() {
       if (uint32_t(now - rfGateAt) >= 20000) { rf.sample(rawRssi); rfGateAt = now; }
     } else rf.reset();
   }
-  if (search.update(now, link, decoder.lastMessageAt, rawRssiValid, rawRssiHalfDbm)) {
+  ServiceWeb::poll(tunedHz, rawRssiValid, rawRssiHalfDbm, totalMessages, totalTouches, totalLosses);
+  if (ServiceWeb::policy.maintenance) { driveMachine(false, false); return; }
+  if (search.update(micros(), link, decoder.lastMessageAt, rawRssiValid, rawRssiHalfDbm)) {
     tune(search.frequency);
     return;
   }
