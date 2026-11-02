@@ -1,5 +1,5 @@
 {
-  "board": "Classic ESP32-WROOM DevKit / ESP32 Dev Module",
+  "board": "Classic ESP32-WROOM DevKit (ESP32-DevKitC V4) / ESP32 Dev Module",
   "logic_voltage": 3.3,
   "cc1101": {
     "bus": "VSPI",
@@ -53,7 +53,7 @@
     "spi_mode": 3,
     "init_hz": 1000000,
     "draw_hz": 20000000,
-    "rotation": 2,
+    "rotation": 0,
     "pins": [
       {
         "signal": "GND",
@@ -89,18 +89,37 @@
     {
       "gpio": 33,
       "signal": "READY",
-      "high": "Validated probe, including contact"
+      "high": "Validated probe, including contact",
+      "driver": "R2 150 ohm -> K2 AQY212EH",
+      "terminal": "J1 pins 3/4 (READY_A/READY_B)"
     },
     {
       "gpio": 25,
       "signal": "PROBE_LOOP_ENABLE",
-      "high": "Validated free probe; energize normally open PhotoMOS"
+      "high": "Validated free probe; closes normally open PhotoMOS K1",
+      "driver": "R1 150 ohm -> K1 AQY212EH",
+      "terminal": "J1 pins 5/6 (PROBE_A/PROBE_B)"
     }
   ],
   "supply": {
-    "prototype": "Isolated regulated 24V -> 5V DC-DC, 5V/VIN on DevKit",
-    "recommended_output_current_a": 1,
-    "peripherals": "3V3 on ESP32",
-    "usb": "Verify board power isolation or disconnect external 5V before USB-powered programming"
+    "regulator": "U1 DD4012SA 5 V step-down module, 7805 pinout, input 4.75-40 V, not isolated",
+    "nets": {
+      "24V_IN": "J1.1 -> U1 IN",
+      "GND": "J1.2 machine 0 V = logic GND",
+      "5V_REG": "U1 OUT -> JP1",
+      "5V_DEV": "JP1 -> ESP32 5V"
+    },
+    "peripherals": "3V3 from the ESP32 DevKit regulator",
+    "isolation": "Only the two AQY212EH PhotoMOS outputs",
+    "usb": "With JP1 fitted, do not connect USB to a PC while on machine 24 V; remove JP1 to power from USB on the bench"
+  },
+  "terminal_j1": {
+    "1": "24V_IN",
+    "2": "0 V (machine 0 V = logic GND)",
+    "3": "READY_A",
+    "4": "READY_B",
+    "5": "PROBE_A",
+    "6": "PROBE_B",
+    "note": "PhotoMOS outputs are bidirectional; A/B polarity does not matter."
   }
 }

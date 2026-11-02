@@ -27,7 +27,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build.ps1 -Port CO
 
 For a CLI outside PATH, add `-ArduinoCli .\tools\arduino-cli.exe`. The first command installs the specified versions and builds. The second builds and uploads. Close any serial monitor before uploading. Output files go to `build/esp32/`, which Git ignores.
 
-The build script has not yet been checked with a physical upload.
+The P3-era firmware was built and uploaded to the breadboard prototype. The current firmware (with the P4 output guard and decoder changes) has not yet been compiled with arduino-cli.
 
 ## Wi-Fi updates
 

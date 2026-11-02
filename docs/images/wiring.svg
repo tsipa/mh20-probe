@@ -84,8 +84,8 @@
 <circle cx="948" cy="458" r="5" fill="#139ea9"/>
 <text x="968" y="503" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="16" font-weight="400" fill="#19263d">No CS pin; BLK = backlight</text>
 <rect x="36" y="564" width="1208" height="148" rx="14" fill="#e8eef7" stroke="#d3dce9" stroke-width="2"/>
-<text x="56" y="593" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="700" fill="#19263d">Reserved for the machine interface (not wired directly to 24 V)</text>
+<text x="56" y="593" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="700" fill="#19263d">Machine outputs: GPIO → 150 ohm → AQY212EH PhotoMOS → J1 (never wire 24 V to a GPIO)</text>
 <text x="56" y="627" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="19" font-weight="400" fill="#19263d">GPIO33 READY     GPIO25 PROBE_LOOP_ENABLE</text>
-<text x="56" y="660" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">Power: isolated 24 → 5 V DC-DC → 5V/VIN; ESP32 3V3 feeds radio and display.</text>
-<text x="56" y="687" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">PhotoMOS output stage: planned. See docs/machine-interface.md.</text>
+<text x="56" y="660" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="18" font-weight="400" fill="#19263d">Power: 24 V → DD4012SA 5 V buck (not isolated) → JP1 → ESP32 5V; ESP32 3V3 feeds radio and display.</text>
+<text x="56" y="687" dominant-baseline="middle" text-anchor="start" font-family="Segoe UI,DejaVu Sans,Arial,sans-serif" font-size="17" font-weight="400" fill="#19263d">Machine 0 V = logic GND. With JP1 fitted, do not connect USB to a PC on machine 24 V. See docs/power.md.</text>
 </svg>

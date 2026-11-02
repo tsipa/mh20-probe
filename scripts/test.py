@@ -40,8 +40,9 @@ def main():
              '-fno-exceptions', '-fno-rtti', '-isystem', zigroot/'lib/include',
              '-I', ROOT/'firmware/probe_rx', '-std=c++17', '-O2', '-c']
     targets = {
-        'outputs': ['levels','reset','edge','outputs'],
-        'service': ['reset','edge','network','update','outputs','recovery'],
+        'outputs': ['levels','reset','edge','outputs','guardRefresh','guardTick','guardRunning'],
+        'decoder': ['reset','edge','poll','state','link','lastMessageAt'],
+        'service': ['reset','edge','poll','network','update','outputs','recovery'],
         'wifi_config': ['reset','feed','valid','mode','ssidLength','passwordLength','ssidByte','passwordByte','badStorage','displayByte'],
         'search': ['reset','frequency','phase','checked','rf','noiseValid','noiseHalfDbm','feed'],
         'rf_presence': ['reset','convert','feed','valid'],
@@ -56,12 +57,12 @@ def main():
     exports = ['__wasm_call_ctors','render','preview','allocations','stripeBytes','maxHeight','framebuffer']
     run([zig, 'wasm-ld','--no-entry','--export-memory'] + ['--export='+e for e in exports] +
         [BUILD/'display_gfx.o', BUILD/'display_raster.o', '-o', BUILD/'display_raster.wasm'])
-    for name in ('outputs','service','wifi_config','search','rf_presence','display_raster','fixtures'):
+    for name in ('outputs','decoder','service','wifi_config','search','rf_presence','display_raster','fixtures'):
         print('Checking '+name+'...', flush=True)
         run([sys.executable, ROOT/'tests'/('verify_'+name+'.py')])
     if args.assets:
         run([sys.executable, ROOT/'scripts/generate_assets.py'])
-    result = {'passed': True, 'checks': ['outputs','service','wifi_config','search','rf_presence','display_raster','fixtures'],
+    result = {'passed': True, 'checks': ['outputs','decoder','service','wifi_config','search','rf_presence','display_raster','fixtures'],
               'gfx_source': str(gfx), 'python': sys.version.split()[0],
               'scope': 'Host regression tests; machine 24V interface and full frequency acquisition on hardware remain unvalidated.'}
     (BUILD/'summary.json').write_text(json.dumps(result, indent=2)+'\n', encoding='utf-8')

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200mm" height="150mm" viewBox="0 0 200 150">
+<style>text{font-family:sans-serif;fill:#17212b} .body{fill:#edf3f8;stroke:#204f70;stroke-width:.4} .pad{fill:white;stroke:#222;stroke-width:.3}</style>
+<text x="8" y="9" font-size="4.5">Phoenix MKDS 1,5/6-5,08 reference or dimensionally matching 5.08 mm terminal</text>
+<text x="8" y="16" font-size="3">Component-side reference. Millimetres; drawing scale 2:1.</text>
+<rect class="body" x="12" y="22" width="19.6" height="60.96"/>
+<circle class="pad" cx="21.2" cy="27.08" r=".8"/><text x="22.3" y="27.779999999999998" font-size="2.6">1</text>
+<circle cx="21.2" cy="27.08" r="1.4" fill="none" stroke="#c22" stroke-width=".35"/>
+<circle class="pad" cx="21.2" cy="37.24" r=".8"/><text x="22.3" y="37.940000000000005" font-size="2.6">2</text>
+<circle class="pad" cx="21.2" cy="47.4" r=".8"/><text x="22.3" y="48.1" font-size="2.6">3</text>
+<circle class="pad" cx="21.2" cy="57.56" r=".8"/><text x="22.3" y="58.260000000000005" font-size="2.6">4</text>
+<circle class="pad" cx="21.2" cy="67.72" r=".8"/><text x="22.3" y="68.42" font-size="2.6">5</text>
+<circle class="pad" cx="21.2" cy="77.88" r=".8"/><text x="22.3" y="78.58" font-size="2.6">6</text>
+<text x="12" y="88.96000000000001" font-size="3">Envelope 9.8 x 30.48 mm</text>
+<text x="85" y="26" font-size="3">1: 24V_IN</text>
+<text x="85" y="31" font-size="3">2: 0V / GND</text>
+<text x="85" y="36" font-size="3">3: READY_A</text>
+<text x="85" y="41" font-size="3">4: READY_B</text>
+<text x="85" y="46" font-size="3">5: PROBE_A</text>
+<text x="85" y="51" font-size="3">6: PROBE_B</text>
+<text x="8" y="142" font-size="3">Derived from the sources and the carrier footprint; verify the actual part.</text></svg>

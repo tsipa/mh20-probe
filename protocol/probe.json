@@ -15,6 +15,13 @@
     250,
     260
   ],
+  "pulse_width_reference_demodulator_us": {
+    "range": [
+      200,
+      280
+    ],
+    "step": 40
+  },
   "frame_period_us": 16250,
   "offsets_us": {
     "free": [
@@ -36,6 +43,11 @@
       400
     ],
     "offset_tolerance_us": 120,
+    "decision_after_frame_start_us": 3760,
+    "extra_pulse_in_frame": "discard",
+    "invalid_width_or_missed_edge": "discard_open_frames",
+    "falling_edge_bounce_ignored_us": 40,
+    "rising_edge_bounce_ignored_us": 40,
     "period_tolerance_us": 300,
     "allowed_period_multiples": [
       1,
@@ -43,6 +55,11 @@
       3
     ],
     "acquisition_frames": 2,
+    "cadence_required_for": [
+      "acquisition",
+      "free"
+    ],
+    "contact_off_cadence_while_linked": "accept",
     "link_timeout_us": 65000
   },
   "scan": {

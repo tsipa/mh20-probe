@@ -1,0 +1,1618 @@
+{
+  "units": "mm unless specified",
+  "view": "Top (component) side. All parts are on the top side. Carrier coordinates are spec coordinates: origin at the board top-left corner, x right, y down. net null = not connected",
+  "components": {
+    "esp32": {
+      "refs": [
+        "A1"
+      ],
+      "part": "ESP32 DevKitC-style 38-pin board",
+      "dimensions": {
+        "header_count": 38,
+        "header_pitch_mm": 2.54,
+        "row_spacing_mm": 25.4,
+        "end_pin_span_mm": 45.72,
+        "reference_pcb_mm": [
+          27.94,
+          48.26
+        ],
+        "reference_antenna_extension_mm": 6.04,
+        "carrier_body_outline_mm": [
+          27.94,
+          54.31
+        ],
+        "carrier_pad_mm": 1.7,
+        "carrier_drill_mm": 1.0
+      },
+      "pins": {
+        "1": "3V3",
+        "2": "EN",
+        "3": "GPIO36 / VP",
+        "4": "GPIO39 / VN",
+        "5": "GPIO34",
+        "6": "GPIO35",
+        "7": "GPIO32",
+        "8": "GPIO33",
+        "9": "GPIO25",
+        "10": "GPIO26",
+        "11": "GPIO27",
+        "12": "GPIO14",
+        "13": "GPIO12",
+        "14": "GND",
+        "15": "GPIO13",
+        "16": "GPIO9 / D2",
+        "17": "GPIO10 / D3",
+        "18": "GPIO11 / CMD",
+        "19": "5V",
+        "20": "GND",
+        "21": "GPIO23",
+        "22": "GPIO22",
+        "23": "GPIO1 / TX0",
+        "24": "GPIO3 / RX0",
+        "25": "GPIO21",
+        "26": "GND",
+        "27": "GPIO19",
+        "28": "GPIO18",
+        "29": "GPIO5",
+        "30": "GPIO17",
+        "31": "GPIO16",
+        "32": "GPIO4",
+        "33": "GPIO0",
+        "34": "GPIO2",
+        "35": "GPIO15",
+        "36": "GPIO8 / D1",
+        "37": "GPIO7 / D0",
+        "38": "GPIO6 / CLK"
+      },
+      "sources": [
+        "esp32-devkitc-v4.pdf",
+        "esp32-devkitc-v4.txt"
+      ],
+      "status": "38 pins and 25.4 mm rows; compare body, antenna and USB position with the actual board",
+      "carrier_pads": [
+        {
+          "ref": "A1",
+          "pin": "1",
+          "net": "/3V3",
+          "xy": [
+            33.6,
+            2.0
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "2",
+          "net": null,
+          "xy": [
+            33.6,
+            4.54
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "3",
+          "net": null,
+          "xy": [
+            33.6,
+            7.08
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "4",
+          "net": null,
+          "xy": [
+            33.6,
+            9.62
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "5",
+          "net": null,
+          "xy": [
+            33.6,
+            12.16
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "6",
+          "net": null,
+          "xy": [
+            33.6,
+            14.7
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "7",
+          "net": "/LCD_DC",
+          "xy": [
+            33.6,
+            17.24
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "8",
+          "net": "/READY_EN",
+          "xy": [
+            33.6,
+            19.78
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "9",
+          "net": "/PROBE_EN",
+          "xy": [
+            33.6,
+            22.32
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "10",
+          "net": "/RF_DATA",
+          "xy": [
+            33.6,
+            24.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "11",
+          "net": "/LCD_RST",
+          "xy": [
+            33.6,
+            27.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "12",
+          "net": "/LCD_SCK",
+          "xy": [
+            33.6,
+            29.94
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "13",
+          "net": null,
+          "xy": [
+            33.6,
+            32.48
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "14",
+          "net": "/GND",
+          "xy": [
+            33.6,
+            35.02
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "15",
+          "net": "/LCD_MOSI",
+          "xy": [
+            33.6,
+            37.56
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "16",
+          "net": null,
+          "xy": [
+            33.6,
+            40.1
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "17",
+          "net": null,
+          "xy": [
+            33.6,
+            42.64
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "18",
+          "net": null,
+          "xy": [
+            33.6,
+            45.18
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "19",
+          "net": "/5V_DEV",
+          "xy": [
+            33.6,
+            47.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "20",
+          "net": "/GND",
+          "xy": [
+            59.0,
+            2.0
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "21",
+          "net": "/RF_MOSI",
+          "xy": [
+            59.0,
+            4.54
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "22",
+          "net": null,
+          "xy": [
+            59.0,
+            7.08
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "23",
+          "net": null,
+          "xy": [
+            59.0,
+            9.62
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "24",
+          "net": null,
+          "xy": [
+            59.0,
+            12.16
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "25",
+          "net": null,
+          "xy": [
+            59.0,
+            14.7
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "26",
+          "net": "/GND",
+          "xy": [
+            59.0,
+            17.24
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "27",
+          "net": "/RF_MISO",
+          "xy": [
+            59.0,
+            19.78
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "28",
+          "net": "/RF_SCK",
+          "xy": [
+            59.0,
+            22.32
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "29",
+          "net": "/RF_CSN",
+          "xy": [
+            59.0,
+            24.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "30",
+          "net": null,
+          "xy": [
+            59.0,
+            27.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "31",
+          "net": null,
+          "xy": [
+            59.0,
+            29.94
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "32",
+          "net": null,
+          "xy": [
+            59.0,
+            32.48
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "33",
+          "net": null,
+          "xy": [
+            59.0,
+            35.02
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "34",
+          "net": null,
+          "xy": [
+            59.0,
+            37.56
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "35",
+          "net": null,
+          "xy": [
+            59.0,
+            40.1
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "36",
+          "net": null,
+          "xy": [
+            59.0,
+            42.64
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "37",
+          "net": null,
+          "xy": [
+            59.0,
+            45.18
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "A1",
+          "pin": "38",
+          "net": null,
+          "xy": [
+            59.0,
+            47.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_checksums_sha256": {
+        "esp32-devkitc-v4.pdf": "0981dca222a018813ebdafddfd2c8688cefdcf23f89d24d33d5cf2dc1aa2a349",
+        "esp32-devkitc-v4.txt": "fc70ea3993147207e806e4dc57696a81bd4478dedb5169f04e87c4613b2c3e1c"
+      }
+    },
+    "lcd": {
+      "refs": [
+        "J2"
+      ],
+      "part": "ER-TFTM013-1 mechanical reference / ST7789-compatible 240x240 display",
+      "dimensions": {
+        "pcb_mm": [
+          27.78,
+          39.22
+        ],
+        "pcb_thickness_mm": 1.2,
+        "header_pitch_mm": 2.54,
+        "header_pin1_from_side_mm": 6.27,
+        "header_from_near_edge_mm": 1.5,
+        "module_holes_mm": 2.0,
+        "hole_center_spacing_mm": [
+          22.78,
+          34.22
+        ],
+        "hole_edge_offsets_mm": [
+          2.5,
+          2.5
+        ],
+        "header_plastic_mm": 2.5,
+        "long_header_pin_mm": 6.0,
+        "carrier_pad_mm": 1.7,
+        "carrier_drill_mm": 1.0,
+        "carrier_hole_drill_mm": 2.2,
+        "carrier_holes_mm": [
+          [
+            6.0,
+            11.5
+          ],
+          [
+            28.78,
+            11.5
+          ],
+          [
+            6.0,
+            45.72
+          ],
+          [
+            28.78,
+            45.72
+          ]
+        ],
+        "support_screw": "M1.6"
+      },
+      "pins": {
+        "1": "GND",
+        "2": "VCC / 3V3",
+        "3": "SCL / SPI SCK / GPIO14",
+        "4": "SDA / SPI MOSI / GPIO13",
+        "5": "RES / GPIO27",
+        "6": "DC / GPIO32",
+        "7": "BLK / 3V3"
+      },
+      "sources": [
+        "er-tftm013-1_outline.webp"
+      ],
+      "status": "Dimensions and hole positions from the manufacturer outline; compare with the actual display",
+      "carrier_pads": [
+        {
+          "ref": "J2",
+          "pin": "1",
+          "net": "/GND",
+          "xy": [
+            25.01,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "2",
+          "net": "/3V3",
+          "xy": [
+            22.47,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "3",
+          "net": "/LCD_SCK",
+          "xy": [
+            19.93,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "4",
+          "net": "/LCD_MOSI",
+          "xy": [
+            17.39,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "5",
+          "net": "/LCD_RST",
+          "xy": [
+            14.85,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "6",
+          "net": "/LCD_DC",
+          "xy": [
+            12.31,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J2",
+          "pin": "7",
+          "net": "/3V3",
+          "xy": [
+            9.77,
+            46.72
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_checksums_sha256": {
+        "er-tftm013-1_outline.webp": "dd076694e3f9a11e4ad4e4088cd3d2d7b434ee994a1e41dca8eefe9dffa088eb"
+      }
+    },
+    "radio": {
+      "refs": [
+        "J3"
+      ],
+      "part": "CC1101 / E07-M1101D-SMA reference, 28 and 30 mm versions",
+      "dimensions": {
+        "pcb_width_mm": 15,
+        "documented_pcb_lengths_mm": [
+          28,
+          30
+        ],
+        "header_pitch_mm": 2.54,
+        "reference_header_edge_offset_mm": 1.6,
+        "reference_holes_from_side_mm": 2.7,
+        "reference_holes_from_sma_edge_mm": 10,
+        "reference_module_hole_mm": 3.0,
+        "carrier_pad_mm": 1.7,
+        "carrier_drill_mm": 1.0,
+        "carrier_slots_mm": [
+          [
+            64.5,
+            9.0,
+            3.2,
+            5.2
+          ],
+          [
+            74.1,
+            9.0,
+            3.2,
+            5.2
+          ]
+        ],
+        "support_screw": "M2.5"
+      },
+      "pins": {
+        "1": "GND",
+        "2": "VCC / 3V3",
+        "3": "GDO0 / GPIO26",
+        "4": "CSN / GPIO5",
+        "5": "SCK / GPIO18",
+        "6": "MOSI / GPIO23",
+        "7": "MISO / GDO1 / GPIO19",
+        "8": "GDO2 / unused"
+      },
+      "sources": [
+        "rf-ebyte-manual.pdf",
+        "rf-ebyte-manual.txt",
+        "rf-spec-0.jpg",
+        "CC1101-Product-size-600x313.jpg",
+        "radio-pinout.jpg"
+      ],
+      "status": "Pin table matches the Ebyte documentation; slots cover the 28 mm and 30 mm versions; compare with the actual module",
+      "carrier_pads": [
+        {
+          "ref": "J3",
+          "pin": "1",
+          "net": "/GND",
+          "xy": [
+            65.5,
+            26.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "2",
+          "net": "/3V3",
+          "xy": [
+            65.5,
+            23.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "3",
+          "net": "/RF_DATA",
+          "xy": [
+            68.04,
+            26.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "4",
+          "net": "/RF_CSN",
+          "xy": [
+            68.04,
+            23.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "5",
+          "net": "/RF_SCK",
+          "xy": [
+            70.58,
+            26.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "6",
+          "net": "/RF_MOSI",
+          "xy": [
+            70.58,
+            23.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "7",
+          "net": "/RF_MISO",
+          "xy": [
+            73.12,
+            26.4
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "J3",
+          "pin": "8",
+          "net": null,
+          "xy": [
+            73.12,
+            23.86
+          ],
+          "size": [
+            1.7,
+            1.7
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_checksums_sha256": {
+        "rf-ebyte-manual.pdf": "d6452fd22a9973b44a343645bf06090c29840e505a6ff2b3b8001609b3dd70cd",
+        "rf-ebyte-manual.txt": "6487179f779cfc47188f2bf0451cc2676f1a275abc5f0297940c6c96cdedd7ed",
+        "rf-spec-0.jpg": "ee53eba615ac5ddccad142fd382fbee81f39b73b64d2cd7402c33049e9a040b9",
+        "CC1101-Product-size-600x313.jpg": "7341462abd16320e10e376e25cdbd4fd837a3df6c76fd694ddc9d66d40d725c8",
+        "radio-pinout.jpg": "386c6e4254296214259ba8bcc8acc3e238e23bba48028bfe10ac5a31128c8c6e"
+      }
+    },
+    "aqy212eh": {
+      "refs": [
+        "K1",
+        "K2"
+      ],
+      "part": "Panasonic AQY212EH",
+      "dimensions": {
+        "body_mm": [
+          6.4,
+          4.78
+        ],
+        "package": "DIP4 / THT",
+        "pin_pitch_mm": 2.54,
+        "row_spacing_mm": 7.62,
+        "carrier_drill_mm": 1.0,
+        "carrier_pad_mm": 1.8
+      },
+      "pins": {
+        "1": "LED anode (+)",
+        "2": "LED cathode (-) / GND",
+        "3": "Floating output B",
+        "4": "Floating output A"
+      },
+      "ratings": {
+        "absolute_load_voltage_v": 60,
+        "recommended_load_voltage_v": 48,
+        "continuous_load_current_a_25c": 0.55,
+        "on_resistance_max_ohm": 2.5,
+        "off_leakage_max_ua": 1,
+        "recommended_led_current_ma": [
+          5,
+          30
+        ],
+        "turn_on_max_ms_at_5ma_25c": 4,
+        "turn_off_max_ms_at_5ma_25c": 1
+      },
+      "sources": [
+        "AQY212EH.pdf",
+        "AQY212EH.txt"
+      ],
+      "status": "DIP-4 through-hole; the surface-mount AQY212EHA does not fit",
+      "carrier_pads": [
+        {
+          "ref": "K1",
+          "pin": "1",
+          "net": "/PROBE_LED",
+          "xy": [
+            75.0,
+            32.9
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K1",
+          "pin": "2",
+          "net": "/GND",
+          "xy": [
+            75.0,
+            35.44
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K1",
+          "pin": "3",
+          "net": "/PROBE_A",
+          "xy": [
+            82.62,
+            35.44
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K1",
+          "pin": "4",
+          "net": "/PROBE_B",
+          "xy": [
+            82.62,
+            32.9
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K2",
+          "pin": "1",
+          "net": "/READY_LED",
+          "xy": [
+            75.0,
+            43.0
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K2",
+          "pin": "2",
+          "net": "/GND",
+          "xy": [
+            75.0,
+            45.54
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K2",
+          "pin": "3",
+          "net": "/READY_A",
+          "xy": [
+            82.62,
+            45.54
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "K2",
+          "pin": "4",
+          "net": "/READY_B",
+          "xy": [
+            82.62,
+            43.0
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_checksums_sha256": {
+        "AQY212EH.pdf": "870ec4223b4c2d7920ed9cd97ad72d014e2d7c49c968bcd1e29e1344bf46e7d8",
+        "AQY212EH.txt": "4ced98e61b0773c41869a8fdf1cac910c7e5675639317f8990d4e067f8f5ad2d"
+      }
+    },
+    "buck": {
+      "refs": [
+        "U1"
+      ],
+      "part": "DD4012SA 5 V step-down module",
+      "dimensions": {
+        "package": "3-pin SIP, 7805 pinout",
+        "pin_pitch_mm": 2.54,
+        "envelope_mm": [
+          12,
+          14
+        ],
+        "envelope_height_mm": 20,
+        "carrier_pad_mm": 1.8,
+        "carrier_drill_mm": 1.0
+      },
+      "pins": {
+        "1": "IN / 24V_IN",
+        "2": "GND",
+        "3": "OUT / 5V_REG"
+      },
+      "ratings": {
+        "input_v": [
+          4.75,
+          40
+        ],
+        "output_v": 5,
+        "isolated": false
+      },
+      "sources": [],
+      "status": "Not isolated: machine 0 V is logic GND. Any 7805-pinout 5 V module with input rated >= 30 V fits",
+      "carrier_pads": [
+        {
+          "ref": "U1",
+          "pin": "1",
+          "net": "/24V_IN",
+          "xy": [
+            78.0,
+            57.0
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "U1",
+          "pin": "2",
+          "net": "/GND",
+          "xy": [
+            78.0,
+            54.46
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "ref": "U1",
+          "pin": "3",
+          "net": "/5V_REG",
+          "xy": [
+            78.0,
+            51.92
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_checksums_sha256": {}
+    },
+    "terminal": {
+      "refs": [
+        "J1"
+      ],
+      "part": "Phoenix MKDS 1,5/6-5,08 (1706303), 6-pole 5.08 mm screw terminal",
+      "dimensions": {
+        "positions": 6,
+        "pitch_mm": 5.08,
+        "body_mm": [
+          30.48,
+          9.8
+        ],
+        "body_height_mm": 13.8,
+        "installed_height_mm": 14,
+        "lead_length_mm": 3.5,
+        "carrier_drill_mm": 1.3,
+        "carrier_pad_mm": 2.6
+      },
+      "pins": {
+        "1": "24V_IN",
+        "2": "0V / GND",
+        "3": "READY_A",
+        "4": "READY_B",
+        "5": "PROBE_A",
+        "6": "PROBE_B"
+      },
+      "sources": [
+        "terminal-mkds6.pdf",
+        "terminal-mkds6.txt"
+      ],
+      "status": "Alternatives must match pitch, pin size and body envelope; dimensions are those of the Phoenix part",
+      "carrier_pads": [
+        {
+          "ref": "J1",
+          "pin": "1",
+          "net": "/24V_IN",
+          "xy": [
+            91.5,
+            57.0
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        },
+        {
+          "ref": "J1",
+          "pin": "2",
+          "net": "/GND",
+          "xy": [
+            91.5,
+            51.92
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        },
+        {
+          "ref": "J1",
+          "pin": "3",
+          "net": "/READY_A",
+          "xy": [
+            91.5,
+            46.84
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        },
+        {
+          "ref": "J1",
+          "pin": "4",
+          "net": "/READY_B",
+          "xy": [
+            91.5,
+            41.76
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        },
+        {
+          "ref": "J1",
+          "pin": "5",
+          "net": "/PROBE_A",
+          "xy": [
+            91.5,
+            36.68
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        },
+        {
+          "ref": "J1",
+          "pin": "6",
+          "net": "/PROBE_B",
+          "xy": [
+            91.5,
+            31.6
+          ],
+          "size": [
+            2.6,
+            2.6
+          ],
+          "drill": [
+            1.3,
+            1.3
+          ]
+        }
+      ],
+      "source_checksums_sha256": {
+        "terminal-mkds6.pdf": "6fe36ec1d831162cd59b0f80c3d74dfaa40173c1592f74dc9e2068c56a7cca62",
+        "terminal-mkds6.txt": "cd0d31f56f3f159d8dd6918da89b4d3bca3173d2d3c99dfa3046adc36205881c"
+      }
+    },
+    "resistor": {
+      "refs": [
+        "R1",
+        "R2"
+      ],
+      "part": "150 ohm 1%, 0.25 W axial DIN0207",
+      "dimensions": {
+        "nominal_body_mm": [
+          6.3,
+          2.5
+        ],
+        "formed_lead_pitch_mm": 7.62,
+        "carrier_drill_mm": 0.9,
+        "carrier_pad_mm": 1.8
+      },
+      "pins": {
+        "1": "GPIO25 for R1 / GPIO33 for R2",
+        "2": "Relay LED anode"
+      },
+      "ratings": {
+        "resistance_ohm": 150,
+        "tolerance_percent": 1,
+        "power_w": 0.25
+      },
+      "sources": [],
+      "status": "DIN0207 envelope from the footprint; compare with the purchased resistor",
+      "carrier_pads": [
+        {
+          "ref": "R1",
+          "pin": "1",
+          "net": "/PROBE_EN",
+          "xy": [
+            64.0,
+            32.9
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            0.9,
+            0.9
+          ]
+        },
+        {
+          "ref": "R1",
+          "pin": "2",
+          "net": "/PROBE_LED",
+          "xy": [
+            71.62,
+            32.9
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            0.9,
+            0.9
+          ]
+        },
+        {
+          "ref": "R2",
+          "pin": "1",
+          "net": "/READY_EN",
+          "xy": [
+            64.0,
+            43.0
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            0.9,
+            0.9
+          ]
+        },
+        {
+          "ref": "R2",
+          "pin": "2",
+          "net": "/READY_LED",
+          "xy": [
+            71.62,
+            43.0
+          ],
+          "size": [
+            1.8,
+            1.8
+          ],
+          "drill": [
+            0.9,
+            0.9
+          ]
+        }
+      ],
+      "source_checksums_sha256": {}
+    }
+  }
+}

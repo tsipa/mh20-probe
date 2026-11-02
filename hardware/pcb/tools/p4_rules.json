@@ -1,0 +1,41 @@
+{
+ "page_offset": [50, 50],
+ "board_max": [100, 100],
+ "clearance": 0.4,
+ "track_to_pad": {"F.Cu": 0.5, "B.Cu": 0.6},
+ "edge_clearance": 0.6,
+ "track_width": {"Default": 0.4, "Signal": 0.4, "Power": 0.8, "Iso": 0.6},
+ "via": {"drill": 0.6, "size": 1.2, "pad_clearance": 1.0, "max_count": 6},
+ "net_clearances": [
+  {"name": "24V_IN to logic signals", "a": "net:/24V_IN", "b": "class:Signal", "min": 0.8},
+  {"name": "between isolated outputs", "a": "class:Iso", "b": "class:Iso", "min": 0.8, "except_footprints": ["K1", "K2"]},
+  {"name": "isolated outputs to other nets", "a": "class:Iso", "b": "!class:Iso", "min": 3.0, "except_footprints": ["K1", "K2", "J1"]}
+ ],
+ "isolation_zone": null,
+ "mounting": {"footprint": "Carrier:Mount_M3", "drill": 3.2, "count": 4, "corner_max": 10.0, "copper_free_radius": 4.0},
+ "silk": {
+  "min_height": 1.2, "min_thickness": 0.15, "text_height": 1.2, "text_thickness": 0.18, "line_width": 0.15,
+  "required": ["REMOVE JP1 FOR USB", "OUTPUTS TO MACHINE", "5V BUCK DD4012SA", "7805-TYPE, IN <= 36 V"]
+ },
+ "bodies": {"gap": 1.0, "screw_gap": 0.0, "antenna_max_overlap": 1.0, "outside_gap": 0.0, "own_copper_margin": 2.0},
+ "keep_away": [{"name": "24 V copper away from the radio", "nets": ["/24V_IN"], "from": "J3", "min": 5.0}],
+ "pads": [
+  {"footprint": "Carrier:esp32", "size": 1.7, "drill": 1.0},
+  {"footprint": "Carrier:lcd", "size": 1.7, "drill": 1.0},
+  {"footprint": "Carrier:radio_e07", "size": 1.7, "drill": 1.0},
+  {"footprint": "Connector_PinHeader_2.54mm:*", "size": 1.7, "drill": 1.0},
+  {"footprint": "Carrier:DIP-4_W7.62mm", "size": 1.8, "drill": 1.0},
+  {"footprint": "Carrier:Buck_SIP3_7805", "size": 1.8, "drill": 1.0},
+  {"footprint": "Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", "size": 1.8, "drill": 0.9}
+ ],
+ "adjacent": {"pitch": 2.54, "tolerance": 0.02, "min_exit_angle": 45},
+ "rotations": {"J2": [180]},
+ "severities": {
+  "missing_courtyard": "error", "courtyards_overlap": "error", "malformed_courtyard": "error",
+  "pth_inside_courtyard": "error", "npth_inside_courtyard": "error", "items_not_allowed": "error",
+  "lib_footprint_issues": "warning", "lib_footprint_mismatch": "warning",
+  "text_height": "error", "text_thickness": "error", "silk_over_copper": "error", "silk_edge_clearance": "error",
+  "track_dangling": "error", "via_dangling": "error", "unconnected_items": "error",
+  "footprint_type_mismatch": "ignore", "footprint_filters_mismatch": "ignore", "track_not_centered_on_via": "ignore"
+ }
+}

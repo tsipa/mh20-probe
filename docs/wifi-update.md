@@ -18,7 +18,7 @@ Press **Save settings**, then **Restart receiver**. Settings are stored on the E
 
 In client mode, use the IP address assigned by the router. It is printed in the serial console and can also be found in the router's device list. **OTA works through this address**, using the same page and service login. Router, access-point and web login passwords are separate. The web login initially uses the generated access-point password. Change it with `wifi web-password <value>` over UART, then restart. This does not change the access-point password, which must meet WPA2 length requirements.
 
-A blank password field keeps the saved password. To change it, tick **Replace saved password** and enter the new value. To use an open network, tick the same box and leave the field blank. SSIDs are limited to 32 bytes; passwords can be empty, 8?63 bytes, or a 64-digit hex key. The saved router password is never sent back to the browser.
+A blank password field keeps the saved password. To change it, tick **Replace saved password** and enter the new value. To use an open network, tick the same box and leave the field blank. SSIDs are limited to 32 bytes; passwords can be empty, 8–63 bytes, or a 64-digit hex key. The saved router password is never sent back to the browser.
 
 The display shows **WiFi AP**, **WiFi CLIENT CONNECTED**, **WiFi CLIENT NOT CONNECTED**, or **WiFi OFF**. In combined or recovery mode it shows **AP+CLIENT** and the client connection state. No IP address is shown on the display.
 
@@ -47,7 +47,7 @@ Everything after `wifi ssid ` or `wifi password ` is the value, including spaces
 | `wifi save` | Validate and save settings; disable probing until restart |
 | `wifi reset` | Save access-point defaults; disable probing until restart |
 | `wifi access` | Print the web login and access-point password locally over UART |
-| `wifi web-password <value>` | Save a separate web login password (1?64 bytes); restart to apply |
+| `wifi web-password <value>` | Save a separate web login password (1–64 bytes); restart to apply |
 | `wifi reboot` | Restart and apply saved settings |
 
 UART remains available after probe detection. It can save new settings but cannot turn Wi-Fi back on without a restart. If the router credentials are wrong, wait for the recovery access point or use `wifi reset` followed by `wifi reboot`. Resetting network settings keeps the existing service password.
@@ -80,4 +80,4 @@ The page requires the service login in every network mode. Settings, uploads and
 
 ## Testing
 
-Automated tests cover startup, the probe-detection latch, recovery timeout, loss of signal, update lockout, UART commands, credential validation and display labels. The firmware build was checked with ESP32 Arduino core 3.3.4 and the Adafruit library versions listed in [build instructions](build.md). The documented core 3.3.12 was not available in this environment. Router connection, fallback access point, Wi-Fi shutdown timing, browser settings and uploads still need testing on the physical receiver.
+Automated host tests cover startup, the probe-detection latch, recovery timeout, loss of signal, update lockout, UART commands, credential validation and display labels. Router connection, fallback access point, Wi-Fi shutdown timing, browser settings and uploads still need testing on the receiver. See [testing status](validation.md).

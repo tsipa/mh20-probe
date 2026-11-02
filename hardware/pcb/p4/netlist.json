@@ -1,0 +1,199 @@
+{
+ "description": "P4 carrier netlist. Pins are REF.PIN; net names match the schematic (root sheet prefix /). Machine 0 V and logic GND are one net (non-isolated buck); only the PhotoMOS outputs are isolated. J1: 1 = 24V_IN, 2 = 0V, 3/4 = READY, 5/6 = PROBE. PhotoMOS outputs (pins 3/4) are bidirectional, so A/B may use either pin.",
+ "nets": {
+  "/24V_IN": [
+   "J1.1",
+   "U1.1"
+  ],
+  "/GND": [
+   "J1.2",
+   "U1.2",
+   "A1.14",
+   "A1.20",
+   "A1.26",
+   "J2.1",
+   "J3.1",
+   "K1.2",
+   "K2.2"
+  ],
+  "/5V_REG": [
+   "U1.3",
+   "JP1.1"
+  ],
+  "/5V_DEV": [
+   "JP1.2",
+   "A1.19"
+  ],
+  "/3V3": [
+   "A1.1",
+   "J2.2",
+   "J2.7",
+   "J3.2"
+  ],
+  "/PROBE_EN": [
+   "A1.9",
+   "R1.1"
+  ],
+  "/PROBE_LED": [
+   "R1.2",
+   "K1.1"
+  ],
+  "/PROBE_A": [
+   "J1.5",
+   "K1.3"
+  ],
+  "/PROBE_B": [
+   "J1.6",
+   "K1.4"
+  ],
+  "/READY_EN": [
+   "A1.8",
+   "R2.1"
+  ],
+  "/READY_LED": [
+   "R2.2",
+   "K2.1"
+  ],
+  "/READY_A": [
+   "J1.3",
+   "K2.3"
+  ],
+  "/READY_B": [
+   "J1.4",
+   "K2.4"
+  ],
+  "/LCD_DC": [
+   "A1.7",
+   "J2.6"
+  ],
+  "/LCD_RST": [
+   "A1.11",
+   "J2.5"
+  ],
+  "/LCD_SCK": [
+   "A1.12",
+   "J2.3"
+  ],
+  "/LCD_MOSI": [
+   "A1.15",
+   "J2.4"
+  ],
+  "/RF_DATA": [
+   "A1.10",
+   "J3.3"
+  ],
+  "/RF_CSN": [
+   "A1.29",
+   "J3.4"
+  ],
+  "/RF_SCK": [
+   "A1.28",
+   "J3.5"
+  ],
+  "/RF_MOSI": [
+   "A1.21",
+   "J3.6"
+  ],
+  "/RF_MISO": [
+   "A1.27",
+   "J3.7"
+  ]
+ },
+ "no_connect": [
+  "A1.2",
+  "A1.3",
+  "A1.4",
+  "A1.5",
+  "A1.6",
+  "A1.13",
+  "A1.16",
+  "A1.17",
+  "A1.18",
+  "A1.22",
+  "A1.23",
+  "A1.24",
+  "A1.25",
+  "A1.30",
+  "A1.31",
+  "A1.32",
+  "A1.33",
+  "A1.34",
+  "A1.35",
+  "A1.36",
+  "A1.37",
+  "A1.38",
+  "J3.8"
+ ],
+ "netclasses": {
+  "Power": [
+   "/GND",
+   "/3V3",
+   "/5V_REG",
+   "/5V_DEV",
+   "/24V_IN"
+  ],
+  "Iso": [
+   "/PROBE_A",
+   "/PROBE_B",
+   "/READY_A",
+   "/READY_B"
+  ],
+  "Signal": [
+   "/PROBE_EN",
+   "/PROBE_LED",
+   "/READY_EN",
+   "/READY_LED",
+   "/LCD_DC",
+   "/LCD_RST",
+   "/LCD_SCK",
+   "/LCD_MOSI",
+   "/RF_DATA",
+   "/RF_CSN",
+   "/RF_SCK",
+   "/RF_MOSI",
+   "/RF_MISO"
+  ]
+ },
+ "parts": {
+  "A1": {
+   "footprint": "Carrier:esp32",
+   "value": "ESP32 DevKitC V4"
+  },
+  "J1": {
+   "footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6-5.08_1x06_P5.08mm_Horizontal",
+   "value": "MKDS 1,5/6-5,08"
+  },
+  "J2": {
+   "footprint": "Carrier:lcd",
+   "value": "ER-TFTM013-1"
+  },
+  "J3": {
+   "footprint": "Carrier:radio_e07",
+   "value": "E07-M1101D-SMA"
+  },
+  "U1": {
+   "footprint": "Carrier:Buck_SIP3_7805",
+   "value": "DD4012SA 5V"
+  },
+  "JP1": {
+   "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+   "value": "REMOVE FOR USB"
+  },
+  "K1": {
+   "footprint": "Carrier:DIP-4_W7.62mm",
+   "value": "AQY212EH"
+  },
+  "K2": {
+   "footprint": "Carrier:DIP-4_W7.62mm",
+   "value": "AQY212EH"
+  },
+  "R1": {
+   "footprint": "Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "value": "150 1% 0.25W"
+  },
+  "R2": {
+   "footprint": "Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+   "value": "150 1% 0.25W"
+  }
+ }
+}

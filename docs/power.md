@@ -1,28 +1,32 @@
 # Power from a 24 V supply
 
-## Planned receiver supply
+## Carrier supply (P4)
 
-Use an **isolated, regulated 24 V → 5 V DC-DC converter connected to the ESP32 DevKit 5V/VIN input**. The regulator on the DevKit supplies 3.3 V to the ESP32, CC1101 and display.
-
-Choose at least **5 V / 1 A** output capacity. Check that the converter can handle the machine supply's voltage range and transients.
+U1 is a **DD4012SA 5 V step-down module** (3 pins IN/GND/OUT, 7805 pinout, input 4.75–40 V). It feeds the ESP32 DevKit 5V pin through jumper JP1. The DevKit's onboard regulator supplies 3.3 V to the ESP32, CC1101 and display.
 
 ```mermaid
 flowchart LR
-    A["Machine 24 V"] --> B["Isolated DC-DC<br/>24 → 5 V, ≥1 A"]
-    B --> C["ESP32 DevKit 5V/VIN"]
-    C --> D["Onboard 3.3 V regulator"]
-    D --> E["ESP32 + CC1101 + LCD"]
-    E --> F["PhotoMOS outputs to machine"]
+    A["J1.1 24 V / J1.2 0 V"] --> B["U1 DD4012SA<br/>24 → 5 V buck"]
+    B -- "5V_REG" --> C["JP1"]
+    C -- "5V_DEV" --> D["ESP32 DevKit 5V"]
+    D --> E["Onboard 3.3 V regulator"]
+    E --> F["ESP32 + CC1101 + LCD"]
+    F --> G["AQY212EH PhotoMOS outputs"]
 ```
 
-The converter's output ground connects to the ESP32, CC1101 and display. Connecting it to machine 0 V removes the power isolation. The PhotoMOS output contacts belong to the machine side. USB connected to a grounded computer can also create an external ground path.
+| Net | Connects |
+|---|---|
+| 24V_IN | J1 pin 1, U1 IN |
+| GND | J1 pin 2 (machine 0 V), U1 GND, ESP32, LCD, radio, PhotoMOS LED cathodes |
+| 5V_REG | U1 OUT to JP1 |
+| 5V_DEV | JP1 to ESP32 5V |
 
-Before applying USB power and external 5 V together, check the specific DevKit schematic: boards differ in their protection against reverse power. Until checked, disconnect external 5 V when programming through powered USB.
+## Grounding and USB
 
-## Direct 24 V → 3.3 V
+The buck module is **not isolated**: machine 0 V is the logic GND. The only isolation is in the two AQY212EH PhotoMOS outputs; their contacts float relative to the receiver.
 
-An **isolated, regulated 24 V → 3.3 V converter** can supply the 3V3 rail if the specific DevKit supports external power on that rail. This bypasses the onboard regulator. Converter regulation, startup transients, ESP32 current peaks and USB compatibility then need to be checked directly. An unregulated isolated converter is unsuitable.
+- **With JP1 fitted, do not connect USB to a PC while the board is on machine 24 V.** The PC ground would be tied to machine 0 V.
+- To work on the bench, **remove JP1** and power the board from USB only.
+- Reconnect JP1 before running from machine 24 V.
 
-For the DevKit, use a regulated 5 V supply into VIN. For a custom PCB, isolated 5 V followed by a dedicated 3.3 V regulator is a practical option. Size the regulator for peak current and verify ripple. Current draw, regulator temperature and operation from the machine supply still need testing.
-
-**Never apply 24 V to GPIO, CC1101, LCD or 3V3.** See [machine-interface.md](machine-interface.md) for outputs.
+**Never apply 24 V to GPIO, CC1101, LCD or 3V3.** Current draw, module temperature and operation from the machine supply have not been measured. See [machine-interface.md](machine-interface.md) for the outputs.

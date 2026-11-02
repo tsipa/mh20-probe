@@ -1,0 +1,11 @@
+Extracted reference text; use the original manufacturer drawing for graphical dimensions.
+
+48.26
+27.94
+1.29
+2.54
+18.00
+25.40
+6.04
+1.30
+Unit: mm

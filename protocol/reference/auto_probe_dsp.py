@@ -126,8 +126,10 @@ class AutoProbeDetector:
             fm,self.fm_zi = signal.lfilter(np.ones(5)/5,[1],fm,zi=self.fm_zi)
             logic = fm<-1800
             changes = np.flatnonzero(np.diff(np.r_[self.previous_logic,logic].astype(np.int8)))
-            for i in changes:
-                message = self.decoder.edge(bool(logic[i]),start+i/25000)
+            found = [self.decoder.edge(bool(logic[i]),start+i/25000) for i in changes]
+            # Like the firmware loop: after the edges, commit a frame whose FREE slot has closed.
+            found.append(self.decoder.poll(elapsed))
+            for message in found:
                 if message is not None:
                     message['frequency_hz'] = self.tuned_hz
                     self.chunk_messages.append(message)

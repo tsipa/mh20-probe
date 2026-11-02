@@ -1,0 +1,2620 @@
+Extracted reference text; use the original manufacturer drawing for graphical dimensions.
+
+2026.1
+PhotoMOS
+GE DIP4 1 Form A
+Product Catalog
+"　　　　　", " PhotoMOS " and " PHOTOMOS " are registered trademarks of Panasonic Holdings Corporation.
+Recognized in Japan, the United States, all member states of European Union and the other countries.
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+FEATURES
+
+●High I/O isolation voltage of 5,000 V
+
+●Controls low-level analog signals
+
+●High sensitivity and low on-resistance
+
+●Low-level off state leakage current of max. 1 µA
+TYPICAL APPLICATIONS
+
+●Modem
+
+●Telephone equipment
+
+●Electricity, plant equipment
+
+●Security equipment
+
+●Sensing equipment
+Note) This product is not for automotive use.
+Please contact our sales representative for automotive applications.
+DIP4-pin type with high insulation
+GE DIP4 1 Form A
+PhotoMOS
+TYPES
+4
+3
+2
+1
+6.4
+3.2
+3.2
+4.78
+6.4
+4.78
+2.9
+2.9
+(Height includes standoff)
+(Unit: mm)
+Category
+I/O isolation
+voltage
+Output rating*1
+Part No.
+Packing quantity
+Load
+voltage
+Load
+current
+Through hole
+terminal
+Surface mount terminal
+Tube
+Tape and reel
+Tube packing style
+Tape and reel
+packing style X*2
+AC/DC
+dual use
+5,000 V rms
+ ( High insulation )
+  30 V
+1,000 mA
+AQY211EH
+AQY211EHA
+AQY211EHAX
+1-tube          :    100 pcs.
+Outer carton: 1,000 pcs.
+1-reel            : 1,000 pcs.
+Outer carton: 1,000 pcs.
+  60 V
+   550 mA
+AQY212EH
+AQY212EHA
+AQY212EHAX
+350 V
+   130 mA
+AQY210EH
+AQY210EHA
+AQY210EHAX
+400 V
+   120 mA
+AQY214EH
+AQY214EHA
+AQY214EHAX
+600 V
+     50 mA
+AQY216EH
+AQY216EHA
+AQY216EHAX
+Note) For space reasons, the three initial letters of the part number " AQY " , the surface mount terminal shape indicator " A " and the packing style indicator " X " are not
+marked on the device. ( Ex. the label for product number AQY211EHAX is 211EH. )
+*1: Indicate the peak AC and DC values.
+*2: Tape and reel packing style X: picked from the 1/2-pin side. For part numbers with picked from the 3/4-pin side, change the " X " at the end to " Z " when ordering.
+ー 1 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+PhotoMOS GE DIP4 1 Form A
+RATING
+90%
+10%
+Input
+Output
+Toﬀ
+Ton
+*Turn on/Turn off time
+
+■Electrical characteristics ( Ambient temperature: 25 ℃ )
+Item
+Symbol
+AQY211EH ( A )
+AQY212EH ( A )
+AQY210EH ( A )
+AQY214EH ( A )
+AQY216EH ( A )
+Condition
+Input
+LED operate
+current
+Typical
+IFon
+1.2 mA
+IL ＝ Max.
+Maximum
+3.0 mA
+LED turn off
+current
+Minimum
+IFoff
+0.4 mA
+IL ＝ Max.
+Typical
+1.1 mA
+LED dropout
+voltage
+Typical
+VF
+1.25 V ( 1.14 V at IF ＝ 5 mA )
+IF ＝ 50 mA
+Maximum
+1.5 V
+Output
+On resistance
+Typical
+Ron
+0.25 Ω
+0.85 Ω
+18 Ω
+26 Ω
+  52 Ω
+IF ＝ 5 mA
+IL ＝ Max.
+Within 1 s
+Maximum
+0.5  Ω
+2.5  Ω
+25 Ω
+35 Ω
+120 Ω
+Off state
+leakage
+current
+Maximum
+ILeak
+1 µA
+IF ＝ 0 mA
+VL ＝ Max.
+Transfer characteristics
+Turn on time*
+Typical
+Ton
+1.5 ms
+1     ms
+0.5 ms
+IF ＝ 5 mA
+IL ＝ Max.
+Maximum
+5   ms
+4     ms
+2.0 ms
+Turn off time*
+Typical
+Toff
+0.1 ms
+0.05 ms
+0.08 ms
+0.04 ms
+IF ＝ 5 mA
+IL ＝ Max.
+Maximum
+1.0 ms
+I/O capacitance
+Typical
+Ciso
+0.8 pF
+f ＝ 1 MHz
+VB ＝ 0 V
+Maximum
+1.5 pF
+Initial I/O
+isolation
+resistance
+Minimum
+Riso
+1,000 MΩ
+500 V DC
+
+■Absolute maximum ratings ( Ambient temperature: 25 ℃ )
+Item
+Symbol
+AQY211EH ( A )
+AQY212EH ( A )
+AQY210EH ( A )
+AQY214EH ( A )
+AQY216EH ( A )
+Remarks
+Input
+LED forward current
+IF
+50 mA
+LED reverse voltage
+VR
+5 V
+Peak forward current
+IFP
+1 A
+f ＝ 100 Hz,
+Duty Ratio ＝ 0.1 %
+Power dissipation
+Pin
+75 mW
+Output
+Load voltage
+ ( peak AC )
+VL
+30 V
+60 V
+350 V
+400 V
+600 V
+Continuous load current
+IL
+1 A
+0.55 A
+0.13 A
+0.12 A
+0.05 A
+Peak AC, DC
+Peak load current
+Ipeak
+3 A
+1.5  A
+0.4  A
+0.3  A
+0.15 A
+100 ms ( 1 shot ),
+VL ＝ DC
+Power dissipation
+Pout
+500 mW
+Total power dissipation
+PT
+550 mW
+I/O isolation voltage
+Viso
+5,000 V rms
+Ambient temperature
+ ( Operating )
+Topr
+―40 to ＋  85 ℃
+ ( Avoid icing and
+condensation )
+Ambient temperature
+ ( Storage )
+Tstg
+―40 to ＋100 ℃
+Junction temperature
+Tj
+125 ℃
+ー 2 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+PhotoMOS GE DIP4 1 Form A
+REFERENCE DATA
+
+■Recommended operating conditions ( Ambient temperature: 25 ℃ )
+Please use under recommended operating conditions to obtain expected characteristics.
+Item
+Symbol
+Min.
+Max.
+Unit
+LED current
+IF
+5
+30
+mA
+AQY211EH ( A )
+Load voltage ( Peak AC )
+VL
+ー
+24
+V
+Continuous load current
+IL
+ー
+1
+A
+AQY212EH ( A )
+Load voltage ( Peak AC )
+VL
+ー
+48
+V
+Continuous load current
+IL
+ー
+0.55
+A
+AQY210EH ( A )
+Load voltage ( Peak AC )
+VL
+ー
+280
+V
+Continuous load current
+IL
+ー
+0.13
+A
+AQY214EH ( A )
+Load voltage ( Peak AC )
+VL
+ー
+320
+V
+Continuous load current
+IL
+ー
+0.12
+A
+AQY216EH ( A )
+Load voltage ( Peak AC )
+VL
+ー
+480
+V
+Continuous load current
+IL
+-ー
+0.05
+A
+1-1. Load current vs. ambient
+temperature characteristics
+-40
+0
+50
+100
+150
+200
+-20
+0
+20
+40
+60
+80
+100
+85
+AQY210EH
+AQY210EH
+AQY214EH
+AQY214EH
+Ambient temperature (°C)
+Load current (mA)
+Allowable ambient temperature: –40 to +85°C
+1-2. Load current vs. ambient
+temperature characteristics
+-40
+0
+0.6
+0.4
+0.2
+0.8
+1.0
+1.2
+-20
+0
+20
+40
+60
+80
+100
+85
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+Ambient temperature (°C)
+Load current (A)
+Ambient temperature: –40 to +85°C
+1-3. Load current vs. ambient
+temperature characteristics
+-40
+0
+0.04
+0.03
+0.02
+0.01
+0.05
+0.06
+0.07
+-20
+0
+20
+40
+60
+80
+100
+85
+AQY216EH
+AQY216EH
+Ambient temperature (°C)
+Load current (A)
+Ambient temperature: –40 to +85°C
+2-1. On resistance vs. ambient
+temperature characteristics
+-40
+0
+10
+20
+30
+40
+50
+-20
+0
+20
+40
+60
+8085
+AQY214EH
+AQY214EH
+AQY210EH
+AQY210EH
+Ambient temperature (°C)
+On resistance (Ω)
+Measured portion: between terminals 3 and 4;
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+2-2. On resistance vs. ambient
+temperature characteristics
+-40
+0
+0.5
+1.0
+1.5
+2.0
+-20
+0
+20
+40
+60
+8085
+AQY212EH
+AQY212EH
+AQY211EH
+AQY211EH
+Ambient temperature (°C)
+On resistance (Ω)
+Measured portion: between terminals 3 and 4;
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+2-3. On resistance vs. ambient
+temperature characteristics
+-40
+0
+20
+40
+60
+80
+100
+-20
+0
+20
+40
+60
+8085
+AQY216EH
+AQY216EH
+Ambient temperature (°C)
+On resistance (Ω)
+Measured portion: between terminals 3 and 4;
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+ー 3 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+PhotoMOS GE DIP4 1 Form A
+3-1. Turn on time vs. ambient
+temperature characteristics
+-40
+0
+1.0
+0.5
+1.5
+2.0
+2.5
+-20
+0
+20
+40
+60
+8085
+AQY210EH, AQY214EH
+AQY210EH, AQY214EH
+Ambient temperature (°C)
+Turn on time (ms)
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+3-2. Turn on time vs. ambient
+temperature characteristics
+-40
+0
+2.5
+2.0
+1.5
+1.0
+0.5
+3.0
+3.5
+4.0
+-20
+0
+20
+40
+60
+8085
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+AQY216EH
+AQY216EH
+Ambient temperature (°C)
+Turn on time (ms)
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+4-1. Turn off time vs. ambient
+temperature characteristics
+-40
+0
+0.10
+0.05
+0.15
+0.20
+0.25
+-20
+0
+20
+40
+60
+8085
+AQY210EH, AQY214EH
+AQY210EH, AQY214EH
+Ambient temperature (°C)
+Turn off time (ms)
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+4-2. Turn off time vs. ambient
+temperature characteristics
+-40
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+-20
+0
+20
+40
+60
+8085
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+AQY216EH
+AQY216EH
+Ambient temperature (°C)
+Turn off time (ms)
+LED current: 5 mA; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+5. LED operate current vs. ambient
+temperature characteristics
+-40
+0
+2
+1
+3
+4
+5
+-20
+0
+20
+40
+60
+80 85
+Ambient temperature (°C)
+LED operate current (mA)
+Sample: All types; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+6. LED turn off current vs. ambient
+temperature characteristics
+-40
+0
+2
+1
+3
+4
+5
+-20
+0
+20
+40
+60
+8085
+Ambient temperature (°C)
+LED turn off current (mA)
+Sample: All types; Load voltage: Max. (DC);
+Continuous load current: Max. (DC)
+7. LED dropout voltage vs. ambient
+temperature characteristics
+50 ｍA
+30 ｍA
+20 ｍA
+10 ｍA
+5 ｍA
+-40
+0
+1.1
+1.0
+1.2
+1.3
+1.4
+1.5
+-20
+0
+20
+40
+60
+8085
+Ambient temperature (°C)
+Sample: All types; LED current: 5 to 50 mA
+LED dropout voltage (V)
+8-1. Current vs. voltage characteristics
+of output at MOS portion
+
+20
+40
+60
+80
+140
+120
+100
+-20
+-1
+-4
+-2
+-3
+-5
+1
+4
+2
+3
+5
+-40
+-60
+-80
+-100
+-140
+-120
+AQY214EH
+AQY214EH
+AQY210EH
+AQY210EH
+Voltage (V)
+Voltage (V)
+Current (mA)
+Current (mA)
+Measured portion: between terminals 3 and 4;
+Ambient temperature: 25°C
+8-2. Current vs. voltage characteristics
+of output at MOS portion
+
+1.5
+0.5
+1.0
+0
+-0.5
+-0.2 -0.1
+-0.3
+-0.4
+0 0.1 0.2 0.3 0.4 0.5
+-1.0
+-0.5
+-1.5
+AQY212EH
+AQY212EH
+AQY211EH
+AQY211EH
+Voltage (V)
+Voltage (V)
+Current (A)
+Current (A)
+Measured portion: between terminals 3 and 4;
+Ambient temperature: 25°C
+ー 4 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+PhotoMOS GE DIP4 1 Form A
+8-3. Current vs. voltage characteristics
+of output at MOS portion
+
+0.06
+0.02
+0.04
+0
+-4
+-1
+-2
+-3
+0
+2
+4
+1
+3
+-0.04
+-0.02
+-0.06
+AQY216EH
+AQY216EH
+Voltage (V)
+Voltage (V)
+Current (A)
+Current (A)
+Measured portion: between terminals 3 and 4;
+Ambient temperature: 25°C
+9-1. Off state leakage current vs. load
+voltage characteristics
+0
+10-12
+10-9
+10-6
+10-3
+20
+40
+60
+80
+100
+AQY214EH
+AQY210EH
+Load voltage (V)
+Off state leakage current (A)
+Measured portion: between terminals 3 and 4;
+Ambient temperature: 25°C
+9-2. Off state leakage current vs. load
+voltage characteristics
+0
+10-13
+10-11
+10-9
+10-7
+10-5
+10-3
+20
+40
+60
+80
+100
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+AQY216EH
+AQY216EH
+Load voltage (V)
+Off state leakage current (A)
+Measured portion: between terminals 3 and 4;
+Ambient temperature: 25°C
+10-1. Turn on time vs. LED forward
+current characteristics
+0
+0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+10
+20
+30
+40
+60
+50
+AQY214EH
+AQY214EH
+AQY210EH
+AQY210EH
+AQY216EH
+LED forward current (mA)
+Turn on time (ms)
+Measured portion: between terminals 3 and 4;
+Load voltage: Max. (DC); Continuous load current:
+Max. (DC); Ambient temperature: 25°C
+10-2. Turn on time vs. LED forward
+current characteristics
+0
+0
+0.75
+1.50
+2.25
+3.00
+10
+20
+30
+40
+50
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+LED forward current (mA)
+Turn on time (ms)
+Measured portion: between terminals 3 and 4;
+Load voltage: Max. (DC); Continuous load current:
+Max. (DC); Ambient temperature: 25°C
+11-1. Turn off time vs. LED forward
+current characteristics
+0
+0
+0.05
+0.10
+0.15
+0.20
+10
+20
+30
+40
+60
+50
+AQY210EH, AQY214EH
+AQY210EH, AQY214EH
+AQY216EH
+AQY216EH
+LED forward current (mA)
+Turn off time (ms)
+Measured portion: between terminals 3 and 4;
+Load voltage: Max. (DC); Continuous load current:
+Max. (DC); Ambient temperature: 25°C
+11-2. Turn off time vs. LED forward
+current characteristics
+0
+0
+0.1
+0.2
+0.3
+0.4
+10
+20
+30
+40
+50
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+LED forward current (mA)
+Turn off time (ms)
+Measured portion: between terminals 3 and 4;
+Load voltage: Max. (DC); Continuous load current:
+Max. (DC); Ambient temperature: 25°C
+12-1. Output capacitance vs. applied
+voltage characteristics
+0
+0
+10
+20
+40
+30
+50
+10
+20
+30
+40
+50
+AQY214EH
+AQY214EH
+AQY210EH
+AQY210EH
+AQY216EH
+AQY216EH
+Applied voltage (V)
+Output capacitance (pF)
+Measured portion: between terminals 3 and 4;
+Frequency: 1 MHz; Ambient temperature: 25°C
+12-2. Output capacitance vs. applied
+voltage characteristics
+0
+0
+200
+150
+100
+50
+250
+350
+300
+400
+5
+10
+15
+20
+25
+30
+AQY211EH
+AQY211EH
+AQY212EH
+AQY212EH
+Applied voltage (V)
+Output capacitance (pF)
+Measured portion: between terminals 3 and 4;
+Frequency: 1 MHz; Ambient temperature: 25°C
+ー 5 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB126E   202601
+Panasonic Industry Co., Ltd. 2026
+PhotoMOS GE DIP4 1 Form A
+SCHEMATIC AND WIRING DIAGRAMS
+SAFETY STANDARDS
+Each standard may be updated at any time, so please check our Website for the latest information.
+Please refer to " the latest product specifications "
+when designing your product.
+•Requests to customers:
+https://industry.panasonic.com/global/en/salespolicies
+Through hole terminal type
+External dimensions
+PC board pattern
+( BOTTOM VIEW )
+Recommended mounting pad
+( TOP VIEW )
+CAD
+Surface mount terminal type
+External dimensions
+CAD
+The CAD data of the products with a " CAD " mark can be downloaded from our Website.
+CAD
+DIMENSIONS ( Unit: mm )
+Max.10°
+Max.10°
+4.78
+2.7
+0.33
+0.2
+1
+3
+3.2
+0.47
+0.47
+2.54
+7.62
+±0.2
+＋0.3
+－0.1
+6.4＋0.3
+－0.1
+Terminal thickness: t = 0.2
+General tolerance: ±0.1
+1
+0.2
+1
+4.78
+2.7
+1
+0.47
+0.47
+6.4
+2.54
+7.62
+＋0.3
+－0.1
+＋0.3
+－0.1
+2.7±0.05
++0.2
+ｰ0
+Max.10°
+Terminal thickness: t = 0.2
+General tolerance: ±0.1
+2.54
+4-0.8 dia.
+2.54
+7.62
+6.4
+Tolerance: ±0.1
+8.3
+1.9
+1.5
+2.54
+Tolerance: ±0.1
+Schematic
+Output
+configuration
+Load
+type
+Connection
+Wiring diagram
+4
+3
+2
+1
+1 Form A
+AC/DC
+―
+1
+IF
+IL
+2
+3
+4
+VL (AC, DC)
+IL
+4
+3
+VL (AC, DC)
+E1
+Load
+Load
+Part No.
+UL ( Recognized )
+BSI ( Approved )
+File No.
+ ( Standard No. )
+Contact rating
+File No.
+ ( Standard No. )
+Contact rating
+ ( Reinforced insulation )
+Contact rating
+ ( Basic insulation )
+AC/DC
+dual use
+AQY211EH ( A )
+E191218
+ ( UL1577 )
+1     A   30 V AC (peak)
+1     A   30 V DC
+―
+―
+AQY212EH ( A )
+0.55 A   60 V AC (peak)
+0.55 A   60 V DC
+CNF802387
+ ( EN62368-1 )
+0.55 A   60 V AC ( peak )
+0.55 A   60 V DC
+AQY210EH ( A )
+0.13 A 350 V AC (peak)
+0.13 A 350 V DC
+0.13 A 350 V AC ( peak )
+0.13 A 350 V DC
+AQY214EH ( A )
+0.12 A 400 V AC (peak)
+0.12 A 400 V DC
+0.12 A 400 V AC ( peak )
+0.12 A 400 V DC
+AQY216EH ( A )
+0.05 A 600 V AC (peak)
+0.05 A 600 V DC
+0.05 A 520 V AC ( peak )
+0.05 A 520 V DC
+0.05 A 600 V AC ( peak )
+0.05 A 600 V DC
+ー 6 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+PhotoMOS® Cautions for Use
+
+●Check the wiring diagrams in the catalog and be sure
+to connect the terminals correctly. If the device is
+energized with short circuit or any wrong connection,
+it may cause unexpected malfunction, abnormal heat
+or fire.
+
+■Derating design
+Derating is a significant factor for reliable design and
+product life. Even if the conditions of use ( temperature,
+current, voltage, etc. ) of the product are within the absolute
+maximum ratings, reliability may be lowered remarkably
+when continuously used in high load conditions ( high
+temperature, high humidity, high current, high voltage,
+etc. ) Therefore, please derate sufficiently below the absolute
+maximum ratings and evaluate the device in the actual
+condition.
+Moreover, regardless of the application, if malfunctioning
+can be expected to pose high risk to human life or to
+property, or if products are used in equipment otherwise
+requiring high operational safety, in addition to designing
+double circuits, that is, incorporating features such as a
+protection circuit or a redundant circuit, safety testing should
+also be carried out.
+
+■Applying stress that exceeds the absolute
+maximum rating
+If the voltage or current value for any of the terminals
+exceeds the absolute maximum rating, internal elements will
+deteriorate because of the overvoltage or overcurrent. In
+extreme cases, wiring may melt, or silicon P/N junctions may
+be destroyed.
+Therefore, the circuit should be designed in such a way that
+the load never exceed the absolute maximum ratings, even
+momentarily.
+
+■Input voltage ( for Voltage-sensitive type )
+For rising and dropping ratio of input voltage ( dv/dt ) ,
+maintain Min. 100 mV/ms.
+
+■Oscillation circuit and control circuit
+ ( for CC Type )
+The oscillation circuit and control circuit of product may be
+destroyed by external noise, surge, static electricity and so
+on.
+For noise effect to peripheral circuits when oscillation circuit
+operates, please implement safety measures on the system
+before use by verifying operation under the actual design.
+
+■Deterioration and destruction caused by
+discharge of static electricity
+This phenomenon is generally called static electricity
+destruction, and occurs when static electricity generated by
+various factors is discharged while the PhotoMOS terminals
+are in contact, producing internal destruction of the
+element.
+To prevent problems from static electricity, the following
+precautions and measures should be taken when using your
+device.
+1) Employees handling PhotoMOS should wear anti-static
+clothing and should be grounded through protective
+resistance of 500 kΩ to 1 MΩ.
+2) A conductive metal sheet should be placed over the
+worktable. Measuring instruments and jigs should be
+grounded.
+3) When using soldering irons, either use irons with low
+leakage current, or ground the tip of the soldering
+iron. ( Use of low-voltage soldering irons is also
+recommended. )
+4) Devices and equipment used in assembly should also
+be grounded.
+5) When packing printed circuit boards and equipment,
+avoid using high-polymer materials such as foam
+styrene, plastic, and other materials which carry an
+electrostatic charge.
+6) When storing or transporting PhotoMOS, the
+environment should not be conducive to generating
+static electricity ( for instance, the humidity should be
+between 45 % and 60 % ) , and PhotoMOS should be
+protected using conductive packing materials.
+
+■Unused terminals
+The No. 3 terminal is used with the circuit inside the device.
+Therefore, do not connect it to the external circuitry with
+either connection method A, B or C. ( 1 Form A 6-pin type )
+
+■Short across terminals
+Do not short circuit between terminals when device is
+energized, since there is possibility of breaking of the
+internal IC.
+
+●Do not use the product under conditions that
+exceed the range of its specifications. It may cause
+overheating, smoke, or fire.
+
+●Do not touch the recharging unit while the power
+is on. There is a danger of electrical shock. Be sure
+to turn off the power when performing mounting,
+maintenance, or repair operations on the device
+ ( including connecting parts such as the terminal
+board and socket ) .
+SAFETY WARNINGS
+ー 7 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Surge voltages at the input
+If reverse surge voltages are present at the input terminals,
+connect a diode in reverse parallel across the input terminals
+and keep the reverse voltages below the reverse breakdown
+voltage.
+Typical circuits are below shown.
+1) 6-pin
+1
+2
+3
+6
+5
+4
+2) Power type
+3
+2
+1
+4
+
+■Reverse voltages at the input ( for CC Type )
+If reverse voltages are present at the input terminals, for
+example, connect a schottky barrier diode in reverse parallel
+across the input terminals and keep the reverse voltages
+below the reverse breakdown voltage. Typical circuit is
+shown below.
+1
+2
+4
+3
+
+■Recommended LED forward current or
+recommended input voltage
+Design in accordance with the recommended operating
+conditions for each product.
+Since these conditions are affected by the operating
+environment, ensure conformance with all relevant
+specifications.
+
+■LED forward current vs. Ambient temperature
+characteristics
+Please keep the LED forward current to within the range
+given below.
+ ( *Please check the reference data in each catalog for
+products with maximum ambient temperature ( operating )
+over 85 ℃. )
+0
+20
+40
+100
+80
+60
+0
+20
+40
+60
+8085
+100
+-40
+-20
+Ambient temperature (°C)
+LED forward current (mA)
+For AQV209G, APV1111GV, APV3111GV
+0
+10
+20
+50
+40
+30
+0
+40
+60
+80 85
+100
+-40
+-20
+20
+Ambient temperature (°C)
+LED forward current (mA)
+ー 8 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Ripple in the input power supply
+If ripple is present in the input power supply, observe the
+following:
+1) For LED forward current at Emin, please maintain the
+value mentioned at " ■Recommended LED forward
+current. "
+2) Please make sure for the LED forward current at
+Emax. is less than the current value of the " ■Absolute
+maximum ratings " .
+3) Please maintain the input voltage at least 4 V for Emin.
+ ( GU, RF and Power voltage-sensitive type ) .
+4) Please make sure the input voltage for Emax. is no
+higher than 6 V ( GU and RF voltage-sensitive type ) .
+5) Please make sure the input voltage for Emax. is no
+higher than 30 V ( Power voltage-sensitive type ) .
+6) Please maintain the input voltage at least 3 V for Emin.
+ ( for CC Type )
+7) Please make sure the input voltage for Emax. is no
+higher than 5.5 V. ( for CC Type )
+Emin.
+Emax.
+8) Please keep amplitude voltage of ripple within ±0.5 V.
+ ( for CC Type )
+within ±0.5 V
+Set voltage
+Set voltage
+within ±0.5 V
+
+■Output spike voltages
+1) If an inductive load generates spike voltages which exceed
+the absolute maximum rating, the spike voltage shall be
+limited. Representative circuit examples of AC/DC dual
+use type are shown below. There are the same with DC
+only type.
+(1) 6-pin
+1
+2
+3
+4
+1
+2
+3
+4
+5
+5
+6
+6
+Load
+Load
+Clamp diode is
+connected in parallel
+with the load.
+CR snubber is
+connected in parallel
+with the load.
+(2) Power type
+1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+Clamp diode is
+connected in parallel
+with the load.
+Load
+Load
+Load
+CR snubber is
+connected in parallel
+with the load.
+A varistor is
+connected in parallel
+with PhotoMOS®
+(3) CC Type
+1
+2
+4
+3
+1
+2
+4
+3
+Load
+Load
+Clamp diode is
+connected in parallel
+with the load.
+CR snubber is
+connected in parallel
+with the load.
+2) When Clamp diode or CR Snubber is used in the circuit,
+the spike voltages from the load are limited. But the
+longer wire may become the inductance and cause the
+spike voltage. Keep the wire as short as possible.
+ー 9 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Notes for mounting
+1) When different kinds of packages are mounted on
+PC board, temperature rise at soldering lead is highly
+dependent on package size. Therefore, please set the
+lower temperature soldering condition than the conditions
+of item " ■Soldering " , and confirm the temperature
+condition of actual usage before soldering.
+2) When soldering condition exceeds our recommendation,
+the PhotoMOS characteristics may be adversely affected.
+It may occur package crack or bonding wire breaking
+because of thermal expansion unconformity and resin
+strength reduction. Please contact our sales office about
+the propriety of the condition.
+3) Please confirm the heat stress by using actual board
+because it may be changed by board condition or
+manufacturing process condition.
+4) Solder creepage, wettability, or soldering strength will be
+affected by the soldering condition or used soldering type.
+Please check them under the actual production condition
+in detail.
+5) Please apply coating when the device returns to a room
+temperature.
+
+■Input wiring pattern
+1) With AQY* or AQW* series avoid installing the input
+ ( LED side ) wiring pattern to the bottom side of the
+package if you require the specified I/O isolation voltage
+( Viso ) after mounting the PC board. Since part of
+the frame on the output side is exposed, it may cause
+fluctuations in the I/O isolation voltage.
+
+
+
+(Output terminal side)
+(Output terminal side)
+(Input terminal side)
+(Input terminal side)
+Input wiring
+pattern
+Input wiring
+pattern
+May not allow the prescribed I/O withstand
+voltage (Viso) to be achieved
+Portion of output side frame
+Portion of output side frame
+* Excluding high I/O isolation voltage products and SSOP, SON, and TSON
+packages
+2) Exposed terminals are electrically connected to internal
+elements. Be aware that contact with external circuits
+may cause deterioration of insulation between input and
+output, leading to destruction of internal elements.
+3) If installed in proximity to other device, take care to avoid
+short circuits between device, which may occur if exposed
+frames of adjacent device come too close.
+
+■Output Waveform ( CC Type )
+This product has the capacitor coupled isolation. Therefore,
+if output waveform fluctuates along the time axis ( e.g.
+AC waveform or pulsating waveform ) , it may affect the
+operation of this product and peripheral circuit. Please
+evaluate the device in the actual condition.
+
+■Continual DC bias ( AQV259 and AQV258 )
+If a continual DC bias will be applied between the input and
+output, the breakdown voltage of the switching element
+MOSFET on the output side may degrade. Therefore, be
+sure to test the product under actual conditions. Example of
+circuits that will cause degradation of breakdown voltage of
+MOSFET is given below.
+IF
+IL
+1
+2
+3
+6
+5
+4
+E
+Load
+
+■Connections Between Input and Output
+ ( CC Type )
+If you wish to use the product with a connection
+between input and output, you may not obtain expected
+performance. Therefore, please be sure to evaluate the
+device in the actual usage. A circuit example is shown below
+that may negatively affect PhotoMOS  characteristics.
+IIN
+IL
+VL(AC, DC)
+VIN
+3
+4
+2
+1
+Load
+
+■Cleaning solvents compatibility
+Cleaning the solder flux should use the immersion washing
+with an organic solvent. If you have to use ultrasonic
+cleaning, please adopt the following conditions and check
+that there are no problems in the actual usage.
+•	Frequency: 27 to 29 kHz
+•	Ultrasonic output: No greater than 0.25 W/cm2*
+•	Cleaning time: 30 s or less
+•	Others: Float PC board and the device in the cleaning
+solvent to prevent from contacting the
+ultrasonic vibrator
+* Applies to unit area ultrasonic output for ultrasonic baths
+ー 10 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Soldering
+1) Example of surface-mount terminal recommended
+conditions
+(1) IR ( Infrared reflow ) soldering method
+In case of automatic soldering, following conditions
+should be observed. ( recommended condition reflow:
+Max. 2 times, measurement point: soldering lead )
+t3
+T 3
+T 2
+T 1
+t2
+t1
+T1 = 150 to 180°C
+T2 = 230°C
+T3 = 240 to 250°C*
+t1 = 60 to 120 s
+t2 = Within 30 s
+t3 = Within 10 s
+*240 to 245°C for SON, VSSOP
+  and TSON package
+ ( *Some products have different recommended conditions.
+Please check " the latest product specifications " . )
+(2) Other soldering methods
+Other soldering methods ( VPS, hot-air, hot plate,
+laser heating, pulse heater, etc. ) affect the PhotoMOS
+characteristics differently, please evaluate the device
+under the actual usage.
+(3) Manual soldering method
+Temperature: 350 to 400 ℃, within 3 s,
+electrical power 30 to 60 W
+2) Example of through hole terminal recommended
+conditions
+(1) DWS soldering method
+In case of automatic soldering, following conditions
+should be observed.
+ ( recommended condition number of times:
+Max. 1 time, measurement point: soldering lead *1 )
+t3
+t2
+t1
+T 1
+T 2
+T1 = 120°C
+T2 = Max. 260°C
+t1 = within 60 s
+t2+t3 = within 5 s
+*1: Solder temperature: Max. 260 ℃
+(2) Other soldering method
+ ( recommended condition: 1 time )
+Preheating: Max. 120 ℃, within 120 s,
+measurement point: soldering lead
+Soldering: Max. 260 ℃, within 10 s,
+measurement area: soldering temperature
+(3) Manual soldering method
+Temperature: 350 to 400 ℃, within 3 s,
+electrical power 30 to 60 W
+
+■About the exposed terminals on the sides of the
+package ( for VSSOP, WSSOP )
+For VSSOP and WSSOP type, as shown in the following
+figure, part of the input and output frames are exposed on
+the sides of the package. Due to this, please be keep in mind
+the cautions listed below.
+1) Take care to avoid short circuits between exposed
+terminals, which may cause insulation deterioration
+between input and output, leading to destruction of
+internal elements.
+2) Since the exposed terminals are connected electrically
+to the internal element, please refer to the item
+ " ■Deterioration and destruction caused by discharge
+of static electricity " , and implement sufficient
+measures to control static electricity.
+3) When installing the devices in the vicinity, please keep
+in mind that if the exposed frames of adjacent devices
+get too close, a short between devices may occur.
+Part of frame on output side
+Part of frame on input side
+ ( Example: VSSOP type )
+ー 11 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Water condensation
+Water condensation occurs when the ambient temperature
+changes suddenly from a high temperature to low
+temperature at high humidity, or the device is suddenly
+transferred from a low ambient temperature to a high
+temperature and humidity. Condensation causes the failures
+such as insulation deterioration.
+Panasonic Industry Co., Ltd. does not guarantee the failures
+caused by water condensation. The heat conduction by
+the equipment the PhotoMOS is mounted may accelerate
+the water condensation. Please confirm that there is no
+condensation in the worst condition of the actual usage.
+ ( Special attention should be paid when high temperature
+heating parts are close to the PhotoMOS. )
+
+■About foreign matter between the output
+terminals ( AQY206GV )
+The distance between the output terminals of this device
+is short. If foreign matter is caught between the output
+terminals after mounting on the PC board, it will result in
+a leakage path. This leakage path increases the leakage
+current, which results in your products to malfunction.
+Additionally, the leakage path causes abnormal heat
+generation and short circuiting, which results in the
+destruction of your products.
+Although the absolute maximum load voltage rating is
+guaranteed for this device, please ensure the prevention of
+foreign matter on the area between the output terminals
+and evaluate this device in the most extreme conditions of
+actual usage.
+
+■Adjacent mounting
+When several PhotoMOS are mounted closely each other
+or heat-generating components are mounted close to the
+PhotoMOS, the abnormal heating may occur. This abnormal
+heat may be caused by the internal element when energized
+or thermal interference between the devices. The degree
+of temperature rise depends on the mounting layout of the
+devices and usage condition, therefore please be sure to use
+PhotoMOS with reduced load current after testing under the
+worst condition of the actual usage.
+
+■Transportation and storage
+1) Extreme vibration during transport may deform the lead
+or damage the PhotoMOS characteristics. Please handle
+the outer and inner boxes with care.
+2) Inadequate storage condition may degrade soldering,
+appearance, and characteristics. The following storage
+conditions are recommended:
+•	Temperature: 0 to 45 ℃
+•	Humidity: Max. 70 % RH
+•	Atmosphere: No harmful gasses such as sulfurous acid
+gas, minimal dust.
+3) Storage before TSON, VSSOP, WSSOP, SON, SSOP, or
+SOP processing
+In case the heat stress of soldering is applied to the
+PhotoMOS which absorbs moisture inside of its package,
+the evaporation of the moisture increases the pressure
+inside the package and it may cause the package blister or
+crack. This device is sensitive to moisture and it is packed
+in the sealed moisture-proof package. Please make sure
+the following condition after unsealing.
+* Please use the device immediately after unsealing.
+ ( Within 30 days at 0 to 30 ℃ and Max. 70 % RH )
+* If the device will be kept for a long time after unsealing,
+please store in another moisture-proof package containing
+silica gel. ( Please use within 90 days. )
+ー 12 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+
+■Packing format
+1) Tape and reel
+Tape dimensions
+Dimensions of tape reel
+TSON
+4-pin
+1.2±0.3
+0.2±0.05
+2.4
+±0.2
+2.2±0.2
+2±0.1
+4
+1.5+0.1
+ｰ0
+1.05
+4±0.1
+5.5±0.1
+12
+1.75±0.1
+±0.1
+±0.1dia.
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2-pin side: Part No. AQY2C*R*PX,
+AQY2C*R*P1X
+ ( Shown above )
+② When picked from 3/4-pin side: Part No. AQY2C*R*PZ
+13±1.5
+1.2
+±0.5
+2±0.5
+21±0.8
+13±0.5dia.
+60
+±3dia.
+180±3dia.
+*Quality of material: Polystyrene (PS)
+VSSOP
+4-pin
+±0.1
+1.75
+4.0±0.1
+1.5
+0.4±0.05
+3.4±0.3
+1
+2.4
+±0.2
+8±0.1
+2±0.1
+±0.1
+5.5
+12.0
+±0.2
+2.5
+±0.1
++0.1
+ｰ0
+dia.
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1 and 4-pin side: Part No. AQY*TY
+ ( Shown above )
+② When picked from 2 and 3-pin side: Part No. AQY*TW
+21±0.8
+13±0.5
+14
+±1.5
+2±0.5
+2±0.5
+80±1
+80±1dia.
+250±2dia.
+dia.
+dia.
+*Quality of material: Paper
+SON
+4-pin
+0.3±0.05
+2±0.3
+±0.2
+3.6
+2.8±0.2
+4±0.1
+4±0.1
+1.5±0.1
+±0.1
+1.75
+±0.1
+5.5
+±0.3
+12
+2±0.1
+dia.
+1.5 +0.1
+ｰ0 dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
+① When picked from 1 and 4-pin side: Part No. AQY*MY, AQY*M1Y
+ ( Shown above )
+② When picked from 2 and 3-pin side: Part No. AQY*MW
+End of the part number Y/W
+21±0.8
+13±0.5
+14
+±1.5
+2±0.5
+2±0.5
+80±1
+80±1dia.
+250±2dia.
+dia.
+dia.
+*Quality of material: Paper
+End of the part number 1Y
+13±1.5
+1.2
+±0.5
+2±0.5
+21±0.8
+13±0.5dia.
+60
+±3dia.
+180±3dia.
+*Quality of material: Polystyrene (PS)
+SSOP
+4-pin
+0.3±0.05
+2.4±0.3
+4.0±0.1
+3.0±0.1
+4.0±0.1
+±0.1
+1.75
+12.0
+±0.1
+5.5
+±0.2
+5.1
+1.5 +0.1
+ｰ0
+1.5+0.1
+ｰ0 dia.
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1 and 4-pin side: Part No. AQY*VY, AQY221*V1Y,
+APV*111*VY,
+APV*111*V1Y
+ ( Shown above )
+② When picked from 2 and 3-pin side: Part No. AQY*VW, APV*111*VW
+WSSOP
+4-pin
+2.2 ±0.3
+0.4 ±0.05
+Device mounted
+on tape
+Direction of picking
+1.7±0.2
+±0.2
+Direction of picking1.5     dia.
+＋0.1
+　0
+2.5
+＋0.3
+－0.1
+4.0
+±0.1
+2.0
+±0.1
+φ1.0
+±0.1
+±0.1
+4.0 ±0.1
+1.75
+±0.1
+12.0
+5.5
+5.5
+When picked from 1 and 4-pin side: Part No. AQY*WY, AQY*W1Y
+Note: " * " indicates characters of number or alphabet.
+ー 13 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+Tape dimensions
+Dimensions of tape reel
+SOP
+4-pin
+1.55±0.1
+7.2
+
+±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3±0.05
+2.8 ±0.3
+12
+5.5 ±0.1
+1.75
+±0.1
+4.7 ±0.1
+dia.
+1.5
+dia.
++0.1
+ｰ0
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2-pin side: Part No. AQY*SX,
+APV**21SX
+ ( Shown above )
+② When picked from 3/4-pin side: Part No. AQY*SZ, APV**21SZ
+21±0.8
+13±0.5
+14
+±1.5
+2±0.5
+2±0.5
+80±1
+80±1dia.
+250±2dia.
+dia.
+dia.
+*Quality of material: Paper
+SOP
+6-pin
+1.55±0.1
+7.2
+
+±0.1
+4
+
+±0.1
+2±0.1
+12 ±0.1
+0.3 ±0.05
+2.8 ±0.3
+12
+5.5 ±0.1
+1.75±0.1
+
+6.9 ±0.1
+dia.
+1.5
+dia.
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.1
+ｰ0
++0.3
+ｰ0.1
+① When picked from 1/2/3-pin side: Part No. AQV*SX
+ ( Shown above )
+② When picked from 4/5/6-pin side: Part No. AQV*SZ
+21±0.8
+13±0.5
+14
+±1.5
+2±0.5
+2±0.5
+80±1
+80±1dia.
+250±2dia.
+dia.
+dia.
+*Quality of material: Paper
+SOP
+8-pin
+7.5
+
+±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3 ±0.05
+2.8 ±0.3
+16
+7.5
+±0.1
+1.75±0.1
+
+10.15 ±0.1
+1.55±0.1dia.
+1.5
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.1
+ｰ0
++0.3
+ｰ0.1
+① When picked from 1/2/3/4-pin side: Part No. AQW*SX
+ ( Shown above )
+② When picked from 5/6/7/8-pin side: Part No. AQW*SZ
+21
+±0.8
+13±0.5
+17.5±1.5
+2±1
+2±0.5
+80 ±1dia.
+dia.
+80±1dia.
+250±2dia.
+*Quality of material: Paper
+SOP
+16-pin
+1.55±0.1
+7.5 ±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3 ±0.05
+2.8 ±0.3
+16
+
+7.5 ±0.1
+1.75±0.1
+
+11.15 ±0.1
+dia.
+1.5
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.1
+ｰ0
++0.3
+ｰ0.1
+① When picked from 1/2/3/4/5/6/7/8-pin side: Part No. AQS*SX
+ ( Shown above )
+② When picked from 9/10/11/12/13/14/15/16-pin side: Part No. AQS*SZ
+DIP
+4-pin
+Surface
+mount
+terminal
+1.5
+1.55±0.1
+
+10.2 ±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3
+
+±0.05
+3.8±0.3
+12
+5.5 ±0.1
+1.75±0.1
+5.25 ±0.1
++0.1
+ｰ0 dia.
+dia.
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2-pin side: Part No. AQY*HAX,
+AQY210HLAX
+ ( Shown above )
+② When picked from 3/4-pin side: Part No. AQY*HAZ, AQY210HLAZ
+21±0.8
+13±0.5
+13.5±2.0
+2
+±0.5
+2±0.5
+80 ±1
+dia.
+80 ±1dia.
+300
+±2dia.
+dia.
+*Quality of material: Paper
+Note: " * " indicates characters of number or alphabet.
+ー 14 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+Tape dimensions
+Dimensions of tape reel
+DIP
+6-pin
+Surface
+mount
+terminal
+1.6±0.1
+10.1
+
+±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3 ±0.05
+4.2 ±0.3
+16
+7.5 ±0.1
+1.75±0.1
+
+9.2 ±0.1
+1.5+0.1
+ｰ0 dia.
+dia.
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2/3-pin side: Part No. AQV*AX
+ ( Shown above )
+② When picked from 4/5/6-pin side: Part No. AQV*AZ
+21
+±0.8
+13
+±0.5
+17.5±2
+2±0.5
+2
+±0.5
+80 ±1
+80±1dia.
+dia.
+dia.
+300±2dia.
+*Quality of material: Paper
+DIP
+8-pin
+Surface
+mount
+terminal
+1.55±0.1
+10.1
+
+±0.1
+4 ±0.1
+2±0.1
+12 ±0.1
+0.3 ±0.05
+±0.3
+16
+7.5 ±0.1
+1.75±0.1
+
+10.2 ±0.1
+4.5
+1.5+0.1
+ｰ0 dia.
+dia.
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2/3/4-pin side: Part No. AQW*AX
+ ( Shown above )
+② When picked from 5/6/7/8-pin side: Part No. AQW*AZ
+21
+±0.8
+13
+±0.5
+17.5±2
+2±0.5
+2
+±0.5
+80 ±1
+80±1dia.
+dia.
+dia.
+300±2dia.
+*Quality of material: Paper
+DIP
+8-pin
+Surface
+mount
+terminal
+High I/O
+isolation
+voltage type
+1.5
+1.55±0.1
+10.2
+±0.1
+4 ±0.1
+2±0.1
+12
+
+±0.1
+0.3
+
+±0.05
+3.8±0.3
+16
+
+7.5
+±0.1
+1.75±0.1
+
+10.3 ±0.1
++0.1
+ｰ0
+dia.
+dia.
+Direction of picking
+Device mounted on tape
+Tractor feed holes
++0.3
+ｰ0.1
+① When picked from 1/2/3/4-pin side: Part No. AQW*EHAX,
+AQW210HLAX
+ ( Shown above )
+② When picked from 5/6/7/8-pin side: Part No. AQW*EHAZ,
+AQW210HLAZ
+Power-DIP
+4-pin
+Surface
+mount
+terminal
+1.5
+1.55
+4.0
+
+±0.1
+16.0
+±0.1
+2.0
+±0.1
+±0.1
+12.6
+
+±0.1
+1.75 ±0.1
+9.7±0.1
+11.5±0.1
+24.0 ±0.3
+0.3
+
+±0.05
+4.5
+±0.3
+dia.
+dia.
+Direction of picking
+Device mounted
+on tape
+Tractor feed holes
++0.1
+ｰ0
+① When picked from 1/2-pin side: Part No. AQY*AX
+ ( Shown above )
+② When picked from 3/4-pin side: Part No. AQY*AZ
+21
+±0.8
+13±0.5
+25.5±2
+1.7±0.8
+2±0.5
+100±1
+dia.
+dia.
+100±1dia.
+330±2dia.
+*Quality of material: Paper
+DIP
+6-pin
+Surface
+mount
+terminal
+ ( Photovoltaic
+MOSFET
+driver )
+1.5
+1.6±0.1
+10.1
+
+±0.1
+4
+±0.1
+2
+±0.1
+12
+±0.1
+0.3 ±0.05
+4.2±0.3
+16
+7.5
+±0.1
+1.75
+±0.1
+9.2
+
+±0.1
++0.1
+ｰ0
+dia.
+dia.
++0.3
+ｰ0.1
+Direction of picking
+Device mounted on tape
+Tractor feed holes
+① When picked from 1/2/3-pin side: Part No. APV1122AX
+ ( Shown above )
+② When picked from 4/6-pin side: Part No. APV1122AZ
+21
+±0.8
+13
+±0.5
+17.5±2
+2±0.5
+2
+±0.5
+80 ±1
+80±1dia.
+dia.
+dia.
+300±2dia.
+*Quality of material: Paper
+Note: " * " indicates characters of number or alphabet.
+ー 15 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+2) Tube
+Devices are packaged in a tube so that 1-pin is on the
+stopper B side. Observe correct orientation when
+mounting them on PC boards.
+ ( PD type )
+Stopper B
+Stopper A
+
+ ( DIP type )
+Stopper
+
+ ( SOP type )
+
+Stopper B (green)
+Stopper A (gray)
+
+ ( Power type )
+Stopper B
+Stopper A
+
+■Current limit function ( output current control )
+1) Current limit function aims to increase resistance to surges
+when the switch is turned on. Before using this function,
+connect the varistor to the output as shown in the figure
+below.
+1
+2
+4
+
+3
+* Set the varistor voltage to 150 V or less.
+Varistor
+Surge: 10×160μs 1.6kV
+2) The current limit function capability can be lost if used
+longer than the specified time. Be sure to set the output
+loss to the Max. rate.
+
+■Short circuit protection circuit
+The short circuit protection circuit is designed to protect
+circuits from excess current. Therefore, surge current may
+be detected as current overload in which case the output
+current will be cut and the off state maintained. For this
+reason, please include the inrush current in the load current
+and keep it below the maximum load current.
+Also, in order to maintain stability of internal IC operation,
+maintain an input current of at least 5 mA ( Latch type ) ,
+10 mA ( Non Latch type ) .
+
+■Photovoltaic MOSFET driver cautions for use
+When two external MOSFETs are connected with a common
+source terminal, oscillation may occur when operation is
+restored. Therefore, please insert a 100 to 1,000 Ω resistor
+between the gate terminal of the first MOSFET and the gate
+terminal of the second MOSFET.
+A typical example of this is given in the circuit below.
+1
+2
+3
+4
+6
+
+■Input LED current
+ ( For High Capacity type: with part number G )
+When making PhotoMOS turn on and turn off, please make
+sure that the LED forward current increases and decreases
+instantly.
+
+■Input voltage
+ ( for Power voltage-sensitive type )
+For rising and dropping ratio of input voltage ( dv/dt ) ,
+maintain Min. 100 mV/s.
+
+■Adjacent mounting ( for Power type )
+1) When devices are mounted close together with the
+heat-generated devices, ambient temperature may rise
+abnormally. Mounting layout and ventilation should be
+considered.
+2) When many devices are mounted close together, load
+current should be reduced.
+ ( Refer to the data of " Load current in adjacent mounting
+vs. Ambient temperature characteristics." )
+ー 16 ー
+
+
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industry.panasonic.com
+ASCTB65E   202509
+Panasonic Industry Co., Ltd. 2025
+PhotoMOS® Cautions for Use
+1) Power PhotoMOS ( 1 Form A )
+Absolute maximum rating
+Recommended
+load voltage
+Load voltage
+Load current
+DC type
+AQZ102
+  60 V DC
+4.0 A DC
+5, 12, 24 V DC
+AQZ105
+100 V DC
+2.6 A DC
+  48 V DC
+AQZ107
+200 V DC
+1.3 A DC
+100 V DC
+AQZ104
+400 V DC
+0.7 A DC
+200 V DC
+AC/DC type
+AQZ202
+Peak AC, DC   60 V
+Peak AC, DC 3.0 A
+  12 V AC
+5, 12, 24 V DC
+AQZ205
+Peak AC, DC 100 V
+Peak AC, DC 2.0 A
+  24 V AC
+  48 V DC
+AQZ207
+Peak AC, DC 200 V
+Peak AC, DC 1.0 A
+  48 V AC
+100 V DC
+AQZ204
+Peak AC, DC 400 V
+Peak AC, DC 0.5 A
+120 V AC
+200 V DC
+2) Power PhotoMOS (1 Form B)
+Absolute maximum rating
+Recommended
+load voltage
+Load voltage
+Load current
+AC/DC
+type
+AQZ404
+Peak AC, DC 400 V
+Peak AC, DC 0.5 A
+100 V AC
+200 V DC
+3) Power PhotoMOS Voltage-sensitive type ( 1 Form A )
+Absolute maximum rating
+Recommended
+load voltage
+Load voltage
+Load current
+DC type
+AQZ102D
+  60 V DC
+3.6 A DC
+5, 12, 24 V DC
+AQZ105D
+100 V DC
+2.3 A DC
+  48 V DC
+AQZ107D
+200 V DC
+1.1 A DC
+100 V DC
+AQZ104D
+400 V DC
+0.6 A DC
+200 V DC
+AC/DC type
+AQZ202D
+Peak AC, DC   60 V
+Peak AC, DC 2.7  A
+  12 V AC
+5, 12, 24 V DC
+AQZ205D
+Peak AC, DC 100 V
+Peak AC, DC 1.8  A
+  24 V AC
+  48 V DC
+AQZ207D
+Peak AC, DC 200 V
+Peak AC, DC 0.9  A
+  48 V AC
+100 V DC
+AQZ204D
+Peak AC, DC 400 V
+Peak AC, DC 0.45 A
+120 V AC
+200 V DC
+4) Power PhotoMOS High Capacity type ( 1 Form A )
+Absolute maximum rating
+Recommended
+load voltage
+Load voltage
+Load current
+DC type
+AQZ192
+60 V DC
+10 A DC
+5, 12, 24 V DC
+AQZ197
+200 V DC
+  5 A DC
+100 V DC
+AC/DC type
+AQZ202G
+Peak AC, DC   60 V
+Peak AC, DC 6 A
+  12 V AC
+5, 12, 24 V DC
+AQZ205G
+Peak AC, DC 100 V
+Peak AC, DC 4 A
+  24 V AC
+  48 V DC
+AQZ207G
+Peak AC, DC 200 V
+Peak AC, DC 2 A
+  48 V AC
+100 V DC
+AQZ206G2
+Peak AC, DC 600 V
+Peak AC, DC 1 A
+120, 240 V AC
+200, 400 V DC
+
+■Recommended load voltage
+As a guide in selecting PhotoMOS, please refer to the
+following table.
+ー 17 ー
+
+
+Electromechanical Control Business Division
+industry.panasonic.com
+1006, Oaza Kadoma, Kadoma-shi, Osaka 571-8506, Japan
+■Global Sales Network Information: industry.panasonic.com/global/en/salesnetwork/globalnetwork
+©Panasonic Industry Co., Ltd. 2026
+2026.1
+Specifications are subject to change without notice.
+ASCTB126E   202601

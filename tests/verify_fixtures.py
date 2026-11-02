@@ -59,12 +59,15 @@ def main():
     for case in manifest['cases']:
         call('reset')
         detector = InstrumentedDetector({},sample_rate=case['sample_rate_hz'],center_hz=case['center_hz'])
-        messages=[];states=[];cpp=[];transitions=[]
+        messages=[];frames=[];samples=[];states=[];cpp=[];transitions=[];cpp_contact=None
         for iq in blocks(case):
             state = detector.process_iq(iq)
+            frames.extend(detector.chunk_messages)  # Timing-valid frames, accepted or not.
             messages.extend(m for m in detector.chunk_messages if m['locked'])
+            samples.append(state['seconds'])
             mask = call('outputs',micros(state['seconds']))
             if mask in (3,5):cpp.append('free' if mask==3 else 'contact')
+            if mask==5 and cpp_contact is None:cpp_contact=state['seconds']
             if state['probe_present']:
                 if not states or state['state']!=states[-1]:
                     transitions.append(state['seconds'])
@@ -83,6 +86,15 @@ def main():
         if 'transition_relative_seconds' in expected:
             low,high=expected['transition_relative_seconds']
             assert low<=transitions[1]<=high,(case['name'],transitions)
+        if expected['confirmed_states'][:2]==['free','contact']:
+            # The probe sends its first CONTACT frame at once, off the FREE cadence. Both
+            # decoders must report it at the first 10 ms sample after that frame is decided.
+            touch=next(i for i,m in enumerate(frames) if m['state']=='contact')
+            gap=(frames[touch]['frame_start_seconds']-frames[touch-1]['frame_start_seconds'])*1e6
+            periods=round(gap/16250)
+            assert not (1<=periods<=3 and abs(gap-periods*16250)<=300),(case['name'],'touch frame on cadence',gap)
+            report=min(t for t in samples if t>=frames[touch]['seconds'])
+            assert transitions[1]==report and cpp_contact==report,(case['name'],frames[touch],transitions,cpp_contact)
         frequencies=[m['frequency_hz'] for m in messages]
         if 'frequencies_hz' in expected:
             targets=expected['frequencies_hz'];tol=expected['frequency_tolerance_hz']

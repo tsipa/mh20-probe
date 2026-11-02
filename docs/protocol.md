@@ -21,12 +21,12 @@ Frames repeat approximately every **16,250 µs**, or 61.54 messages/s. Contact m
 
 [ProbeDecoder.h](../firmware/probe_rx/ProbeDecoder.h) checks:
 
-- Each pulse is 120–400 µs wide.
-- The second, third and fourth pulse offsets match within ±120 µs.
-- Consecutive valid frames are separated by 1–3 × 16,250 µs, within ±300 µs.
-- Initial link acquisition requires two frames with matching cadence.
+- Each pulse is 120–400 µs wide. Through the 25 kHz reference demodulator (40 µs steps) the recorded pulses measure 200–280 µs; the width also shifts with the carrier offset at the slicer, so the window stays wide. A pulse outside this window, a pulse that starts before the previous one has ended (missed falling edge), or an inactive level while no pulse is open (missed rising edge, for example a pulse shorter than the interrupt latency) discards every open frame. The receiver interrupt reports the line level, not the edge direction, so chatter at an edge arrives as a repeated level: an inactive level up to 40 µs after the falling edge, or an active level up to 40 µs after the rising edge, is treated as edge bounce and ignored, and the pulse keeps the time of its first edge.
+- A frame is decided only after its FREE slot has closed, 3760 µs after the first pulse. It needs exactly one pulse in each of the 1040 and 1560 µs slots, exactly one in the CONTACT or the FREE slot (all ±120 µs) and no other pulse. Pulses in both slots, or any other extra pulse, discard the frame, so one noise pulse cannot turn a FREE frame into CONTACT. CONTACT is reported about 0.4 ms after the end of its fourth pulse.
+- Initial link acquisition and every FREE frame require cadence with the previous valid frame: 1–3 × 16,250 µs, within ±300 µs.
+- While the link is up, a CONTACT frame is accepted at once, even off-cadence, and becomes the new cadence reference. The probe sends such a frame as soon as it is touched, so contact is not reported a frame late and a one-frame touch is not lost.
 
-Once acquired, the next accepted frame updates state. A link is lost after **65 ms without an accepted frame**. A single matching pulse group is not enough to lock onto the probe.
+Opening the probe loop is easy; closing it again needs a FREE frame on cadence. A link is lost after **65 ms without an accepted frame**. A single matching pulse group is not enough to lock onto the probe.
 
 The receiver does not pair with the probe or transmit commands; the sketch never issues STX. Other modes used by the original receiver have not been investigated.
 

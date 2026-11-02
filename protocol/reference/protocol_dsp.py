@@ -1,5 +1,4 @@
 """Decode the observed four-pulse contact message, with no assumed byte/CRC format."""
-from collections import deque
 import numpy as np
 from scipy import signal
 from contact_dsp import Decimator, RAW_FS
@@ -7,43 +6,114 @@ from signal_meter import SignalMeter
 
 
 class PulseMessageDecoder:
-    """The same edge-timing algorithm can run on a microcontroller GPIO."""
+    """Edge timing decoder; same rules and integer-microsecond arithmetic as firmware ProbeDecoder.h.
+
+    A frame is decided only after its FREE slot has closed: exactly one pulse in the
+    1040 and 1560 us slots, exactly one in the CONTACT (3120 us) or FREE (3640 us) slot
+    and no other pulse in the frame. Initial acquisition and FREE frames need cadence
+    with the previous timing-valid frame; while the link is up a CONTACT frame is
+    accepted immediately even off-cadence. A pulse outside the width window, a pulse
+    start while the previous pulse has not ended (more than BOUNCE_US after its rising
+    edge), or an inactive level while no pulse is open (more than BOUNCE_US after the
+    previous falling edge) discards every open frame. A repeated level within BOUNCE_US
+    of its edge is bounce and ignored; the pulse keeps the time of its first edge.
+    Every timing-valid frame is returned as a message; 'locked' is True when it was accepted.
+    tests/verify_decoder.py replays the same edge streams through both decoders.
+    """
+    MIN_WIDTH_US, MAX_WIDTH_US = 120, 400
+    BOUNCE_US = 40
+    SLOT_US = 120
+    CONTACT_US, FREE_US = 3120, 3640
+    FRAME_US = FREE_US+SLOT_US
+    PERIOD_US, PERIOD_TOLERANCE_US = 16250, 300
+    LINK_TIMEOUT_US = 65000
+    CAPACITY = 8
+
     def __init__(self):
-        self.pulses=deque(maxlen=4)
+        self.pulses=[]  # (start_us, end_us) of valid-width pulses in open frames
         self.pulse_start=None
+        self.pulse_end=None
         self.last_start=None
-        self.cadence_count=0
+        self.clock=None
+        self.link_up=False
+        self.last_message_us=0
+        self.state=None  # 'free' or 'contact' after the first accepted frame
         self.locked=False
         self.messages=0
 
     def edge(self, active, seconds):
+        now=round(seconds*1e6)
+        message=self._settle(now)
         if active:
-            self.pulse_start=seconds
-            return None
-        if self.pulse_start is None:return None
-        start=self.pulse_start;self.pulse_start=None
-        width=seconds-start
-        if not .00012<=width<=.00040:
+            if self.pulse_start is not None:
+                if 0<=now-self.pulse_start<=self.BOUNCE_US:return message  # Rising-edge bounce.
+                self.pulses.clear()  # Missed falling edge.
+            self.pulse_start=now
+            return message
+        if self.pulse_start is None:
+            # Missed rising edge, unless it is bounce just after the previous falling edge.
+            if self.pulse_end is None or not 0<=now-self.pulse_end<=self.BOUNCE_US:self.pulses.clear()
+            return message
+        start=self.pulse_start;self.pulse_start=None;self.pulse_end=now
+        if not self.MIN_WIDTH_US<=now-start<=self.MAX_WIDTH_US:
             self.pulses.clear()
-            return None
-        self.pulses.append((start,width))
-        if len(self.pulses)!=4:return None
-        offsets=np.array([p[0]-self.pulses[0][0] for p in self.pulses])
-        if max(abs(offsets[1]-.00104),abs(offsets[2]-.00156))>.00012:return None
-        targets=np.array([.00312,.00364])
-        which=int(np.argmin(abs(targets-offsets[3])))
-        if abs(targets[which]-offsets[3])>.00012:return None
-        first=self.pulses[0][0]
+            return message
+        if len(self.pulses)==self.CAPACITY:del self.pulses[0]
+        self.pulses.append((start,now))
+        return self._settle(now) or message
+
+    def poll(self, seconds):
+        """Commit a frame whose FREE slot has closed; call after all edges up to `seconds`."""
+        return self._settle(round(seconds*1e6))
+
+    def link(self, seconds):
+        return self.link_up and round(seconds*1e6)-self.last_message_us<self.LINK_TIMEOUT_US
+
+    def _settle(self, now):
+        if self.clock is not None and now<self.clock:return None
+        self.clock=now
+        message=None
+        while self.pulses:
+            first=self.pulses[0][0]
+            if now-first<=self.FRAME_US:break
+            if self.pulse_start is not None and self.pulse_start-first<=self.FRAME_US:
+                if now-self.pulse_start<=self.MAX_WIDTH_US:break
+                self.pulses.clear();break
+            frame=[p for p in self.pulses if p[0]-first<=self.FRAME_US]
+            state=self._classify(frame)
+            if state is None:
+                del self.pulses[0];continue
+            message=self._commit(state,frame)
+            del self.pulses[:4]
+        if self.link_up and now-self.last_message_us>=self.LINK_TIMEOUT_US:self.link_up=False
+        return message
+
+    def _classify(self, frame):
+        if len(frame)!=4:return None
+        offsets=[p[0]-frame[0][0] for p in frame]
+        if abs(offsets[1]-1040)>self.SLOT_US or abs(offsets[2]-1560)>self.SLOT_US:return None
+        if abs(offsets[3]-self.CONTACT_US)<=self.SLOT_US:return 'contact'
+        if abs(offsets[3]-self.FREE_US)<=self.SLOT_US:return 'free'
+        return None
+
+    def _commit(self, state, frame):
+        first=frame[0][0]
+        done=max(first+self.FRAME_US,frame[3][1])
         cadence=False
         if self.last_start is not None:
             interval=first-self.last_start
-            periods=round(interval/.01625)
-            cadence=1<=periods<=3 and abs(interval-periods*.01625)<.00030
-        self.cadence_count=self.cadence_count+1 if cadence else 1
-        self.locked=self.cadence_count>=2
+            periods=(interval+self.PERIOD_US//2)//self.PERIOD_US
+            cadence=1<=periods<=3 and abs(interval-periods*self.PERIOD_US)<=self.PERIOD_TOLERANCE_US
+        linked=self.link_up and done-self.last_message_us<self.LINK_TIMEOUT_US
         self.last_start=first
         self.messages+=1
-        return {'seconds':seconds,'frame_start_seconds':first,'state':'contact' if which==0 else 'free','fourth_pulse_offset_us':float(offsets[3]*1e6),'pulse_widths_us':[float(p[1]*1e6) for p in self.pulses],'locked':self.locked,'message_number':self.messages}
+        self.locked=cadence or (linked and state=='contact')
+        if self.locked:
+            self.link_up=True;self.last_message_us=done;self.state=state
+        return {'seconds':done/1e6,'frame_start_seconds':first/1e6,'state':state,
+                'fourth_pulse_offset_us':float(frame[3][0]-first),
+                'pulse_widths_us':[float(e-s) for s,e in frame],'locked':self.locked,
+                'message_number':self.messages}
 
 
 class DecodedContactDetector:
@@ -88,8 +158,9 @@ class DecodedContactDetector:
         if present and elapsed>=.1:
             logic=fm<-1800
             changes=np.flatnonzero(np.diff(np.r_[self.previous_logic,logic].astype(np.int8)))
-            for i in changes:
-                message=self.decoder.edge(bool(logic[i]),(self.fm_samples+i)/25000)
+            found=[self.decoder.edge(bool(logic[i]),(self.fm_samples+i)/25000) for i in changes]
+            found.append(self.decoder.poll((self.fm_samples+len(fm))/25000))
+            for message in found:
                 if message is not None:
                     self.chunk_messages.append(message)
                     if message['locked']:self.latest=message

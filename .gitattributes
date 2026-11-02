@@ -12,3 +12,6 @@
 *.ci16 binary
 *.png binary
 *.jpg binary
+*.pdf binary
+*.webp binary
+*.zip binary

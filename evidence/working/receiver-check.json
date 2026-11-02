@@ -12,9 +12,8 @@
   "contact_seen": true,
   "duration_seconds": 45,
   "link_losses": 1,
-  "started_at": "2026-10-31T15:13:10.6872831-07:00",
+  "started_at": "2026-10-31T22:13:10.6872831Z",
   "finished": true,
   "free_seen": true,
-  "port": "COM4",
-  "finished_at": "2026-10-31T15:13:56.0035159-07:00"
+  "finished_at": "2026-10-31T22:13:56.0035159Z"
 }

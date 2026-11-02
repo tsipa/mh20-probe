@@ -36,7 +36,8 @@ class Diagram:
                   '<rect width="1280" height="750" fill="#f4f7fb"/>']
     def font(self,size,bold):
         options=[Path('C:/Windows/Fonts')/('segoeuib.ttf' if bold else 'segoeui.ttf'),
-                 Path('/usr/share/fonts/truetype/dejavu')/('DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf')]
+                 Path('/usr/share/fonts/truetype/dejavu')/('DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf'),
+                 Path('/usr/share/fonts/dejavu-sans-fonts')/('DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf')]
         for path in options:
             if path.is_file():return ImageFont.truetype(str(path),size)
         return ImageFont.load_default(size=size)
@@ -95,10 +96,10 @@ def wiring():
         d.dot(948,y,color)
     d.text(968,503,'No CS pin; BLK = backlight',16)
     d.rect(36,564,1208,148,fill='#e8eef7')
-    d.text(56,593,'Reserved for the machine interface (not wired directly to 24 V)',20,bold=True)
+    d.text(56,593,'Machine outputs: GPIO → 150 ohm → AQY212EH PhotoMOS → J1 (never wire 24 V to a GPIO)',20,bold=True)
     d.text(56,627,'     '.join('GPIO'+str(pin['gpio'])+' '+pin['signal'] for pin in data['machine_reserved']),19)
-    d.text(56,660,'Power: isolated 24 → 5 V DC-DC → 5V/VIN; ESP32 3V3 feeds radio and display.',18)
-    d.text(56,687,'PhotoMOS output stage: planned. See docs/machine-interface.md.',17)
+    d.text(56,660,'Power: 24 V → DD4012SA 5 V buck (not isolated) → JP1 → ESP32 5V; ESP32 3V3 feeds radio and display.',18)
+    d.text(56,687,'Machine 0 V = logic GND. With JP1 fitted, do not connect USB to a PC on machine 24 V. See docs/power.md.',17)
     d.save()
 
 if __name__=='__main__':

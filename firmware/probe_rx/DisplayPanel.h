@@ -17,7 +17,7 @@ class SlowST7789 : public Adafruit_ST7789 {
 SlowST7789 screen(&bus,-1,DC_PIN,RESET_PIN);
 portMUX_TYPE lock=portMUX_INITIALIZER_UNLOCKED;
 struct Snapshot {
-  int state=-2; // Only 1/2 mean a validated probe. All other states are red.
+  int state=-2; // Only 1/2 mean a validated probe. All other states are red; -4 = output guard fault.
   uint32_t frequency=433994200, messages=0, touches=0, losses=0, overflows=0;
   uint32_t lastMessageAt=0, lastTouchMs=0;
   uint16_t messagesPerSecond=0;
@@ -38,7 +38,7 @@ void signedHalf(char *out, size_t size, int half) {
 }
 void task(void *) {
   bus.begin(SCK_PIN,-1,MOSI_PIN,-1);
-  screen.init(240,240,SPI_MODE3); screen.setSPISpeed(DRAW_HZ); screen.setRotation(2);
+  screen.init(240,240,SPI_MODE3); screen.setSPISpeed(DRAW_HZ); screen.setRotation(0);
   DisplayRaster::strip.setTextWrap(false);
   Serial.printf("DISPLAY READY MODE3 20MHz STATIC_STRIP=%u bytes\n",DisplayRaster::PIXEL_BYTES);
   constexpr uint8_t ROWS=DisplayRaster::ROWS;
@@ -59,9 +59,9 @@ void task(void *) {
       metricsAt=millis();
       DisplayRaster::Lines lines={};
       strncpy(lines[0],s.wifiStatus,sizeof(lines[0])-1);
-      strcpy(lines[1],visual==2?"TOUCH":visual==1?"READY":"NO PROBE");
+      strcpy(lines[1],visual==2?"TOUCH":visual==1?"READY":s.state==-4?"FAULT":"NO PROBE");
       const char *detail=flash?"SHORT TOUCH":s.state==2?"PROBE TRIGGERED":s.state==1?"VALID MESSAGES":
-        s.state==-3?"SERVICE MODE":s.state==-1?"RADIO NOT CONNECTED":s.state==3?"RF WITHOUT PROBE MESSAGES":
+        s.state==-4?"OUTPUT GUARD FAULT":s.state==-3?"SERVICE MODE":s.state==-1?"RADIO NOT CONNECTED":s.state==3?"RF WITHOUT PROBE MESSAGES":
         s.state==4?"RADIO STATUS UNAVAILABLE":s.state==5?"SEARCHING 433-435 MHz":s.state==-2?"STARTING":"NO VALID PROBE SIGNAL";
       strncpy(lines[2],detail,sizeof(lines[2])-1);
       if (s.state==-1||s.state==-2) strcpy(lines[3],"RX -- MHz");

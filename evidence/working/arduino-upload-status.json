@@ -1,9 +1,8 @@
 {
-  "port": "COM4",
-  "finished_at": "2026-10-31T15:13:56.0035159-07:00",
+  "finished_at": "2026-10-31T22:13:56.0035159Z",
   "error": null,
   "success": true,
   "phase": "done",
   "finished": true,
-  "started_at": "2026-10-31T15:11:24.2063347-07:00"
+  "started_at": "2026-10-31T22:11:24.2063347Z"
 }

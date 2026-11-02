@@ -6,3 +6,18 @@ __pycache__/
 *.wasm
 .vscode/
 .idea/
+
+# Local tools, editor state and build products
+_tools/
+*.kicad_prl
+*.lck
+*.dsn
+*.ses
+*.exe
+*.dll
+*.wasm
+*.elf
+*.bin
+*.tar.gz
+*.zip
+!hardware/pcb/fab/*.zip

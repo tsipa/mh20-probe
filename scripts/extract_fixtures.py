@@ -1,4 +1,4 @@
-"""Extract unchanged ADC bytes from the original archive; normally not needed for tests."""
+"""Extract unchanged ADC bytes from the full recordings; normally not needed for tests."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -9,13 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--source-root', type=Path, required=True, help='Original hackrf-mh archive directory')
+    p.add_argument('--source-root', type=Path, required=True, help='Directory with touches-full.cs8, background-full.cs8 and sweep-full.wav')
     args = p.parse_args()
     dest = ROOT/'fixtures'
     dest.mkdir(exist_ok=True)
-    touch = 'captures/cases_manual_20261030/touches_152213_349816.cs8'
-    background = 'captures/cases_manual_20261030/background_151557_272716.cs8'
-    sweep = 'sdrpp-config/recordings/baseband_433912004Hz_22-53-35_30-10-2026.wav'
+    touch = 'touches-full.cs8'
+    background = 'background-full.cs8'
+    sweep = 'sweep-full.wav'
     specs = [
         ('background',background,2.00,.20,[],0),
         ('free',touch,2.00,.20,['free'],5),
@@ -64,11 +64,11 @@ def main():
                         'iq_order':'I,Q','byte_order':'little' if fmt=='ci16' else 'not applicable',
                         'scale':32768 if fmt=='ci16' else 128,'bytes':len(payload),
                         'duration_seconds':duration,'sha256':hashlib.sha256(payload).hexdigest(),
-                        'source':{'archive_relative_path':source,'bytes':path.stat().st_size,
+                        'source':{'recording':source,'bytes':path.stat().st_size,
                                   'sha256':hashes[source],'start_seconds':start,'byte_offset':byte_offset},
                         'expected':expected})
     manifest = {'schema_version':1,'description':'Real recorded ADC samples, no filtering, synthesis or IQ resampling.',
-                'label_basis':'Contact transitions from original contact_analysis decoded_messages.csv, manually matched to touch actions; channel hop from WAV sweep measurements. Counts are loose bounds, not snapshots of current test output.',
+                'label_basis':'Contact transitions from frames decoded in the full recording, matched to the touches made during recording; channel hop from sweep measurements. Counts are loose bounds, not snapshots of current test output.',
                 'capture_setup_cs8':{'lna_gain_db':8,'vga_gain_db':10,'bandwidth_hz':5000000,'amplifier':False},
                 'capture_setup_wav':'SDR++ baseband recording; gain not preserved in WAV header.',
                 'cases':entries}

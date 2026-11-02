@@ -9,6 +9,7 @@ def frame(start,contact=False):
     for offset in (0,1040,1560,3120 if contact else 3640):
         call('edge',1,(start+offset)%2**32)
         call('edge',0,(start+offset+260)%2**32)
+    call('poll',(start+4000)%2**32)  # loop() polls after its FREE slot has closed.
 for offset in (0,2**32-20000):
     for contact in (False,True):
         call('reset'); assert call('network')==1; assert call('outputs',offset)==4

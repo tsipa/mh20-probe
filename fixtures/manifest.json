@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "description": "Real recorded ADC samples, no filtering, synthesis or IQ resampling.",
-  "label_basis": "Contact transitions from original contact_analysis decoded_messages.csv, manually matched to touch actions; channel hop from WAV sweep measurements. Counts are loose bounds, not snapshots of current test output.",
+  "label_basis": "Contact transitions from frames decoded in the full recording, matched to the touches made during recording; channel hop from sweep measurements. Counts are loose bounds, not snapshots of current test output.",
   "capture_setup_cs8": {
     "lna_gain_db": 8,
     "vga_gain_db": 10,
@@ -23,7 +23,7 @@
       "duration_seconds": 0.2,
       "sha256": "3872b8a0da3647aed459f6e18bcb66c7450949c775d6a820f874284909701a44",
       "source": {
-        "archive_relative_path": "captures/cases_manual_20261030/background_151557_272716.cs8",
+        "recording": "background-full.cs8",
         "bytes": 128000000,
         "sha256": "5d95119446d8bc1a05cf1691cd179b3b0733a058b536fbfac4c9ea3d9b7a5073",
         "start_seconds": 2.0,
@@ -49,7 +49,7 @@
       "duration_seconds": 0.2,
       "sha256": "64968d54dcda73d004cdeafee1d572fb684afc251efc0ec4add09052349f9ca9",
       "source": {
-        "archive_relative_path": "captures/cases_manual_20261030/touches_152213_349816.cs8",
+        "recording": "touches-full.cs8",
         "bytes": 416000000,
         "sha256": "884cde09dd24ba55f82c998b41ee6a9c127f8f63448b5620845862bcdb3304df",
         "start_seconds": 2.0,
@@ -77,7 +77,7 @@
       "duration_seconds": 0.45,
       "sha256": "40c25b2f11ed317a8955fe6d34f4f38298b222a0005d1ca9ac2390602efacf0c",
       "source": {
-        "archive_relative_path": "captures/cases_manual_20261030/touches_152213_349816.cs8",
+        "recording": "touches-full.cs8",
         "bytes": 416000000,
         "sha256": "884cde09dd24ba55f82c998b41ee6a9c127f8f63448b5620845862bcdb3304df",
         "start_seconds": 5.2,
@@ -110,7 +110,7 @@
       "duration_seconds": 0.45,
       "sha256": "2b6fbe548e91ad78020b306cc308a3140ed75191ed3c761cc915e14d8c5b3e60",
       "source": {
-        "archive_relative_path": "captures/cases_manual_20261030/touches_152213_349816.cs8",
+        "recording": "touches-full.cs8",
         "bytes": 416000000,
         "sha256": "884cde09dd24ba55f82c998b41ee6a9c127f8f63448b5620845862bcdb3304df",
         "start_seconds": 7.5,
@@ -143,7 +143,7 @@
       "duration_seconds": 0.45,
       "sha256": "35256edde2d6306b75289dbbb419d1ea81460af9779850b38bbd1a2e268740ee",
       "source": {
-        "archive_relative_path": "sdrpp-config/recordings/baseband_433912004Hz_22-53-35_30-10-2026.wav",
+        "recording": "sweep-full.wav",
         "bytes": 340000812,
         "sha256": "2d1f0ac786c4593326443edbb5a17d9e6a49730ddac1f576008f4caa0314f8f0",
         "start_seconds": 8.05,

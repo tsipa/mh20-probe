@@ -1,0 +1,636 @@
+Extracted reference text; use the original manufacturer drawing for graphical dimensions.
+
+E07-M1101D-SMA
+CC1101 433MHz DIP Wireless Module
+User Manual
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+1
+目录
+Disclaimer..............................................................................................................................................................................2
+1 Introduction........................................................................................................................................................................3
+1.1 Brief Introduction..................................................................................................................................................... 3
+1.2 Features.....................................................................................................................................................................3
+1.3 Application................................................................................................................................................................3
+2 Specification and parameter.............................................................................................................................................4
+2.1 Limit parameter.........................................................................................................................................................4
+2.2 Operating parameter................................................................................................................................................. 4
+3 Size and pin definition.......................................................................................................................................................5
+4 Basic operation...................................................................................................................................................................6
+4.1 Hardware design....................................................................................................................................................... 6
+4.2 Programming............................................................................................................................................................ 7
+5 Basic application................................................................................................................................................................ 7
+5.1 Basic circuit.............................................................................................................................................................. 7
+6 FAQ.....................................................................................................................................................................................8
+6.1 Communication range is too short............................................................................................................................8
+6.2 Module is easy to damage.........................................................................................................................................8
+6.3 BER(Bit Error Rate) is high......................................................................................................................................8
+7 Production guidance..........................................................................................................................................................8
+7.1 Reflow soldering temperature...................................................................................................................................8
+7.2 Reflow soldering curve.............................................................................................................................................9
+8 E07 series............................................................................................................................................................................ 9
+9 Antenna recommendation...............................................................................................................................................10
+10 Package for batch order................................................................................................................................................11
+Revision history...................................................................................................................................................................11
+About us...............................................................................................................................................................................12
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+2
+Disclaimer
+EBYTE reserves all rights to this document and the information contained herein.
+Products, names, logos and designs described herein may in whole or in part be
+subject to intellectual property rights. Reproduction, use, modification or disclosure to
+third parties of this document or any part thereof without the express permission of
+EBYTE is strictly prohibited.
+The information contained herein is provided “as is” and EBYTE assumes no
+liability for the use of the information. No warranty, either express or implied, is given,
+including but not limited, with respect to the accuracy, correctness, reliability and
+fitness for a particular purpose of the information. This document may be revised by
+EBYTE at any time. For most recent documents, visit www.ebyte.com.
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+3
+1 Introduction
+1.1 Brief Introduction
+E07-M1101D-SMA is a self-developed,
+small-size, 433 MHz DIP wireless module with a
+maximum tx power of 10mW based on CC1101 of
+Texas Instruments.
+Due to the adoption of the very mature CC1101 as
+the core chip, its stability has been unanimously praised by user. The module is mainly used in smart home, industrial,
+scientific research and medical, as well as short-range wireless communication equipment. Because RF performance and
+component selection are in accordance with industrial standards, and the product has obtained FCC, CE, RoHS and other
+international authority certifications, users do not need to worry about its performance. Extensive hardware support for
+packet processing, data buffering, burst transmission, Received Signal Strength Indication (RSSI), Clear Channel
+Assessment (CCA), Link Quality Indication, and Wireless Wake-up (WOR) is available. It uses an industrial grade high
+precision 26MHz crystal.
+Since the module is a RF transceiver module, user needs to use an MCU to drive or use a dedicated SPI debug tool.
+1.2 Features
+
+The measured communication distance can reach 1 km;
+
+Maximum transmission power of 10mW, software multi-level adjustable;
+
+Support the global license-free ISM 433 MHz band;
+
+Support air date rate of 0.3kbps～500kbps;
+
+Support multiple modulation modes (OOK, ASK, GFSK, 2-FSK, 4-FSK and MSK);
+
+Independent 64-byte RX FIFO and TX FIFO;
+
+Support 1.8V~3.6V power supply, power supply over 3.3 V can guarantee the best performance;
+
+Industrial grade standard design, support -40 ~ 85 °C for working over a long time;
+
+IPEX and stamp hole optional, good for secondary development and integration;
+
+Support RSSI (received signal strength indication) and LQI (link quality indication);
+
+It connects to MCU through 4-wire SPI interface, and provides two universal digital output pins with settable
+functions.
+1.3 Application
+
+Home security alarm and remote keyless entry;
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+4
+
+Wireless alarm security system;
+
+Building automation solutions;
+
+Wireless industrial-grade remote control;
+
+Health care products;
+
+Advanced Meter Reading Architecture(AMI);
+
+Automotive industry applications.
+2 Specification and parameter
+2.1 Limit parameter
+Main parameter
+Performance
+Remark
+Min
+Max
+Power supply（V）
+0
+3.6
+Voltage over 3.6V will cause permanent
+damage to module
+Blocking power（dBm）
+-
+10
+Chances of burn is slim when modules
+are used in short distance
+Operating temperature（℃）
+-40
+85
+2.2 Operating parameter
+Main parameter
+Performance
+Remark
+Min
+Type
+Max
+Operating voltage（V）
+1.8
+3.3
+3.6
+≥3.3 V ensures output power
+Communication level（V）
+3.3
+For 5V TTL, it may be at risk of burning
+down
+Operating temperature（℃）
+-40
+-
+85
+Industrial grade
+Operating frequency（MHz）
+387
+433
+464
+Support ISM band
+Power
+Consump-
+tion
+TX current（mA）
+100
+Instant power consumption
+RX current（mA）
+20
+Sleep current （μA）
+2.0
+Shut down by software
+Max TX power（dBm）
+9
+10
+11
+Receiving sensitivity（dBm）
+-108
+-109
+-110
+Air data rate is 1.2kbps
+Air data rate（bps）
+0.6k
+-
+500k
+Controlled via user’s programming
+Main parameter
+Description
+Remark
+Reference distance
+1000m
+Test condition：clear and open area, antenna gain: 5dBi,
+antenna height: 2.5m, air data rate: 1.2kbps
+FIFO
+64Byte
+Maximum length of single transmission
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+5
+Crystal Oscillator
+26MHz
+Modulation
+GFSK
+Support OOK、ASK、GFSK、2-FSK、4-FSK and MSK
+Package
+DIP
+Interface
+2.54mm
+Pin
+Communication interface
+SPI
+0-10Mbps
+Size
+15*30 mm
+Antenna
+Stamp hole
+50 ohm impedance
+3 Size and pin definition
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+6
+Pin No.
+Item
+Direction
+Description
+1
+GND
+Ground
+2
+VCC
+Power supply, 1.8V - 3.6V
+3
+GDO0
+Output
+Data output pin
+4
+CSN
+Input
+Module chip selection pin for starting SPI communication
+5
+SCK
+Input
+SPI clock pin
+6
+MOSI
+Input
+SPI data Input pin
+7
+MISO/GDO1
+Output
+SPI data output pin
+8
+GDO2
+Output
+Data output pin
+4 Basic operation
+4.1 Hardware design
+
+It is recommended to use a DC stabilized power supply. The power supply ripple factor is as small as possible and
+the module needs to be reliably grounded;
+
+Please pay attention to the correct connection of the positive and negative poles of the power supply,
+reverse connection may cause permanent damage to the module;
+
+Please check the power supply to ensure that between the recommended supply voltage, if exceeding the maximum,
+the module will be permanently damaged;
+
+Please check the stability of the power supply. Voltage can not fluctuate greatly and frequently;
+
+When designing the power supply circuit for the module, it is often recommended to reserve more than 30% of the
+margin, so the whole machine is beneficial for long-term stable operation;
+
+The module should be as far away as possible from the power supply, transformers, high-frequency wiring and other
+parts with large electromagnetic interference;
+
+Bottom LayerHigh-frequency digital routing, high-frequency analog routing, and power routing must be avoided
+under the module. If it is necessary to pass through the module, assume that the module is soldered to the Top Layer,
+and the copper is spread on the Top Layer of the module contact part(well grounded), it must be close to the digital
+part of the module and routed in the Bottom Layer;
+
+Assuming the module is soldered or placed over the Top Layer, it is wrong to randomly route over the Bottom Layer
+or other layers, which will affect the module's spurs and receiving sensitivity to varying degrees;
+
+It is assumed that there are devices with large electromagnetic interference around the module that will greatly
+affect the performance. It is recommended to keep them away from the module according to the strength of the
+interference. If necessary, appropriate isolation and shielding can be done;
+
+Assume that there are traces with large electromagnetic interference (high-frequency digital, high-frequency analog,
+power traces) around the module that will greatly affect the performance of the module. It is recommended to stay
+away from the module according to the strength of the interference.If necessary, appropriate isolation and shielding
+can be done;
+
+If the communication line uses a 5V level, a 1k-5.1k resistor must be connected in series (not recommended, there is
+still a risk of damage);
+
+Try to stay away from some physical layers such as TTL protocol at 2.4GHz , for example: USB3.0;
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+7
+
+The mounting structure of antenna has a great influence on the performance of the module. It is necessary to ensure
+that the antenna is exposed, preferably vertically upward. When the module is mounted inside the case, use a good
+antenna extension cable to extend the antenna to the outside;
+
+The antenna must not be installed inside the metal case, which will cause the transmission distance to be greatly
+weakened.
+4.2 Programming
+
+By operating its control register and the transceiver buffer, the wireless data transceiving function can be completed.
+For the timing operation of the module register read and write operations, please refer to the latest CC1101 data
+sheet;
+
+GDO0 is a general I/O port. See CC1101 manual for details;
+
+GDO2 is generally configured as IRQ function, or it can be disconnected. SPI query mode can be used to obtain
+interrupt status, but it is recommended to use external interrupt of MCU;
+
+After the CC1101 recovers the IDLE mode or configures the sleep mode, it is recommended to reinitialize the
+power configuration table.
+5 Basic application
+5.1 Basic circuit
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+8
+6 FAQ
+6.1 Communication range is too short
+
+The communication distance will be affected when obstacle exists;
+
+Data lose rate will be affected by temperature, humidity and co-channel interference;
+
+The ground will absorb and reflect wireless radio wave, so the performance will be poor when testing near ground;
+
+Sea water has great ability in absorbing wireless radio wave, so performance will be poor when testing near the sea;
+
+The signal will be affected when the antenna is near metal object or put in a metal case;
+
+Power register was set incorrectly, air data rate is set as too high (the higher the air data rate, the shorter the
+distance);
+
+The power supply low voltage under room temperature is lower than 2.5V, the lower the voltage, the lower the
+transmitting power;
+
+Due to antenna quality or poor matching between antenna and module.
+6.2 Module is easy to damage
+
+Please check the power supply source, ensure it is 2.0V~3.6V, voltage higher than 3.6V will damage the module;
+
+Please check the stability of power source, the voltage cannot fluctuate too much;
+
+Please make sure antistatic measure are taken when installing and using, high frequency devices have electrostatic
+susceptibility;
+
+Please ensure the humidity is within limited range, some parts are sensitive to humidity;
+
+Please avoid using modules under too high or too low temperature.
+6.3 BER(Bit Error Rate) is high
+
+There are co-channel signal interference nearby, please be away from interference sources or modify
+frequency and channel to avoid interference;
+
+Poor power supply may cause messy code. Make sure that the power supply is reliable;
+
+The extension line and feeder quality are poor or too long, so the bit error rate is high.
+7 Production guidance
+7.1 Reflow soldering temperature
+Profile Feature
+Curve characteristics
+Sn-Pb Assembly
+Pb-Free Assembly
+Solder Paste
+Solder paste
+Sn63/Pb37
+Sn96.5/Ag3/Cu0.5
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+9
+Preheat Temperature min （Tsmin）
+Min preheating temp.
+100℃
+150℃
+Preheat temperature max (Tsmax)
+Mx preheating temp.
+150℃
+200℃
+Preheat Time (Tsmin to Tsmax)(ts)
+Preheating time
+60-120 sec
+60-120 sec
+Average ramp-up rate(Tsmax to Tp)
+Average ramp-up rate
+3℃/second max
+3℃/second max
+Liquidous Temperature (TL)
+Liquid phase temp.
+183℃
+217℃
+Time（tL）Maintained Above（TL）
+Time below liquid phase line
+60-90 sec
+30-90 sec
+Peak temperature（Tp）
+Peak temp.
+220-235℃
+230-250℃
+Aveage ramp-down rate（Tp to Tsmax）
+Aveage ramp-down rate
+6℃/second max
+6℃/second max
+Time 25℃to peak temperature
+Time to peak temperature for
+25℃
+6 minutes
+max
+8 minutes
+max
+7.2 Reflow soldering curve
+8 E07 series
+Model No.
+IC
+Frequency
+Hz
+Tx power
+dBm
+Distance
+km
+Package
+Antenna
+E07-433M20S
+CC1101
+433M
+20
+2
+SMD
+IPEX / Stamp hole
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+10
+E07-868MS10
+CC1101
+868M
+10
+1.2
+SMD
+Stamp hole
+E07-915MS10
+CC1101
+915M
+10
+1
+SMD
+Stamp hole
+E07-M1101D-TH
+CC1101
+433M
+10
+0.5
+DIP
+Spring antenna
+E07-M1101D-SMA
+CC1101
+433M
+10
+0.6
+DIP
+SMA-K
+E07-M1101S
+CC1101
+433M
+10
+0.4
+SMD
+Stamp hole
+9 Antenna recommendation
+The antenna is an important role in the communication process. A good antenna can largely improve the
+communication system. Therefore, we recommend some antennas for wireless modules with excellent performance and
+reasonable price.
+Model No.
+Type
+Frequen
+cy
+Hz
+Interface
+Gain dBi
+Hright
+Cable
+Function feature
+TX433-NP-4310
+Flexible PCB
+Antenna
+433M
+SMA-J
+2
+43.8*9.5mm
+-
+FPC soft antenna
+TX433-JW-5
+Rubber antenna
+433M
+SMA-J
+2
+50mm
+-
+Flexible &omnidirectional
+TX433-JWG-7
+Rubber antenna
+433M
+SMA-J
+2.5
+75mm
+-
+Flexible &omnidirectional
+TX433-JK-20
+Rubber antenna
+433M
+SMA-J
+3
+210mm
+-
+Flexible &omnidirectional
+TX433-JK-11
+Rubber antenna
+433M
+SMA-J
+2.5
+110mm
+-
+Flexible &omnidirectional
+TX433-XP-200
+Sucker antenna
+433M
+SMA-J
+4
+19cm
+200cm
+High gain
+TX433-XP-100
+Sucker antenna
+433M
+SMA-J
+3.5
+18.5cm
+100cm
+High gain
+TX433-XPH-300
+Sucker antenna
+433M
+SMA-J
+6
+96.5cm
+300cm
+High gain
+TX433-JZG-6
+Rubber antenna
+433M
+SMA-J
+2.5
+52mm
+-
+Short straight
+&omnidirectional
+TX433-JZ-5
+Rubber antenna
+433M
+SMA-J
+2
+52mm
+-
+Short straight
+&omnidirectional
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+11
+10 Package for batch order
+Revision history
+Version
+Date
+Description
+Issued by
+1.00
+2017/10/16
+Initial version
+huaa
+1.10
+2018/5/23
+Content updated
+huaa
+1.20
+2018/9/18
+Model No. split
+huaa
+1.30
+2021-3-11
+Error correction
+Linson
+
+
+Chengdu Ebyte Electronic Technology Co.,Ltd.
+E07-M1101D-SMA datasheet
+Copyright ©2012–2021，Chengdu Ebyte Electronic Technology Co.,Ltd.
+12
+About us
+Technical support: support@cdebyte.com
+Documents and RF Setting download link: www.ebyte.com
+Thank you for using Ebyte products! Please contact us with any questions or suggestions: info@cdebyte.com
+-------------------------------------------------------------------------------------------------
+Fax: 028-64146160 ext. 821
+Web: www.ebyte.com
+Address: Innovation Center D347, 4# XI-XIN Road,Chengdu, Sichuan, China

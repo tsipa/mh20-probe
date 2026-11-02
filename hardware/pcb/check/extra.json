@@ -1,0 +1,9 @@
+{
+ "violations": [],
+ "info": {
+  "board_mm": "98.00 x 70.00",
+  "vias": 1,
+  "track_mm": "B.Cu=391.1 F.Cu=470.6",
+  "bodies": 19
+ }
+}

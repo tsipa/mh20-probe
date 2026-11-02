@@ -1,11 +1,17 @@
-Reference,Item,Quantity,Notes
-A1,ESP32 DevKitC 38-pin,1,Direct solder
-U1,Hi-Link URB2405YMD-6WR3,1,
-J1,24V + DRY CONTACTS,1,
-J2,ST7789 7-pin,1,
-J3,CC1101 433MHz,1,
-J4,RELAY CONTROL,1,
-J5,RELAY CONTACTS,1,
-JP1,REMOVE FOR USB,1,
-"EXT1, EXT2",Pololu 5420 isolated SPST relay module,2,One each for PROBE and READY; see README for wiring and timing
-H1-H4,M3 board mounting hardware,4,
+Reference,Qty,Part,Specification,Footprint,Search term,Notes
+A1,1,ESP32 DevKitC V4,"ESP32-WROOM-32, 38 pins, rows 25.40 mm apart",Carrier:esp32,ESP32 DevKitC 38 pin,"Row spacing must be 25.40 mm (1 inch); the narrow 30-pin and 22.86 mm boards do not fit"
+J3,1,Ebyte E07-M1101D-SMA,"CC1101 433 MHz module, 2x4 2.54 mm header, SMA",Carrier:radio_e07,E07-M1101D-SMA,433 MHz version
+J2,1,ER-TFTM013-1,"1.3 in ST7789 240x240 LCD, 7-pin header GND VCC SCL SDA RES DC BLK, no CS",Carrier:lcd,1.3 inch ST7789 240x240 7 pin,"Pin order must match GND, VCC, SCL, SDA, RES, DC, BLK"
+U1,1,DD4012SA 5V,"Step-down module, 3 pins IN GND OUT at 2.54 mm, in 4.75-40 V, out 5 V",Carrier:Buck_SIP3_7805,DD4012SA 5V,"Order the 5 V output version. Not isolated: machine 0 V becomes logic GND. Any 7805-pinout module with 5 V out and IN >= 30 V fits"
+K1 K2,2,AQY212EH,"PhotoMOS relay, 1 form A, 60 V, DIP-4",Carrier:DIP-4_W7.62mm,AQY212EH,Pin 1 (anode) is the square pad
+R1 R2,2,Resistor 150 ohm,"150 ohm 1% 0.25 W axial, 7.62 mm pitch",Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,150 ohm 1/4W metal film,
+J1,1,Phoenix MKDS 1,5/6-5,08 (1706303),"6-pole PCB screw terminal, 5.08 mm pitch",TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6-5.08_1x06_P5.08mm_Horizontal,6 pin screw terminal 5.08mm,"Any 5.08 mm 6-pole terminal with 1.3 mm pins; KF301 is 5.0 mm and does not fit"
+JP1,1,Pin header 1x2 + jumper cap,"2.54 mm",Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,2.54mm pin header + jumper cap,Remove the cap before connecting USB
+Assembly,2,Male header 1x19,2.54 mm,,,"ESP32; usually already fitted to the module"
+Assembly,1,Male header 1x7,2.54 mm,,,LCD; usually already fitted
+Assembly,1,Male header 2x4,2.54 mm,,,Radio; usually already fitted
+Assembly,1,433 MHz antenna,SMA male,,433MHz SMA antenna,
+Assembly,4,M3 screw + spacer,,,,Board mounting holes H1-H4
+Assembly,2,M2.5 screw + insulating spacer,,,,Radio slots; spacer height = header standoff
+Assembly,4,M1.6 screw + insulating spacer,,,,LCD holes; spacer height = header standoff
+Assembly,1,PCB,"98 x 70 mm, 2 layers, 1.6 mm, HASL",,,Gerbers and drill files in fab/

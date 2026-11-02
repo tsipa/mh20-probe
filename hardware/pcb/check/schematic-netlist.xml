@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>receiver_carrier.kicad_sch</source>
+    <date>2026-01-01T00:00:00</date>
+    <tool>Eeschema 10.0.8</tool>
+    <textvar name="DESIGN_STATUS">P4 DESIGN, NOT FABRICATED</textvar>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>MH20 probe receiver carrier</title>
+        <company/>
+        <rev>P4</rev>
+        <date/>
+        <source>receiver_carrier.kicad_sch</source>
+        <comment number="1" value="ESP32 DevKitC, E07 CC1101, ST7789 LCD, DD4012SA buck, 2x AQY212EH"/>
+        <comment number="2" value="Machine 0 V = logic GND (non-isolated buck); only the PhotoMOS outputs are isolated"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="A1">
+      <value>ESP32 DevKitC V4</value>
+      <footprint>Carrier:esp32</footprint>
+      <fields>
+        <field name="Footprint">Carrier:esp32</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="ESP32_DevKitC_V4" description="ESP32 DevKitC V4, 38 pins"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0d2131d7-ae49-5b48-958f-5945c666fb46</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>MKDS 1,5/6-5,08</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6-5.08_1x06_P5.08mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6-5.08_1x06_P5.08mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="MKDS_1x06" description="Terminal block 6 x 5.08 mm"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1f46b204-c005-50e0-89da-0251a8484aa3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>ER-TFTM013-1</value>
+      <footprint>Carrier:lcd</footprint>
+      <fields>
+        <field name="Footprint">Carrier:lcd</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="ER-TFTM013-1" description="ST7789 240x240 LCD module, 7-pin header"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>25e75538-2417-5886-bb01-819dcdbd9969</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>E07-M1101D-SMA</value>
+      <footprint>Carrier:radio_e07</footprint>
+      <fields>
+        <field name="Footprint">Carrier:radio_e07</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="E07-M1101D-SMA" description="CC1101 433 MHz module, 2x4 header"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>70e73446-3814-534f-b522-3805af554037</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="JP1">
+      <value>REMOVE FOR USB</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="Jumper_2" description="2-pin jumper (remove for USB)"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6b461b7-0c8c-5d82-bae7-fb95e3aca048</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="K1">
+      <value>AQY212EH</value>
+      <footprint>Carrier:DIP-4_W7.62mm</footprint>
+      <fields>
+        <field name="Footprint">Carrier:DIP-4_W7.62mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="AQY212EH" description="PhotoMOS relay, 1 form A, DIP-4"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>09193b4b-5e75-507f-b186-d703958fb97b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="K2">
+      <value>AQY212EH</value>
+      <footprint>Carrier:DIP-4_W7.62mm</footprint>
+      <fields>
+        <field name="Footprint">Carrier:DIP-4_W7.62mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="AQY212EH" description="PhotoMOS relay, 1 form A, DIP-4"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0e4b0357-a9f0-5598-9e46-5a5d5939d8f2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="4"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>150 1% 0.25W</value>
+      <footprint>Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="R" description="Resistor"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e293477-80c3-5b1c-984b-6845ace95857</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>150 1% 0.25W</value>
+      <footprint>Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Carrier:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="R" description="Resistor"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4ebc6515-1715-54a2-b987-a432a842b241</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>DD4012SA 5V</value>
+      <footprint>Carrier:Buck_SIP3_7805</footprint>
+      <fields>
+        <field name="Footprint">Carrier:Buck_SIP3_7805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Carrier" part="DD4012SA_5V" description="5 V step-down module, 3-pin SIP, 7805 pinout (non-isolated)"/>
+      <property name="Sheetname" value="receiver_carrier"/>
+      <property name="Sheetfile" value="receiver_carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8dce1db5-a323-5c0d-affd-d0d1e969427e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Carrier" part="AQY212EH">
+      <description>PhotoMOS relay, 1 form A, DIP-4</description>
+      <fields>
+        <field name="Reference">K</field>
+        <field name="Value">AQY212EH</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">PhotoMOS relay, 1 form A, DIP-4</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+        <pin num="4" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="DD4012SA_5V">
+      <description>5 V step-down module, 3-pin SIP, 7805 pinout (non-isolated)</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">DD4012SA_5V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">5 V step-down module, 3-pin SIP, 7805 pinout (non-isolated)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="OUT" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="E07-M1101D-SMA">
+      <description>CC1101 433 MHz module, 2x4 header</description>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">E07-M1101D-SMA</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">CC1101 433 MHz module, 2x4 header</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="VCC" type="passive"/>
+        <pin num="3" name="GDO0" type="passive"/>
+        <pin num="4" name="CSN" type="passive"/>
+        <pin num="5" name="SCK" type="passive"/>
+        <pin num="6" name="MOSI" type="passive"/>
+        <pin num="7" name="GDO1" type="passive"/>
+        <pin num="8" name="GDO2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="ER-TFTM013-1">
+      <description>ST7789 240x240 LCD module, 7-pin header</description>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">ER-TFTM013-1</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">ST7789 240x240 LCD module, 7-pin header</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="VCC" type="passive"/>
+        <pin num="3" name="SCL" type="passive"/>
+        <pin num="4" name="SDA" type="passive"/>
+        <pin num="5" name="RES" type="passive"/>
+        <pin num="6" name="DC" type="passive"/>
+        <pin num="7" name="BLK" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="ESP32_DevKitC_V4">
+      <description>ESP32 DevKitC V4, 38 pins</description>
+      <fields>
+        <field name="Reference">A</field>
+        <field name="Value">ESP32_DevKitC_V4</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">ESP32 DevKitC V4, 38 pins</field>
+      </fields>
+      <pins>
+        <pin num="1" name="3V3" type="passive"/>
+        <pin num="2" name="EN" type="passive"/>
+        <pin num="3" name="IO36" type="passive"/>
+        <pin num="4" name="IO39" type="passive"/>
+        <pin num="5" name="IO34" type="passive"/>
+        <pin num="6" name="IO35" type="passive"/>
+        <pin num="7" name="IO32" type="passive"/>
+        <pin num="8" name="IO33" type="passive"/>
+        <pin num="9" name="IO25" type="passive"/>
+        <pin num="10" name="IO26" type="passive"/>
+        <pin num="11" name="IO27" type="passive"/>
+        <pin num="12" name="IO14" type="passive"/>
+        <pin num="13" name="IO12" type="passive"/>
+        <pin num="14" name="GND" type="passive"/>
+        <pin num="15" name="IO13" type="passive"/>
+        <pin num="16" name="SD2" type="passive"/>
+        <pin num="17" name="SD3" type="passive"/>
+        <pin num="18" name="CMD" type="passive"/>
+        <pin num="19" name="5V" type="passive"/>
+        <pin num="20" name="GND" type="passive"/>
+        <pin num="21" name="IO23" type="passive"/>
+        <pin num="22" name="IO22" type="passive"/>
+        <pin num="23" name="TXD0" type="passive"/>
+        <pin num="24" name="RXD0" type="passive"/>
+        <pin num="25" name="IO21" type="passive"/>
+        <pin num="26" name="GND" type="passive"/>
+        <pin num="27" name="IO19" type="passive"/>
+        <pin num="28" name="IO18" type="passive"/>
+        <pin num="29" name="IO5" type="passive"/>
+        <pin num="30" name="IO17" type="passive"/>
+        <pin num="31" name="IO16" type="passive"/>
+        <pin num="32" name="IO4" type="passive"/>
+        <pin num="33" name="IO0" type="passive"/>
+        <pin num="34" name="IO2" type="passive"/>
+        <pin num="35" name="IO15" type="passive"/>
+        <pin num="36" name="SD1" type="passive"/>
+        <pin num="37" name="SD0" type="passive"/>
+        <pin num="38" name="CLK" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="Jumper_2">
+      <description>2-pin jumper (remove for USB)</description>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">Jumper_2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">2-pin jumper (remove for USB)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="MKDS_1x06">
+      <description>Terminal block 6 x 5.08 mm</description>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">MKDS_1x06</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Terminal block 6 x 5.08 mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Carrier" part="R">
+      <description>Resistor</description>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Carrier">
+      <uri>${KIPRJMOD}/Carrier.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/3V3" class="Power">
+      <node ref="A1" pin="1" pinfunction="3V3_1" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="VCC_2" pintype="passive"/>
+      <node ref="J2" pin="7" pinfunction="BLK_7" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="VCC_2" pintype="passive"/>
+    </net>
+    <net code="2" name="/5V_DEV" class="Power">
+      <node ref="A1" pin="19" pinfunction="5V_19" pintype="passive"/>
+      <node ref="JP1" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="3" name="/5V_REG" class="Power">
+      <node ref="JP1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="OUT_3" pintype="passive"/>
+    </net>
+    <net code="4" name="/24V_IN" class="Power">
+      <node ref="J1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="IN_1" pintype="passive"/>
+    </net>
+    <net code="5" name="/GND" class="Power">
+      <node ref="A1" pin="14" pinfunction="GND_14" pintype="passive"/>
+      <node ref="A1" pin="20" pinfunction="GND_20" pintype="passive"/>
+      <node ref="A1" pin="26" pinfunction="GND_26" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="K1" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="K2" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="GND_2" pintype="passive"/>
+    </net>
+    <net code="6" name="/LCD_DC" class="Signal">
+      <node ref="A1" pin="7" pinfunction="IO32_7" pintype="passive"/>
+      <node ref="J2" pin="6" pinfunction="DC_6" pintype="passive"/>
+    </net>
+    <net code="7" name="/LCD_MOSI" class="Signal">
+      <node ref="A1" pin="15" pinfunction="IO13_15" pintype="passive"/>
+      <node ref="J2" pin="4" pinfunction="SDA_4" pintype="passive"/>
+    </net>
+    <net code="8" name="/LCD_RST" class="Signal">
+      <node ref="A1" pin="11" pinfunction="IO27_11" pintype="passive"/>
+      <node ref="J2" pin="5" pinfunction="RES_5" pintype="passive"/>
+    </net>
+    <net code="9" name="/LCD_SCK" class="Signal">
+      <node ref="A1" pin="12" pinfunction="IO14_12" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="SCL_3" pintype="passive"/>
+    </net>
+    <net code="10" name="/PROBE_A" class="Iso">
+      <node ref="J1" pin="5" pinfunction="5_5" pintype="passive"/>
+      <node ref="K1" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="11" name="/PROBE_B" class="Iso">
+      <node ref="J1" pin="6" pinfunction="6_6" pintype="passive"/>
+      <node ref="K1" pin="4" pinfunction="D_4" pintype="passive"/>
+    </net>
+    <net code="12" name="/PROBE_EN" class="Signal">
+      <node ref="A1" pin="9" pinfunction="IO25_9" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="13" name="/PROBE_LED" class="Signal">
+      <node ref="K1" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+    <net code="14" name="/READY_A" class="Iso">
+      <node ref="J1" pin="3" pinfunction="3_3" pintype="passive"/>
+      <node ref="K2" pin="3" pinfunction="D_3" pintype="passive"/>
+    </net>
+    <net code="15" name="/READY_B" class="Iso">
+      <node ref="J1" pin="4" pinfunction="4_4" pintype="passive"/>
+      <node ref="K2" pin="4" pinfunction="D_4" pintype="passive"/>
+    </net>
+    <net code="16" name="/READY_EN" class="Signal">
+      <node ref="A1" pin="8" pinfunction="IO33_8" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="17" name="/READY_LED" class="Signal">
+      <node ref="K2" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="18" name="/RF_CSN" class="Signal">
+      <node ref="A1" pin="29" pinfunction="IO5_29" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="CSN_4" pintype="passive"/>
+    </net>
+    <net code="19" name="/RF_DATA" class="Signal">
+      <node ref="A1" pin="10" pinfunction="IO26_10" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="GDO0_3" pintype="passive"/>
+    </net>
+    <net code="20" name="/RF_MISO" class="Signal">
+      <node ref="A1" pin="27" pinfunction="IO19_27" pintype="passive"/>
+      <node ref="J3" pin="7" pinfunction="GDO1_7" pintype="passive"/>
+    </net>
+    <net code="21" name="/RF_MOSI" class="Signal">
+      <node ref="A1" pin="21" pinfunction="IO23_21" pintype="passive"/>
+      <node ref="J3" pin="6" pinfunction="MOSI_6" pintype="passive"/>
+    </net>
+    <net code="22" name="/RF_SCK" class="Signal">
+      <node ref="A1" pin="28" pinfunction="IO18_28" pintype="passive"/>
+      <node ref="J3" pin="5" pinfunction="SCK_5" pintype="passive"/>
+    </net>
+    <net code="23" name="unconnected-(A1-CLK-Pad38)" class="Default">
+      <node ref="A1" pin="38" pinfunction="CLK_38" pintype="passive+no_connect"/>
+    </net>
+    <net code="24" name="unconnected-(A1-CMD-Pad18)" class="Default">
+      <node ref="A1" pin="18" pinfunction="CMD_18" pintype="passive+no_connect"/>
+    </net>
+    <net code="25" name="unconnected-(A1-EN-Pad2)" class="Default">
+      <node ref="A1" pin="2" pinfunction="EN_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="26" name="unconnected-(A1-IO0-Pad33)" class="Default">
+      <node ref="A1" pin="33" pinfunction="IO0_33" pintype="passive+no_connect"/>
+    </net>
+    <net code="27" name="unconnected-(A1-IO2-Pad34)" class="Default">
+      <node ref="A1" pin="34" pinfunction="IO2_34" pintype="passive+no_connect"/>
+    </net>
+    <net code="28" name="unconnected-(A1-IO4-Pad32)" class="Default">
+      <node ref="A1" pin="32" pinfunction="IO4_32" pintype="passive+no_connect"/>
+    </net>
+    <net code="29" name="unconnected-(A1-IO12-Pad13)" class="Default">
+      <node ref="A1" pin="13" pinfunction="IO12_13" pintype="passive+no_connect"/>
+    </net>
+    <net code="30" name="unconnected-(A1-IO15-Pad35)" class="Default">
+      <node ref="A1" pin="35" pinfunction="IO15_35" pintype="passive+no_connect"/>
+    </net>
+    <net code="31" name="unconnected-(A1-IO16-Pad31)" class="Default">
+      <node ref="A1" pin="31" pinfunction="IO16_31" pintype="passive+no_connect"/>
+    </net>
+    <net code="32" name="unconnected-(A1-IO17-Pad30)" class="Default">
+      <node ref="A1" pin="30" pinfunction="IO17_30" pintype="passive+no_connect"/>
+    </net>
+    <net code="33" name="unconnected-(A1-IO21-Pad25)" class="Default">
+      <node ref="A1" pin="25" pinfunction="IO21_25" pintype="passive+no_connect"/>
+    </net>
+    <net code="34" name="unconnected-(A1-IO22-Pad22)" class="Default">
+      <node ref="A1" pin="22" pinfunction="IO22_22" pintype="passive+no_connect"/>
+    </net>
+    <net code="35" name="unconnected-(A1-IO34-Pad5)" class="Default">
+      <node ref="A1" pin="5" pinfunction="IO34_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="36" name="unconnected-(A1-IO35-Pad6)" class="Default">
+      <node ref="A1" pin="6" pinfunction="IO35_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="37" name="unconnected-(A1-IO36-Pad3)" class="Default">
+      <node ref="A1" pin="3" pinfunction="IO36_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="38" name="unconnected-(A1-IO39-Pad4)" class="Default">
+      <node ref="A1" pin="4" pinfunction="IO39_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="39" name="unconnected-(A1-RXD0-Pad24)" class="Default">
+      <node ref="A1" pin="24" pinfunction="RXD0_24" pintype="passive+no_connect"/>
+    </net>
+    <net code="40" name="unconnected-(A1-SD0-Pad37)" class="Default">
+      <node ref="A1" pin="37" pinfunction="SD0_37" pintype="passive+no_connect"/>
+    </net>
+    <net code="41" name="unconnected-(A1-SD1-Pad36)" class="Default">
+      <node ref="A1" pin="36" pinfunction="SD1_36" pintype="passive+no_connect"/>
+    </net>
+    <net code="42" name="unconnected-(A1-SD2-Pad16)" class="Default">
+      <node ref="A1" pin="16" pinfunction="SD2_16" pintype="passive+no_connect"/>
+    </net>
+    <net code="43" name="unconnected-(A1-SD3-Pad17)" class="Default">
+      <node ref="A1" pin="17" pinfunction="SD3_17" pintype="passive+no_connect"/>
+    </net>
+    <net code="44" name="unconnected-(A1-TXD0-Pad23)" class="Default">
+      <node ref="A1" pin="23" pinfunction="TXD0_23" pintype="passive+no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(J3-GDO2-Pad8)" class="Default">
+      <node ref="J3" pin="8" pinfunction="GDO2_8" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>

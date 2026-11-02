@@ -1,6 +1,7 @@
 // Receive-only CC1101 + classic ESP32 DevKit prototype. Radio settings await hardware validation.
 #include <Arduino.h>
 #include <SPI.h>
+#include <esp_task_wdt.h>
 #include "ProbeDecoder.h"
 #include "RfPresence.h"
 #include "ProbeSearch.h"
@@ -13,6 +14,15 @@ constexpr int PIN_DATA = 26;
 constexpr bool PULSE_IS_HIGH = false; // Lower-frequency excursions normally decode as logic 0.
 constexpr uint32_t TARGET_HZ = 433994200; // Midpoint of measured tones, approximate HackRF reference.
 constexpr uint32_t XTAL_HZ = 26000000;    // Check the crystal fitted to the CC1101 module.
+// Loop-task watchdog. While it is armed (outputs allowed: Wi-Fi off, no maintenance) the
+// longest legitimate pass is a UART settings write to flash, well below this timeout.
+// A stalled loop has already let the output guard force both outputs LOW about 60 ms
+// in, so they are LOW when the watchdog panics and restarts the chip. The restart does
+// not do that by itself; see the reset note below.
+constexpr uint32_t LOOP_WDT_TIMEOUT_MS = 2000;
+// SO goes low within microseconds while the CC1101 crystal runs. Long waits are allowed
+// only in setup() after SRES; later a stuck SO line fails an access within 1 ms.
+constexpr uint32_t CHIP_READY_SETUP_US = 100000, CHIP_READY_RUN_US = 1000;
 
 struct Edge { uint32_t at; bool active; };
 constexpr uint32_t QUEUE_SIZE = 1024;
@@ -32,14 +42,85 @@ uint32_t rateAt=0, rateMessages=0;
 uint16_t messagesPerSecond=0;
 bool previousLink=false;
 ProbeDecoder::State lastConfirmed = ProbeDecoder::Unknown;
+uint32_t chipReadyUs = CHIP_READY_SETUP_US;
+hw_timer_t *guardTimer = nullptr;
+bool guardRunning = false; // The guard interrupt was seen counting; required for active outputs.
+MachineOutputs::Guard outputGuardState; // Refreshed by driveMachine(), counted by outputGuard().
+bool watchdogWanted = false, watchdogArmed = false;
 
 void IRAM_ATTR dataEdge() {
-  const uint32_t now = micros();
-  const bool active = bool(digitalRead(PIN_DATA)) == PULSE_IS_HIGH;
   portENTER_CRITICAL_ISR(&queueLock);
+  const uint32_t now = micros(); // Stamped under the queue lock; see pollAt in loop().
+  const bool active = bool(digitalRead(PIN_DATA)) == PULSE_IS_HIGH;
   if (head - tail < QUEUE_SIZE) edges[(head++) & (QUEUE_SIZE - 1)] = {now, active};
   else overflowed = true;
   portEXIT_CRITICAL_ISR(&queueLock);
+}
+
+// Reset note. Power-on leaves the GPIOs high impedance. A panic or software restart
+// (task or interrupt watchdog, exception, abort, stack overflow, ESP.restart()) is only
+// a CPU reset: the GPIO output and enable registers keep their last values through the
+// panic report, the bootloader and start-up until firmware writes them again. The
+// task-watchdog path is safe because the output guard has already forced both outputs
+// LOW, and ESP.restart() is reached only from service or maintenance mode, where they
+// are LOW. After an exception, abort, stack overflow or interrupt-watchdog reset, a
+// closed loop and READY stay HIGH until the constructor below runs, a fraction of a
+// second later. This build does not close that gap. Both outputs are static levels:
+// no pin carries an enable signal that toggles while the loop is commanded closed and
+// stops when the CPU halts. A pull-down does not help either, because the pin is still
+// actively driven HIGH. An output stage that conducts only while it receives a
+// refreshed enable signal would therefore never turn on with this firmware. Closing
+// the gap needs such a signal in firmware together with a matching driver.
+struct EarlyOutputsLow {
+  EarlyOutputsLow() { MachineOutputs::forceLow(); } // Global constructor: runs before app_main().
+} earlyOutputsLow;
+
+// Called by the task-watchdog interrupt before it panics (weak in ESP-IDF 5.x).
+extern "C" void IRAM_ATTR esp_task_wdt_isr_user_handler(void) { MachineOutputs::forceLow(); }
+
+// Independent of loop(): opens both outputs if they have not been re-evaluated recently.
+void IRAM_ATTR outputGuard() {
+  if (outputGuardState.tick()) MachineOutputs::forceLow();
+}
+
+void startOutputGuard() {
+  guardTimer = timerBegin(1000000); // Called from setup(): the interrupt runs on the loop() core.
+  if (guardTimer) {
+    timerAttachInterrupt(guardTimer, outputGuard);
+    timerAlarm(guardTimer, MachineOutputs::GUARD_PERIOD_US, true, 0);
+    // Enable the outputs only after the interrupt has been seen counting (about 4 ticks).
+    outputGuardState.refresh();
+    delay((MachineOutputs::Guard::START_TICKS + 2) * MachineOutputs::GUARD_PERIOD_US / 1000);
+    guardRunning = outputGuardState.running();
+  }
+  if (!guardRunning) Serial.println("Output guard timer unavailable; machine outputs stay LOW.");
+}
+
+void configureWatchdog() {
+  // Only the loop task is watched (no idle-task checks), and a timeout resets the chip.
+  esp_task_wdt_config_t config = {};
+  config.timeout_ms = LOOP_WDT_TIMEOUT_MS;
+  config.idle_core_mask = 0;
+  config.trigger_panic = true;
+  if (esp_task_wdt_reconfigure(&config) != ESP_OK) esp_task_wdt_init(&config);
+}
+
+// Arm the watchdog only while loop() may drive the outputs. The Wi-Fi service (before the
+// probe is found) and maintenance/OTA can block inside the web server for seconds; the
+// outputs are LOW in those modes.
+void serviceWatchdog() {
+  const bool wanted = ServiceWeb::policy.outputsAllowed();
+  if (wanted != watchdogWanted) {
+    watchdogWanted = wanted;
+    if (wanted) {
+      watchdogArmed = esp_task_wdt_add(nullptr) == ESP_OK;
+      if (!watchdogArmed) Serial.println("Loop watchdog unavailable.");
+    } else if (watchdogArmed) {
+      esp_task_wdt_delete(nullptr);
+      watchdogArmed = false;
+    }
+  }
+  if (watchdogArmed) esp_task_wdt_reset();
 }
 
 bool chipReady(uint32_t timeoutUs) {
@@ -51,7 +132,7 @@ bool chipReady(uint32_t timeoutUs) {
 uint8_t accessChip(uint8_t address, uint8_t value, bool read) {
   SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
   digitalWrite(PIN_CS, LOW);
-  if (!chipReady(100000)) {
+  if (!chipReady(chipReadyUs)) {
     digitalWrite(PIN_CS, HIGH); SPI.endTransaction();
     return 0xFF;
   }
@@ -67,7 +148,7 @@ void writeReg(uint8_t address, uint8_t value) { accessChip(address, value, false
 bool readStatus(uint8_t address, uint8_t &value) {
   SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
   digitalWrite(PIN_CS, LOW);
-  const bool ready = chipReady(1000);
+  const bool ready = chipReady(CHIP_READY_RUN_US);
   if (ready) { SPI.transfer(address | 0xC0); value = SPI.transfer(0); }
   digitalWrite(PIN_CS, HIGH); SPI.endTransaction();
   return ready;
@@ -75,12 +156,14 @@ bool readStatus(uint8_t address, uint8_t &value) {
 void strobe(uint8_t command) {
   SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
   digitalWrite(PIN_CS, LOW);
-  if (chipReady(100000)) SPI.transfer(command);
+  if (chipReady(chipReadyUs)) SPI.transfer(command);
   digitalWrite(PIN_CS, HIGH); SPI.endTransaction();
 }
 
 void driveMachine(bool link, bool contact) {
-  const auto out=MachineOutputs::levels(link && ServiceWeb::policy.outputsAllowed(),contact);
+  outputGuardState.refresh(); // Before any output can go HIGH.
+  const bool enabled=link && guardRunning && ServiceWeb::policy.outputsAllowed();
+  const auto out=MachineOutputs::levels(enabled,contact);
   if (!out.loopClosed) digitalWrite(MachineOutputs::PROBE_LOOP_PIN,LOW);
   digitalWrite(MachineOutputs::READY_PIN,out.ready?HIGH:LOW);
   if (out.loopClosed) digitalWrite(MachineOutputs::PROBE_LOOP_PIN,HIGH);
@@ -88,10 +171,17 @@ void driveMachine(bool link, bool contact) {
 
 void safeServiceOutputs() { driveMachine(false, false); }
 
+// Display and serial state. Without the output guard both outputs stay LOW, so a valid
+// probe must not be shown as READY: report the fault instead (-4), except for a missing
+// radio (-1) and service mode (-3), where the outputs are LOW anyway.
+int reportedState(int state) {
+  return guardRunning || state == -1 || state == -3 ? state : -4;
+}
+
 void publishPanel(int state) {
   DisplayPanel::Snapshot s;
   strncpy(s.wifiStatus,ServiceWeb::displayStatus(),sizeof(s.wifiStatus)-1);
-  s.state=state; s.frequency=tunedHz; s.messages=totalMessages; s.touches=totalTouches;
+  s.state=reportedState(state); s.frequency=tunedHz; s.messages=totalMessages; s.touches=totalTouches;
   s.losses=totalLosses; s.overflows=totalOverflows; s.lastMessageAt=lastMessageAt;
   s.lastTouchMs=lastTouchMs; s.messagesPerSecond=messagesPerSecond;
   s.rssiValid=rawRssiValid; s.rssiHalfDbm=rawRssiHalfDbm;
@@ -119,10 +209,14 @@ void tune(uint32_t hz) {
 }
 
 void setup() {
+  // First: latch both outputs LOW, then enable the drivers (probe loop open, READY off).
+  MachineOutputs::forceLow();
+  pinMode(MachineOutputs::PROBE_LOOP_PIN,OUTPUT); pinMode(MachineOutputs::READY_PIN,OUTPUT);
+  digitalWrite(MachineOutputs::PROBE_LOOP_PIN,LOW); digitalWrite(MachineOutputs::READY_PIN,LOW);
   Serial.begin(115200);
   Serial.println("MH RECEIVER");
-  digitalWrite(MachineOutputs::READY_PIN,LOW); digitalWrite(MachineOutputs::PROBE_LOOP_PIN,LOW);
-  pinMode(MachineOutputs::READY_PIN,OUTPUT); pinMode(MachineOutputs::PROBE_LOOP_PIN,OUTPUT);
+  startOutputGuard();
+  configureWatchdog();
   driveMachine(false,false);
   ServiceWeb::begin(safeServiceOutputs);
   DisplayPanel::begin();
@@ -154,13 +248,25 @@ void setup() {
     {0x2C, 0x81}, {0x2D, 0x35}, {0x2E, 0x09}
   };
   for (const auto &r : registers) writeReg(r[0], r[1]);
+  chipReadyUs = CHIP_READY_RUN_US;
   attachInterrupt(digitalPinToInterrupt(PIN_DATA), dataEdge, CHANGE);
   lastRssiGoodAt = micros();
   search.begin(lastRssiGoodAt, TARGET_HZ);
   tune(search.frequency);
 }
 
+void frameAccepted() {
+  ServiceWeb::observeProbe();
+  ++totalMessages;
+  ++rateMessages; lastMessageAt=decoder.lastMessageAt;
+  if (decoder.state==ProbeDecoder::Contact) lastTouchMs=millis();
+  if (decoder.state == ProbeDecoder::Contact && lastConfirmed != ProbeDecoder::Contact) ++totalTouches;
+  lastConfirmed = decoder.state;
+  driveMachine(decoder.link(micros()),decoder.state==ProbeDecoder::Contact);
+}
+
 void loop() {
+  serviceWatchdog();
   if (ServiceWeb::policy.maintenance) {
     driveMachine(false, false);
     ServiceWeb::poll(tunedHz, rawRssiValid, rawRssiHalfDbm, totalMessages, totalTouches, totalLosses);
@@ -169,9 +275,11 @@ void loop() {
     return;
   }
   bool overflow;
+  uint32_t pollAt;
   portENTER_CRITICAL(&queueLock);
   overflow = overflowed; overflowed = false;
   if (overflow) tail = head;
+  pollAt = micros(); // dataEdge() stamps under this lock: every edge up to pollAt is queued.
   portEXIT_CRITICAL(&queueLock);
   if (overflow) { ++totalOverflows; decoder = ProbeDecoder(); Serial.println("EDGE QUEUE OVERFLOW"); }
   for (;;) {
@@ -181,16 +289,9 @@ void loop() {
     if (available) e = edges[(tail++) & (QUEUE_SIZE - 1)];
     portEXIT_CRITICAL(&queueLock);
     if (!available) break;
-    if (decoder.edge(e.active, e.at)) {
-      ServiceWeb::observeProbe();
-      ++totalMessages;
-      ++rateMessages; lastMessageAt=e.at;
-      if (decoder.state==ProbeDecoder::Contact) lastTouchMs=millis();
-      if (decoder.state == ProbeDecoder::Contact && lastConfirmed != ProbeDecoder::Contact) ++totalTouches;
-      lastConfirmed = decoder.state;
-      driveMachine(decoder.link(micros()),decoder.state==ProbeDecoder::Contact);
-    }
+    if (decoder.edge(e.active, e.at)) frameAccepted();
   }
+  if (decoder.poll(pollAt)) frameAccepted(); // A frame whose FREE slot has closed.
   const uint32_t now = micros();
   const bool link = decoder.link(now);
   if (previousLink && !link) ++totalLosses;
@@ -218,14 +319,14 @@ void loop() {
     return;
   }
   // Valid probe messages have priority even when RSSI is below our uncalibrated gate.
-  const int current = link ? int(decoder.state) : uint32_t(now-lastRssiGoodAt)>200000 ? 4 :
-                      search.phase == ProbeSearch::Locked ? (rf.present ? 3 : 5) :
-                      !search.checkedBand ? 5 : search.bandRf ? 3 : 0;
+  const int current = reportedState(link ? int(decoder.state) : uint32_t(now-lastRssiGoodAt)>200000 ? 4 :
+                                    search.phase == ProbeSearch::Locked ? (rf.present ? 3 : 5) :
+                                    !search.checkedBand ? 5 : search.bandRf ? 3 : 0);
   publishPanel(current);
   static int reported = -1;
   static uint32_t reportAt = 0;
   if (current != reported || uint32_t(now - reportAt) >= 1000000) {
-    const char *label = current == 2 ? "CONTACT" : current == 1 ? "FREE" :
+    const char *label = current == 2 ? "CONTACT" : current == 1 ? "FREE" : current == -4 ? "OUTPUT_GUARD_FAULT" :
                         current == 3 ? "RF_ONLY" : current == 5 ? "SEARCH" : current == 4 ? "RF_WAIT" : "NO_SIGNAL";
     Serial.printf("%s RX=%lu Hz RSSI=", label, static_cast<unsigned long>(tunedHz));
     if (rawRssiValid) Serial.printf("%s%d.%d dBm", rawRssiHalfDbm < 0 ? "-" : "",

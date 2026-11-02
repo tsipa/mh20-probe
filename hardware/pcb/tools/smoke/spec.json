@@ -1,0 +1,37 @@
+{
+ "name": "smoke",
+ "title": "MH20 carrier tooling smoke test",
+ "revision": "T1",
+ "output_dir": "../../../../build/pcb-smoke",
+ "netlist": {
+  "nets": {"/24V_IN": ["J1.1", "U1.1"], "/GND": ["J1.2", "U1.2"], "/5V_REG": ["U1.3", "JP1.1"]},
+  "netclasses": {"Power": ["/24V_IN", "/GND", "/5V_REG"]}
+ },
+ "rules": {
+  "silk": {"required": ["IN", "GND", "OUT", "5V BUCK DD4012SA", "7805-TYPE, IN <= 36 V"]},
+  "keep_away": []
+ },
+ "outline": {"rect": [0, 0, 50, 42], "radius": 1.0},
+ "holes": [
+  {"ref": "H1", "at": [4.5, 4.5]}, {"ref": "H2", "at": [45.5, 4.5]},
+  {"ref": "H3", "at": [45.5, 37.5]}, {"ref": "H4", "at": [4.5, 37.5]}
+ ],
+ "parts": [
+  {"ref": "J1", "fp": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-6-5.08_1x06_P5.08mm_Horizontal",
+   "value": "MKDS 1,5/6-5,08", "x": 12, "y": 36, "rot": 0, "ref_text": {"at": [42, 29]}},
+  {"ref": "U1", "fp": "Carrier:Buck_SIP3_7805", "value": "DD4012SA 5V", "x": 12, "y": 20, "rot": 0},
+  {"ref": "JP1", "fp": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical", "value": "REMOVE FOR USB",
+   "x": 26, "y": 18, "rot": 0, "ref_text": {"at": [26, 15.6]}}
+ ],
+ "routes": [
+  {"net": "/24V_IN", "layer": "F.Cu", "points": ["J1.1", "U1.1"]},
+  {"net": "/GND", "layer": "F.Cu", "points": ["J1.2", [17.08, 24], [14.54, 24], "U1.2"]},
+  {"net": "/5V_REG", "layer": "F.Cu", "points": ["U1.3", [21, 20], [23, 18], "JP1.1"]}
+ ],
+ "silk": [
+  {"text": "5V BUCK DD4012SA", "at": [25, 4.6]},
+  {"text": "7805-TYPE, IN <= 36 V", "at": [25, 6.8]},
+  {"text": "24V", "at": [12, 32.2]},
+  {"text": "0V", "at": [17.08, 32.2]}
+ ]
+}
